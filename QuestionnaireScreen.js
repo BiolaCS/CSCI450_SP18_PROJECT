@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, Picker} from 'react-native'
+import {StyleSheet, Text, View, ScrollView, Modal, Picker} from 'react-native'
 import RoundedButton from './App/Components/RoundedButton'
 import FullButton from './App/Components/FullButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
@@ -49,6 +49,7 @@ var Question_4 = [
 export default class QuestionnaireScreen extends React.Component {
   render() {
     return (
+      <ScrollView>
       <View style={styles.container}>
 <Text style= {styles.question}> Which of these habits do you struggle with the most? </Text>
 
@@ -89,11 +90,13 @@ export default class QuestionnaireScreen extends React.Component {
                animation={true}
                onPress={(value) => {this.setState({value:value})}}
               />
-
+         </View>
+<View style={styles.submit}>
         <RoundedButton onPress={this.toggleModal}>
           Submit Answers
         </RoundedButton>
-      </View>
+</View>
+      </ScrollView>
     );
   }
 }
@@ -103,6 +106,11 @@ export default class QuestionnaireScreen extends React.Component {
     alignItems: 'flex-start',
       justifyContent: 'flex-start',
       fontSize: 25,
+    },
+    submit: {
+      flex: 1,
+    alignItems: 'center',
+      justifyContent: 'center',
     },
     radio: {
       alignItems: 'flex-start',
