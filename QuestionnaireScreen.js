@@ -4,57 +4,57 @@ import RoundedButton from './App/Components/RoundedButton'
 import FullButton from './App/Components/FullButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
+import * as firebase from 'firebase';
 
-var Question_1 = [
-  {label: 'Consistent motivation', value: 0 },
-  {label: 'Finding peace', value: 1 },
-  {label: 'Being involved in community', value: 2 },
-  {label: 'Health habits', value: 3 },
-  {label: 'Balancing time with electronics and life', value: 4 },
-  {label: 'Money management', value: 5 }
-];
+//getting questions from file
+import {questions} from './App/Components/questions.js';
+import {options} from './App/Components/questions.js';
 
-var Question_2 = [
-  {label: 'Administration (organizing things)', value: 0 },
-  {label: 'Hospitality', value: 1 },
-  {label: 'Outreach', value: 2 },
-  {label: 'Evangelism', value: 3 },
-  {label: 'Teaching', value: 4 }
-];
+const firebaseConfig = {
+  apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
+  authDomain: "commune-265d9.firebaseapp.com",
+  databaseURL: "https://commune-265d9.firebaseio.com",
+  projectId: "commune-265d9",
+  storageBucket: "commune-265d9.appspot.com",
+  messagingSenderId: "697540841037"
+};
 
-var Question_3 = [
-  {label: 'Gentleness', value: 0 },
-  {label: 'Wisdom', value: 1 },
-  {label: 'Faithful Serving', value: 2 },
-  {label: 'Recognizing faults and encouraging change', value: 3 },
-  {label: 'Evangelism', value: 4 },
-  {label: 'Good life decisions', value: 5 }
-];
-
-var Question_4 = [
-  {label: 'Leader', value: 0 },
-  {label: 'Prayer Warrior', value: 1 },
-  {label: 'Normal Member', value: 2 },
-  {label: 'Relational Member', value: 3 }
-];
-
-// var RadioButtonProject = React.createClass({
-//   getInitialState: function() {
-//     return {
-//       value: 0,
-//     }
-//   },
-
+var i;
+i = 0;
 
 export default class QuestionnaireScreen extends React.Component {
+
+    //submit button will set hasTakeQuiz to true, then navigate back home
+    submit(userId) {
+      var userId = firebase.auth().currentUser.uid;
+      console.log("setting hasTakenQuiz to true");
+
+      firebase.database().ref('users/' + userId).set({
+        hasTakenQuiz: true
+      });
+    this.props.navigation.navigate('Home', {});
+    }
+
+
+
   render() {
+
+    var {navigate} = this.props.navigation;
     return (
       <ScrollView>
       <View style={styles.container}>
-<Text style= {styles.question}> Which of these habits do you struggle with the most? </Text>
 
-      <RadioForm style = {styles.radio}
-                radio_props={Question_1}
+
+        {i < questions.length ?
+        <Text style={styles.question}>Question {1 + i} </Text>:            //if true
+        <Text style = {styles.question}> Thank you for answering! </Text>  //if false
+        }
+
+        <Text style={styles.question}>{ questions[i] } </Text>
+
+
+        <RadioForm style = {styles.radio}
+                radio_props={options[i]}
                 initial={0}
                 buttonColor={'#84C9E0'}
                 animation={true}
@@ -103,9 +103,11 @@ export default class QuestionnaireScreen extends React.Component {
 
   const styles = StyleSheet.create({
     question: {
-    alignItems: 'flex-start',
+
+      alignItems: 'flex-start',
       justifyContent: 'flex-start',
       fontSize: 25,
+      padding: 10
     },
     submit: {
       flex: 1,
@@ -113,8 +115,15 @@ export default class QuestionnaireScreen extends React.Component {
       justifyContent: 'center',
     },
     radio: {
+
       alignItems: 'flex-start',
       justifyContent: 'flex-start',
-      margin: 10,
+      padding: 10
+    },
+    button:{
+
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginLeft: 10
     }
   });
