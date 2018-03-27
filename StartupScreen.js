@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Modal, TextInput, Alert } from 'react-native';
+import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated } from 'react-native';
 import * as firebase from 'firebase';
 
 import RoundedButton from './App/Components/RoundedButton';
@@ -30,6 +30,7 @@ export default class StartupScreen extends React.Component {
       userEmail: '',
       userPassword: '',
       userHasTakenQuiz: false,
+      offsetY: new Animated.Value(0),
     };
   }
 
@@ -123,40 +124,68 @@ export default class StartupScreen extends React.Component {
     })
   }
 
+  changeTextBoxPositions() {
+    console.log("moving text box");
+    Animated.timing(this.state.offsetY,
+      {toValue: -150}
+    ).start();
+  }
+
+  changeTextBoxPositionsOriginal() {
+    console.log("moving text box to original spot");
+    Animated.timing(this.state.offsetY,
+      {toValue: 0}
+    ).start();
+  }
+
   render() {
     var {navigate} = this.props.navigation;
 
     return (
       <View style={styles.container}>
 
-        <Image source={require('./App/Images/Logo.png')} style={styles.logoNoKeyboard}/>
+        
 
-        <TextInput
-          style={styles.textInput}
-          placeholder={'Username'}
-          placeholderTextColor= '#000000'
-          onChangeText={(text) => {this.setState({userEmail: text}); }}
-        />
+        <Animated.View style={{transform : [{translateY: this.state.offsetY}], 
+                              flex: 1,
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              height: 100}}>
 
-        <TextInput
-          style={styles.textInput}
-          placeholder={'Password'}
-          placeholderTextColor= '#000000'
-          secureTextEntry = {true}
-          onChangeText={(text) => {this.setState({userPassword: text}); }}
-        />
+          <Image source={require('./App/Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
-      <RoundedButton onPress={() => {this.loginUser(navigate);}}>
-            Login
-      </RoundedButton>
+          <TextInput
+            style={styles.textInput}
+            placeholder={'Email'}
+            placeholderTextColor= '#000000'
+            onFocus={this.changeTextBoxPositions.bind(this)}
+            onChangeText={(text) => {this.setState({userEmail: text}); }}
+            onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+          />
 
-      <RoundedButton onPress={() => {this.signupUser();}}>
-            Sign-Up
-      </RoundedButton>
+          <TextInput
+            style={styles.textInput}
+            placeholder={'Password'}
+            placeholderTextColor= '#000000'
+            secureTextEntry = {true}
+            onFocus={this.changeTextBoxPositions.bind(this)}
+            onChangeText={(text) => {this.setState({userPassword: text}); }}
+            onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+          />
 
-      <RoundedButton onPress={() => {this.logoutUser();}}>
-            Logout
-      </RoundedButton>
+        </Animated.View>
+
+        <RoundedButton onPress={() => {this.loginUser(navigate);}}>
+              Login
+        </RoundedButton>
+
+        <RoundedButton onPress={() => {this.signupUser();}}>
+              Sign-Up
+        </RoundedButton>
+
+        <RoundedButton onPress={() => {this.logoutUser();}}>
+              Logout
+        </RoundedButton>
 
       </View>
     );
@@ -167,7 +196,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#84C9E0',
-  alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
   },
   textInput: {
@@ -181,8 +210,13 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   logoNoKeyboard: {
-    width:150,
+    justifyContent: 'center',
+    width: 150,
     height: 193,
-    marginBottom: 60,
+    marginBottom: 30,
+    margin: 10,
+    marginRight: 25,
+    marginLeft: 25,
+    borderRadius: 5,
   }
 });
