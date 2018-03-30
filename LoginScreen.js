@@ -10,6 +10,9 @@ export default class LoginScreen extends React.Component {
         <RoundedButton onPress={this.toggleModal}>
           Youre logged in!
         </RoundedButton>
+        <RoundedButton onPress={() => {this.navigateQuiz();}}>
+              Take Questionnaire!
+        </RoundedButton>
       </View>
     );
   }

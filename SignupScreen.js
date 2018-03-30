@@ -10,6 +10,9 @@ export default class SignupScreen extends React.Component {
         <RoundedButton onPress={this.toggleModal}>
           Youre signed up!
         </RoundedButton>
+        <RoundedButton onPress={() => {this.navigateQuiz();}}>
+          Take Questionnaire!
+        </RoundedButton>
       </View>
     );
   }
