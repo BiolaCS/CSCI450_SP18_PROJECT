@@ -5,14 +5,15 @@ import StartupScreen from './StartupScreen'
 import LoginScreen from './LoginScreen'
 import SignupScreen from './SignupScreen'
 import QuestionnaireScreen from './QuestionnaireScreen'
-
+import PostJoinScreen from './PostJoinScreen'
 
 
 const Navigation = StackNavigator({
-  Home: { screen: StartupScreen },
+  Home: { screen: StartupScreen }, 
   Login: { screen: LoginScreen },
   Signup: { screen: SignupScreen },
   Questionnaire: { screen: QuestionnaireScreen },
+  PostJoin: { screen: PostJoinScreen },
 });
 
 export default Navigation;

@@ -1,7 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal, Picker, Alert} from 'react-native'
 import RoundedButton from './App/Components/RoundedButton'
-import FullButton from './App/Components/FullButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 import * as firebase from 'firebase';
@@ -77,8 +76,8 @@ export default class QuestionnaireScreen extends React.Component {
       hasTakenQuiz: true
     });
 
-    // Go back to login page
-    this.props.navigation.goBack(null);
+    // Navigate to small group post join screen
+    this.props.navigation.navigate('PostJoin', {});
   }
 
   nextQuestion(){
@@ -88,7 +87,7 @@ export default class QuestionnaireScreen extends React.Component {
       Alert.alert('Uh-Oh!','Please choose an option before continuing!');
       return;
     }
-    
+
     this.setState({
       choice: options[this.state.currentQuestion],
       currentQuestion: this.state.currentQuestion++
@@ -108,18 +107,18 @@ export default class QuestionnaireScreen extends React.Component {
 
 
   render() {
-    
+
     var {navigate} = this.props.navigation;
     return (
       <View style={styles.container}>
-      
-        {this.state.currentQuestion < questions.length ? 
+
+        {this.state.currentQuestion < questions.length ?
         <Text style={styles.question}>Question {1 + this.state.currentQuestion} </Text>:            //if true
         <Text style = {styles.question}> Thank you for answering! </Text>  //if false
         }
 
         <Text style={styles.question}>{ questions[this.state.currentQuestion] } </Text>
-        
+
 
         <RadioForm style = {styles.radio}
                 radio_props={options[this.state.currentQuestion]}
@@ -128,10 +127,10 @@ export default class QuestionnaireScreen extends React.Component {
                 animation={true}
                 onPress={(value, index) => {this.setState({value1:value, index1:index})}}
         />
-        
-        {/*instead of just clicking on the radio button and continuing, instead a button will be used to 
+
+        {/*instead of just clicking on the radio button and continuing, instead a button will be used to
         move to the next question*/}
-        {this.state.currentQuestion < questions.length ? 
+        {this.state.currentQuestion < questions.length ?
           <RoundedButton style={styles.button}
                          onPress={()=>{this.nextQuestion()}}>
             Next
@@ -141,7 +140,7 @@ export default class QuestionnaireScreen extends React.Component {
             Submit
           </RoundedButton >
         }
-        
+
       </View>
     );
   }
@@ -149,22 +148,22 @@ export default class QuestionnaireScreen extends React.Component {
 
 const styles = StyleSheet.create({
   question: {
-    
+
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     fontSize: 25,
     padding: 10
   },
   radio: {
-    
+
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     padding: 10
   },
   button:{
-    
+
     alignItems: 'center',
     justifyContent: 'center',
-    
+
   }
 });

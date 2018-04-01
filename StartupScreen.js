@@ -3,7 +3,6 @@ import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated } from 
 import * as firebase from 'firebase';
 
 import RoundedButton from './App/Components/RoundedButton';
-import FullButton from './App/Components/FullButton';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
@@ -55,7 +54,7 @@ export default class StartupScreen extends React.Component {
 
   checkQuizStatus(userId) {
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-      
+
       if (snapshot.val() !== null) { // User has info already
         if (snapshot.val().hasTakenQuiz === true) { // They have taken the quiz
           // Props are inaccessible at this point for some reason
@@ -69,8 +68,8 @@ export default class StartupScreen extends React.Component {
         // Set quiz flag
         firebase.database().ref('users/' + userId).set({
           hasTakenQuiz: false
-        });       
-        this.navigateQuiz();  
+        });
+        this.navigateQuiz();
       }
     })
     .catch(function(error) {
@@ -144,9 +143,9 @@ export default class StartupScreen extends React.Component {
     return (
       <View style={styles.container}>
 
-        
 
-        <Animated.View style={{transform : [{translateY: this.state.offsetY}], 
+
+        <Animated.View style={{transform : [{translateY: this.state.offsetY}],
                               flex: 1,
                               alignItems: 'center',
                               justifyContent: 'center',
