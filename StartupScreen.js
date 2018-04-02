@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated } from 'react-native';
+import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated, BackHandler, Keyboard} from 'react-native';
 import * as firebase from 'firebase';
+import { NavigationActions } from 'react-navigation';
 
 import RoundedButton from './App/Components/RoundedButton';
-import FullButton from './App/Components/FullButton';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
@@ -23,6 +23,9 @@ export default class StartupScreen extends React.Component {
     if (!firebase.apps.length) { // Prevent more than one instance
       firebase.initializeApp(firebaseConfig);
     }
+
+    
+
     // Passed into the firebase auth system
     // For now all we need to worry about is if the user is signed in
     this.state = {
@@ -47,19 +50,21 @@ export default class StartupScreen extends React.Component {
         this.checkQuizStatus(userId);
       }
     });
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
   }
 
   componentWillUnmount() {
     this.authSubscription();
+    this.keyboardDidHideListener.remove();
   }
 
   checkQuizStatus(userId) {
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-      
+
       if (snapshot.val() !== null) { // User has info already
         if (snapshot.val().hasTakenQuiz === true) { // They have taken the quiz
           // Props are inaccessible at this point for some reason
-          this.navigateLogin();
+          this.navigateHome();
         }
         else { // They have not taken the quiz
           this.navigateQuiz();
@@ -69,8 +74,8 @@ export default class StartupScreen extends React.Component {
         // Set quiz flag
         firebase.database().ref('users/' + userId).set({
           hasTakenQuiz: false
-        });       
-        this.navigateQuiz();  
+        });
+        this.navigateQuiz();
       }
     })
     .catch(function(error) {
@@ -78,8 +83,14 @@ export default class StartupScreen extends React.Component {
     });
   }
 
-  navigateLogin() {
-    this.props.navigation.navigate('Login', {});
+  navigateHome() {
+    // Object to reset the navigation stack
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+    });
+    
+    this.props.navigation.dispatch(resetAction);
   }
 
   navigateQuiz() {
@@ -142,50 +153,50 @@ export default class StartupScreen extends React.Component {
     var {navigate} = this.props.navigation;
 
     return (
-      <View style={styles.container}>
+        <View style={styles.container}>
 
-        
 
-        <Animated.View style={{transform : [{translateY: this.state.offsetY}], 
-                              flex: 1,
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              height: 100}}>
 
-          <Image source={require('./App/Images/Logo.png')} style={styles.logoNoKeyboard}/>
+            <Animated.View style={{transform : [{translateY: this.state.offsetY}],
+                                  flex: 1,
+                                  alignItems: 'center',
+                                  justifyContent: 'center',
+                                  height: 100}}>
 
-          <TextInput
-            style={styles.textInput}
-            placeholder={'Email'}
-            placeholderTextColor= '#000000'
-            onFocus={this.changeTextBoxPositions.bind(this)}
-            onChangeText={(text) => {this.setState({userEmail: text}); }}
-            onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-          />
+                <Image source={require('./App/Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
-          <TextInput
-            style={styles.textInput}
-            placeholder={'Password'}
-            placeholderTextColor= '#000000'
-            secureTextEntry = {true}
-            onFocus={this.changeTextBoxPositions.bind(this)}
-            onChangeText={(text) => {this.setState({userPassword: text}); }}
-            onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-          />
+                <TextInput
+                    style={styles.textInput}
+                    placeholder={'Email'}
+                    placeholderTextColor= '#000000'
+                    onFocus={this.changeTextBoxPositions.bind(this)}
+                    onChangeText={(text) => {this.setState({userEmail: text}); }}
+                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+                />
 
-        </Animated.View>
+                <TextInput
+                    style={styles.textInput}
+                    placeholder={'Password'}
+                    placeholderTextColor= '#000000'
+                    secureTextEntry = {true}
+                    onFocus={this.changeTextBoxPositions.bind(this)}
+                    onChangeText={(text) => {this.setState({userPassword: text}); }}
+                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+                />
 
-        <RoundedButton onPress={() => {this.loginUser(navigate);}}>
-              Login
-        </RoundedButton>
+            </Animated.View>
 
-        <RoundedButton onPress={() => {this.signupUser();}}>
-              Sign-Up
-        </RoundedButton>
+            <RoundedButton onPress={() => {this.loginUser(navigate);}}>
+                  Login
+            </RoundedButton>
 
-        <RoundedButton onPress={() => {this.logoutUser();}}>
-              Logout
-        </RoundedButton>
+            <RoundedButton onPress={() => {this.signupUser();}}>
+                  Sign-Up
+            </RoundedButton>
+
+            <RoundedButton onPress={() => {this.logoutUser();}}>
+                  Logout
+            </RoundedButton>
 
       </View>
     );
