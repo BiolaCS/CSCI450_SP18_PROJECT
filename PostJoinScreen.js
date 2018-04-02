@@ -3,15 +3,18 @@ import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
 import { Fonts, Colors, Metrics } from './App/Themes/'
 import RoundedButton from './App/Components/RoundedButton'
 import SmallGroupButton from './App/Components/SmallGroupButton'
+import Tabbar from 'react-native-tabbar-bottom'
+
 
 
 export default class PostJoinScreen extends React.Component {
   render() {
     return (
-      <View>
-        <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
+      <View style= {{flex: 1}}>
 
-          <ScrollView styles = {{alignItems: 'center',}}>
+      <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
+
+          <ScrollView>
 
                 <SmallGroupButton onPress={this.toggleModal}>
                   <Text style = {styles.smallGroupTitle}>Phishers of Men</Text>
@@ -54,6 +57,30 @@ export default class PostJoinScreen extends React.Component {
                 </SmallGroupButton>
 
             </ScrollView>
+
+            <Tabbar
+            stateFunc={(tab) => {
+            this.props.navigation.navigate(tab.page, {});
+            }}
+            tabs={[
+            {
+              page: "Home",
+              icon: "md-home",
+            },
+            {
+              page: "Serve",
+              icon: "md-heart",
+            },
+            {
+              page: "Encouragement",
+              icon: "ios-cafe",
+            },
+            {
+              page: "PostJoin",
+              icon: "md-people",
+            },
+            ]}
+            />
         </View>
     );
   }

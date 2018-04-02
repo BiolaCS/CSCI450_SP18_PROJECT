@@ -77,7 +77,7 @@ export default class QuestionnaireScreen extends React.Component {
     });
 
     // Navigate to small group post join screen
-    this.props.navigation.navigate('PostJoin', {});
+    this.props.navigation.navigate('Home', {});
   }
 
   nextQuestion(){
