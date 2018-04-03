@@ -1,14 +1,14 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal, Picker, Alert} from 'react-native'
-import RoundedButton from './App/Components/RoundedButton'
+import RoundedButton from '../../Components/RoundedButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { NavigationActions } from 'react-navigation';
 
 import * as firebase from 'firebase';
 
 //getting questions from file
-import {questions} from './App/Utility/questions.js';
-import {options} from './App/Utility/questions.js';
+import {questions} from '../../Utility/questions.js';
+import {options} from '../../Utility/questions.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBWWCdi84BofstOgOLE7xKsRvDeQxcyLqY",

@@ -1,21 +1,26 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal } from 'react-native'
 import { StackNavigator } from 'react-navigation';
-import StartupScreen from './StartupScreen'
-import ServeScreen from './ServeScreen'
-import EncouragementScreen from './EncouragementScreen'
-import QuestionnaireScreen from './QuestionnaireScreen'
-import PostJoinScreen from './PostJoinScreen'
-import HomeScreen from './HomeScreen'
+
+// Pre-Login Screens
+import StartupScreen from './Screens/Pre-Login/StartupScreen'
+import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
+
+// Post-Login Screens
+import HomeScreen from './Screens/Post-Login/HomeScreen'
+import ServeScreen from './Screens/Post-Login/ServeScreen'
+import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
+import PostJoinScreen from './Screens/Post-Login/PostJoinScreen'
+
 
 
 const Navigation = StackNavigator({
-  Startup: { screen: StartupScreen},
-  Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null} },
-  Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null} },
-  Encouragement: { screen: EncouragementScreen, navigationOptions:  {headerLeft: null} },
+  Startup: { screen: StartupScreen },
   Questionnaire: { screen: QuestionnaireScreen },
-  PostJoin: { screen: PostJoinScreen, navigationOptions:  {headerLeft: null} },
+  Home: { screen: HomeScreen },
+  Serve: { screen: ServeScreen },
+  Encouragement: { screen: EncouragementScreen },
+  PostJoin: { screen: PostJoinScreen },
 });
 
 export default Navigation;

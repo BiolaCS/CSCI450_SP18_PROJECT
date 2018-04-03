@@ -1,18 +1,11 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal } from 'react-native'
-import RoundedButton from './App/Components/RoundedButton'
-import FullButton from './App/Components/FullButton'
+import RoundedButton from '../../Components/RoundedButton'
+import FullButton from '../../Components/FullButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 
 export default class ServeScreen extends React.Component {
-
-  constructor() {
-    super()
-    this.state = {
-      page: "Serve",
-    }
-  }
 
   render() {
     return (
@@ -23,7 +16,6 @@ export default class ServeScreen extends React.Component {
         </RoundedButton>
 
         <Tabbar
-        activePage={this.state.page}
       stateFunc={(tab) => {
         this.props.navigation.navigate(tab.page, {});
       }}

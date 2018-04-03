@@ -1,25 +1,16 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
-import { Fonts, Colors, Metrics } from './App/Themes/'
-import RoundedButton from './App/Components/RoundedButton'
-import SmallGroupButton from './App/Components/SmallGroupButton'
+import { Fonts, Colors, Metrics } from '../../Themes/'
+import RoundedButton from '../../Components/RoundedButton'
+import SmallGroupButton from '../../Components/SmallGroupButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 
 
 export default class PostJoinScreen extends React.Component {
-
-  constructor() {
-    super()
-    this.state = {
-      page: "PostJoin",
-    }
-  }
-
-
   render() {
     return (
-      <View style= {{flex: 1, alignItems: 'center'}}>
+      <View style= {{flex: 1}}>
 
       <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
 
@@ -68,7 +59,6 @@ export default class PostJoinScreen extends React.Component {
             </ScrollView>
 
             <Tabbar
-            activePage={this.state.page}
             stateFunc={(tab) => {
             this.props.navigation.navigate(tab.page, {});
             }}
@@ -113,7 +103,6 @@ const styles = StyleSheet.create({
     color: Colors.snow,
     textAlign: 'center',
     fontFamily: Fonts.type.bold,
-    alignSelf: 'stretch',
     height: 60,
     padding: 15,
   }
