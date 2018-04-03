@@ -8,9 +8,18 @@ import Tabbar from 'react-native-tabbar-bottom'
 
 
 export default class PostJoinScreen extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      page: "PostJoin",
+    }
+  }
+
+
   render() {
     return (
-      <View style= {{flex: 1}}>
+      <View style= {{flex: 1, alignItems: 'center'}}>
 
       <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
 
@@ -59,6 +68,7 @@ export default class PostJoinScreen extends React.Component {
             </ScrollView>
 
             <Tabbar
+            activePage={this.state.page}
             stateFunc={(tab) => {
             this.props.navigation.navigate(tab.page, {});
             }}
@@ -103,6 +113,7 @@ const styles = StyleSheet.create({
     color: Colors.snow,
     textAlign: 'center',
     fontFamily: Fonts.type.bold,
+    alignSelf: 'stretch',
     height: 60,
     padding: 15,
   }

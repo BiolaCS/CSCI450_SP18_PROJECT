@@ -10,12 +10,12 @@ import HomeScreen from './HomeScreen'
 
 
 const Navigation = StackNavigator({
-  Startup: { screen: StartupScreen },
-  Home: { screen: HomeScreen },
-  Serve: { screen: ServeScreen },
-  Encouragement: { screen: EncouragementScreen },
+  Startup: { screen: StartupScreen},
+  Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null} },
+  Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null} },
+  Encouragement: { screen: EncouragementScreen, navigationOptions:  {headerLeft: null} },
   Questionnaire: { screen: QuestionnaireScreen },
-  PostJoin: { screen: PostJoinScreen },
+  PostJoin: { screen: PostJoinScreen, navigationOptions:  {headerLeft: null} },
 });
 
 export default Navigation;

@@ -4,6 +4,14 @@ import RoundedButton from './App/Components/RoundedButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 export default class EncouragementScreen extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      page: "Encouragement",
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -12,6 +20,7 @@ export default class EncouragementScreen extends React.Component {
         </RoundedButton>
 
         <Tabbar
+        activePage={this.state.page}
       stateFunc={(tab) => {
         this.props.navigation.navigate(tab.page, {});
       }}
