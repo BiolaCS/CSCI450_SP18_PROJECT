@@ -1,23 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import {StyleSheet, Text, View, Modal } from 'react-native'
+import { StackNavigator } from 'react-navigation';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
+// Pre-Login Screens
+import StartupScreen from './Screens/Pre-Login/StartupScreen'
+import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+// Post-Login Screens
+import HomeScreen from './Screens/Post-Login/HomeScreen'
+import ServeScreen from './Screens/Post-Login/ServeScreen'
+import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
+import PostJoinScreen from './Screens/Post-Login/PostJoinScreen'
+
+
+
+const Navigation = StackNavigator({
+  Startup: { screen: StartupScreen },
+  Questionnaire: { screen: QuestionnaireScreen },
+  Home: { screen: HomeScreen },
+  Serve: { screen: ServeScreen },
+  Encouragement: { screen: EncouragementScreen },
+  PostJoin: { screen: PostJoinScreen },
 });
+
+export default Navigation;
