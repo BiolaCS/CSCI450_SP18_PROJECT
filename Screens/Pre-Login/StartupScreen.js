@@ -24,7 +24,7 @@ export default class StartupScreen extends React.Component {
       firebase.initializeApp(firebaseConfig);
     }
 
-    
+
 
     // Passed into the firebase auth system
     // For now all we need to worry about is if the user is signed in
@@ -89,7 +89,7 @@ export default class StartupScreen extends React.Component {
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'Home' })],
     });
-    
+
     this.props.navigation.dispatch(resetAction);
   }
 
@@ -206,7 +206,7 @@ export default class StartupScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#84C9E0',
+    backgroundColor: '#d6edf5',
     alignItems: 'center',
     justifyContent: 'center',
   },
