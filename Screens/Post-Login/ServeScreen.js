@@ -1,19 +1,93 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal } from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
+import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
-import FullButton from '../../Components/FullButton'
+import SmallGroupButton from '../../Components/SmallGroupButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 
 export default class ServeScreen extends React.Component {
-
   render() {
     return (
-      <View style={styles.container}>
+      <View style= {{flex: 1}}>
 
-        <RoundedButton onPress={this.toggleModal}>
-          Welcome to the serve screen!
-        </RoundedButton>
+      <Text style = {styles.pageTitle}>Suggested Serving Groups: </Text>
+
+          <ScrollView>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Worship Team</Text>
+                  {"\n"}
+                  Members: 20
+                  {"\n"}
+                  Description: Use your muscial talents for the Lord.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Media Team</Text>
+                  {"\n"}
+                  Members: 10
+                  {"\n"}
+                  Description: Use your knowledge of technology, audio, and video to serve.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Youth Ministry</Text>
+                  {"\n"}
+                  Members: 15
+                  {"\n"}
+                  Description: Lead, teach, orinteract with junior and senior high schoolers.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Young Adults Ministry</Text>
+                  {"\n"}
+                  Members: 6
+                  {"\n"}
+                  Description: Lead, teach, or interact with 18-30 year old adults
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Adults Ministries</Text>
+                  {"\n"}
+                  Members: 12
+                  {"\n"}
+                  Description: Lead, teach, or interact with adults
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Preschool & Childrens Ministries</Text>
+                  {"\n"}
+                  Members: 15
+                  {"\n"}
+                  Description: Watch over, play with, and interact with children.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Infant Care</Text>
+                  {"\n"}
+                  Members: 10
+                  {"\n"}
+                  Description: Care for, watch over, and interact with infants
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Homeless Ministry</Text>
+                  {"\n"}
+                  Members: 8
+                  {"\n"}
+                  Description: Serve the local homeless population.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={this.toggleModal}>
+                  <Text style = {styles.serveGroupTitle}>Prayer Team</Text>
+                  {"\n"}
+                  Members: 10
+                  {"\n"}
+                  Description: A team of prayer warriors united in faith.
+                </SmallGroupButton>
+
+            </ScrollView>
 
         <Tabbar
       stateFunc={(tab) => {
@@ -29,15 +103,15 @@ export default class ServeScreen extends React.Component {
           icon: "md-heart",
         },
         {
+          page: "SmallGroup",
+          icon: "md-people",
+        },
+        {
           page: "Encouragement",
           icon: "ios-cafe",
         },
-        {
-          page: "PostJoin",
-          icon: "md-people",
-        },
       ]}
-    />
+      />
       </View>
     );
   }
@@ -50,4 +124,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  serveGroupTitle: {
+    fontSize: 30,
+    color: Colors.fire
+  },
+  pageTitle: {
+    fontSize: 20,
+    backgroundColor: Colors.fire,
+    color: Colors.snow,
+    fontFamily: Fonts.type.bold,
+    textAlign: 'center',
+    height: 60,
+    padding: 15,
+  }
 });

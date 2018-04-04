@@ -25,15 +25,15 @@ export default class EncouragementScreen extends React.Component {
           icon: "md-heart",
         },
         {
+          page: "SmallGroup",
+          icon: "md-people",
+        },
+        {
           page: "Encouragement",
           icon: "ios-cafe",
         },
-        {
-          page: "PostJoin",
-          icon: "md-people",
-        },
       ]}
-    />
+      />
       </View>
     );
   }

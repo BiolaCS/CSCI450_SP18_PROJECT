@@ -28,7 +28,7 @@ export default class HomeScreen extends React.Component {
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'Startup' })],
     });
-    
+
     this.props.navigation.dispatch(resetAction);
   }
 
@@ -59,16 +59,16 @@ export default class HomeScreen extends React.Component {
                     icon: "md-heart",
                   },
                   {
+                    page: "SmallGroup",
+                    icon: "md-people",
+                  },
+                  {
                     page: "Encouragement",
                     icon: "ios-cafe",
                   },
-                  {
-                    page: "PostJoin",
-                    icon: "md-people",
-                  },
                 ]}
-            />
-        </View>
+                />
+                </View>
     );
   }
 }

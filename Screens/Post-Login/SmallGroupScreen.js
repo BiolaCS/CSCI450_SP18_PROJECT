@@ -7,7 +7,7 @@ import Tabbar from 'react-native-tabbar-bottom'
 
 
 
-export default class PostJoinScreen extends React.Component {
+export default class SmallGroupScreen extends React.Component {
   render() {
     return (
       <View style= {{flex: 1}}>
@@ -59,10 +59,10 @@ export default class PostJoinScreen extends React.Component {
             </ScrollView>
 
             <Tabbar
-            stateFunc={(tab) => {
+          stateFunc={(tab) => {
             this.props.navigation.navigate(tab.page, {});
-            }}
-            tabs={[
+          }}
+          tabs={[
             {
               page: "Home",
               icon: "md-home",
@@ -72,19 +72,19 @@ export default class PostJoinScreen extends React.Component {
               icon: "md-heart",
             },
             {
+              page: "SmallGroup",
+              icon: "md-people",
+            },
+            {
               page: "Encouragement",
               icon: "ios-cafe",
             },
-            {
-              page: "PostJoin",
-              icon: "md-people",
-            },
-            ]}
-            />
-        </View>
-    );
-  }
-}
+          ]}
+          />
+          </View>
+        );
+      }
+    }
 
 const styles = StyleSheet.create({
   container: {
