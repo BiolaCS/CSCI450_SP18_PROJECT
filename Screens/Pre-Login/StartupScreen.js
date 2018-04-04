@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated, BackHa
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 
-import RoundedButton from './App/Components/RoundedButton';
+import RoundedButton from '../../Components/RoundedButton';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
@@ -163,7 +163,7 @@ export default class StartupScreen extends React.Component {
                                   justifyContent: 'center',
                                   height: 100}}>
 
-                <Image source={require('./App/Images/Logo.png')} style={styles.logoNoKeyboard}/>
+                <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
                 <TextInput
                     style={styles.textInput}

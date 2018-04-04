@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal } from 'react-native'
-import RoundedButton from './App/Components/RoundedButton'
+import RoundedButton from '../../Components/RoundedButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 export default class EncouragementScreen extends React.Component {

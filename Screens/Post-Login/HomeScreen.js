@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal } from 'react-native'
-import RoundedButton from './App/Components/RoundedButton'
-import FullButton from './App/Components/FullButton'
+import RoundedButton from '../../Components/RoundedButton'
+import FullButton from '../../Components/FullButton'
 import Tabbar from 'react-native-tabbar-bottom'
 import * as firebase from 'firebase';
 

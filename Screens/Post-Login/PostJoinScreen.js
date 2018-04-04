@@ -1,8 +1,8 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
-import { Fonts, Colors, Metrics } from './App/Themes/'
-import RoundedButton from './App/Components/RoundedButton'
-import SmallGroupButton from './App/Components/SmallGroupButton'
+import { Fonts, Colors, Metrics } from '../../Themes/'
+import RoundedButton from '../../Components/RoundedButton'
+import SmallGroupButton from '../../Components/SmallGroupButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 
