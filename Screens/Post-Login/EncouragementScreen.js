@@ -4,37 +4,46 @@ import RoundedButton from '../../Components/RoundedButton'
 import Tabbar from 'react-native-tabbar-bottom'
 
 export default class EncouragementScreen extends React.Component {
+
+  constructor() {
+    super()
+    this.state = {
+      page: "Encouragement",
+    }
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <RoundedButton onPress={this.toggleModal}>
-          Welcome to the encouragement screen!
-        </RoundedButton>
+        <View style={styles.container}>
+            <RoundedButton onPress={this.toggleModal}>
+              Welcome to the encouragement screen!
+            </RoundedButton>
 
-        <Tabbar
-      stateFunc={(tab) => {
-        this.props.navigation.navigate(tab.page, {});
-      }}
-      tabs={[
-        {
-          page: "Home",
-          icon: "md-home",
-        },
-        {
-          page: "Serve",
-          icon: "md-heart",
-        },
-        {
-          page: "SmallGroup",
-          icon: "md-people",
-        },
-        {
-          page: "Encouragement",
-          icon: "ios-cafe",
-        },
-      ]}
-      />
-      </View>
+            <Tabbar
+                activePage={this.state.page}
+                stateFunc={(tab) => {
+                  this.props.navigation.navigate(tab.page, {});
+                }}
+                tabs={[
+                  {
+                    page: "Home",
+                    icon: "md-home",
+                  },
+                  {
+                    page: "Serve",
+                    icon: "md-heart",
+                  },
+                  {
+                    page: "SmallGroup",
+                    icon: "md-people",
+                  },
+                  {
+                    page: "Encouragement",
+                    icon: "ios-cafe",
+                  },
+                ]}
+            />
+        </View>
     );
   }
 }

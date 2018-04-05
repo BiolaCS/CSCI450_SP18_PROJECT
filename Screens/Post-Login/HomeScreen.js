@@ -12,7 +12,7 @@ export default class HomeScreen extends React.Component {
   constructor() {
     super()
     this.state = {
-      page: "HomeScreen",
+      page: "Home",
     }
   }
 
@@ -67,8 +67,8 @@ export default class HomeScreen extends React.Component {
                     icon: "ios-cafe",
                   },
                 ]}
-                />
-                </View>
+            />
+        </View>
     );
   }
 }

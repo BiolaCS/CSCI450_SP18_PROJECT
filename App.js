@@ -17,10 +17,10 @@ import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
 const Navigation = StackNavigator({
   Startup: { screen: StartupScreen },
   Questionnaire: { screen: QuestionnaireScreen },
-  Home: { screen: HomeScreen },
-  Serve: { screen: ServeScreen },
-  SmallGroup: { screen: SmallGroupScreen },
-  Encouragement: { screen: EncouragementScreen }
+  Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null}},
+  Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null} },
+  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {headerLeft: null}},
+  Encouragement: { screen: EncouragementScreen, navigationOptions:  {headerLeft: null} }
 });
 
 export default Navigation;

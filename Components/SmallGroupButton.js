@@ -7,7 +7,7 @@ export default class SmallGroupButton extends Component {
   static propTypes = {
     onPress: PropTypes.func,
     text: PropTypes.string,
-    children: PropTypes.string,
+    children: PropTypes.array,
     navigator: PropTypes.object
   }
 

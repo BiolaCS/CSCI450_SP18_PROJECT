@@ -8,91 +8,95 @@ import Tabbar from 'react-native-tabbar-bottom'
 
 
 export default class SmallGroupScreen extends React.Component {
+
+  constructor() {
+    super();
+    console.log("SmallGroupHit");
+    this.state = {
+      page: "SmallGroup",
+    }
+  }
+
   render() {
     return (
-      <View style= {{flex: 1}}>
+        <View style= {{flex: 1, alignItems: 'center'}}>
 
-      <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
+            <Text style = {styles.pageTitle}>Suggested Small Groups: </Text>
 
-          <ScrollView>
+            <ScrollView>
 
                 <SmallGroupButton onPress={this.toggleModal}>
-                  <Text style = {styles.smallGroupTitle}>Phishers of Men</Text>
-                  {"\n"}
+                    <Text style = {styles.smallGroupTitle}>Phishers of Men</Text>
+                    {"\n"}
                   Members: 10
-                  {"\n"}
+                    {"\n"}
                   Description: We are a small group of hardworking computer science professionals.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={this.toggleModal}>
-                  <Text style = {styles.smallGroupTitle}>Men of Honor</Text>
-                  {"\n"}
+                    <Text style = {styles.smallGroupTitle}>Men of Honor</Text>
+                    {"\n"}
                   Members: 35
-                  {"\n"}
+                    {"\n"}
                   Description: We are a great floor with a knack for making good mock rocks.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={this.toggleModal}>
-                  <Text style = {styles.smallGroupTitle}>Fire Breathing Rubber Duckies</Text>
-                  {"\n"}
+                    <Text style = {styles.smallGroupTitle}>Fire Breathing Rubber Duckies</Text>
+                    {"\n"}
                   Members: 5
-                  {"\n"}
+                    {"\n"}
                   Description: Please read title.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={this.toggleModal}>
-                  <Text style = {styles.smallGroupTitle}>420 Youth Ministries</Text>
-                  {"\n"}
+                    <Text style = {styles.smallGroupTitle}>420 Youth Ministries</Text>
+                    {"\n"}
                   Members: 20
-                  {"\n"}
+                    {"\n"}
                   Description: Ablaze with the holy spirit.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={this.toggleModal}>
-                  <Text style = {styles.smallGroupTitle}>Do U Kno De Wey</Text>
-                  {"\n"}
+                    <Text style = {styles.smallGroupTitle}>Do U Kno De Wey</Text>
+                    {"\n"}
                   Members: 1
-                  {"\n"}
+                    {"\n"}
                   Description: We Kno De Wey. Cluck 4 de queen.
                 </SmallGroupButton>
 
             </ScrollView>
 
             <Tabbar
-          stateFunc={(tab) => {
-            this.props.navigation.navigate(tab.page, {});
-          }}
-          tabs={[
-            {
-              page: "Home",
-              icon: "md-home",
-            },
-            {
-              page: "Serve",
-              icon: "md-heart",
-            },
-            {
-              page: "SmallGroup",
-              icon: "md-people",
-            },
-            {
-              page: "Encouragement",
-              icon: "ios-cafe",
-            },
-          ]}
-          />
-          </View>
+                activePage={this.state.page}
+                stateFunc={(tab) => {
+                this.props.navigation.navigate(tab.page, {});
+              }}
+                tabs={[
+                  {
+                    page: "Home",
+                    icon: "md-home",
+                  },
+                  {
+                    page: "Serve",
+                    icon: "md-heart",
+                  },
+                  {
+                    page: "SmallGroup",
+                    icon: "md-people",
+                  },
+                  {
+                    page: "Encouragement",
+                    icon: "ios-cafe",
+                  },
+                ]}
+            />
+        </View>
         );
       }
     }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#84C9E0',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   smallGroupTitle: {
     fontSize: 30,
     color: Colors.fire
@@ -103,6 +107,7 @@ const styles = StyleSheet.create({
     color: Colors.snow,
     textAlign: 'center',
     fontFamily: Fonts.type.bold,
+    alignSelf: 'stretch',
     height: 60,
     padding: 15,
   }
