@@ -150,7 +150,6 @@ export default class StartupScreen extends React.Component {
   }
 
   render() {
-    var {navigate} = this.props.navigation;
 
     return (
         <View style={styles.container}>

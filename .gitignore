@@ -68,6 +68,7 @@ yarn-error.log*
 # Test generated files
 /ReactAndroid/src/androidTest/assets/AndroidTestBundle.js
 *.js.meta
+/__snapshots__
 
 /coverage
 /third-party
