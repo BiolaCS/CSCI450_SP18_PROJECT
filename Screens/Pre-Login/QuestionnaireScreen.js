@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, Picker, Alert} from 'react-native'
+import {StyleSheet, Text, ScrollView, View, Modal, Picker, Alert, Slider} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { NavigationActions } from 'react-navigation';
@@ -7,8 +7,7 @@ import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
 //getting questions from file
-import {questions} from '../../Utility/questions.js';
-import {options} from '../../Utility/questions.js';
+import {questions, prompts} from '../../Utility/questions.js';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBWWCdi84BofstOgOLE7xKsRvDeQxcyLqY",
@@ -30,6 +29,10 @@ export default class QuestionnaireScreen extends React.Component {
     super();
     // Wipe any answers from previous test-takers
     this.answers = [];
+    for(i = 0; i < 45; i++) {
+      this.answers[i] = 0;
+    }
+    this.offsets = [0,13,18,23,39];
     // Get any answers the user might have already answered
     var userId = firebase.auth().currentUser.uid;
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
@@ -39,10 +42,11 @@ export default class QuestionnaireScreen extends React.Component {
     });
 
     this.state = {
-      choice: options[0],
       value1: -1,
       index1: 0,
       currentQuestion: 0,
+      currentSection: 0,
+      sliderValue: 0,
     }
   }
 
@@ -53,7 +57,6 @@ export default class QuestionnaireScreen extends React.Component {
       if(snapshot.val().currentAnswer != null) { // User has answered things previously
         initialQuestionVal = snapshot.val().currentAnswer;
         this.setState({
-          choice: options[initialQuestionVal],
           currentQuestion: initialQuestionVal
         });
       }
@@ -70,6 +73,7 @@ export default class QuestionnaireScreen extends React.Component {
   submit() {
     var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
+    console.log(answers);
     // Puts answers into firebase and deletes currentQuestion
     firebase.database().ref('users/' + userId).set({
       answers
@@ -99,89 +103,55 @@ export default class QuestionnaireScreen extends React.Component {
     this.props.navigation.dispatch(resetAction);
   }
 
-  nextQuestion(){
-    //prevent empty option
-    if (this.state.value1 === -1)
-    {
-      Alert.alert('Uh-Oh!','Please choose an option before continuing!');
-      return;
-    }
-
-    this.setState({
-      choice: options[this.state.currentQuestion],
-      currentQuestion: this.state.currentQuestion++
-    });
-
-    //save answer for this question into answers array
-    this.answers.push(this.state.value1);
-
-    // Save the user's progress in firebase
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('users/' + userId).child('answers').set(this.answers);
-    firebase.database().ref('users/' + userId).child('currentAnswer').set(this.state.currentQuestion);
-
-    // Instead of navigating we rerender the page
-    this.setState(this.state);
+  updateAnswers(sectionIndex, index, value) {
+    this.answers[index + this.offsets[sectionIndex]] = parseInt(value * 100);
+    console.log(this.answers);
   }
 
+  eachQuestion(sectionIndex, currentValue, index) {
+    return(
+        <View key={index}>
+            <Text style={styles.question}>{currentValue}</Text>
+            <Slider onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)} value={0}/>
+        </View>
+    )
+  }
+
+  eachSection(currentValue, index) {
+    return(
+        <View key={index}>
+            <Text style={styles.prompt}>{prompts[this.state.currentQuestion]}</Text>
+            {currentValue.map(this.eachQuestion.bind(this, index))}
+        </View>
+    )
+  }
 
   render() {
-
-    var {navigate} = this.props.navigation;
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
 
-            {this.state.currentQuestion < questions.length ?
-                <Text style={styles.question}>Question {1 + this.state.currentQuestion} </Text>:            //if true
-                <Text style = {styles.question}> Thank you for answering! </Text>  //if false
-            }
+            {questions.map(this.eachSection.bind(this))}
+            <RoundedButton onPress={this.submit.bind(this)}>
+                  Submit Answers
+            </RoundedButton>  
 
-            <Text style={styles.question}>{ questions[this.state.currentQuestion] } </Text>
-
-            <RadioForm animation={true}
-                buttonColor={'#84C9E0'}
-                initial={-1}
-                onPress={(value, index) => {this.setState({value1:value, index1:index})}}
-                radio_props={options[this.state.currentQuestion]}
-                style = {styles.radio}
-            />
-
-            {/*instead of just clicking on the radio button and continuing, instead a button will be used to
-            move to the next question*/}
-            {this.state.currentQuestion < questions.length ?
-                <RoundedButton style={styles.button}
-                    onPress={()=>{this.nextQuestion()}}>
-                  Next
-                </RoundedButton>:
-                <RoundedButton style={{flex: 1 }}
-                              onPress={() => {this.submit()}}>
-                  Submit
-                </RoundedButton >
-            }
-
-        </View>
+        </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  question: {
-
+  prompt: {
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     fontSize: 25,
     padding: 10
   },
-  radio: {
+  question: {
 
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
+    fontSize: 18,
     padding: 10
   },
-  button:{
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  }
 });

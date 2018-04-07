@@ -94,7 +94,22 @@ export default class StartupScreen extends React.Component {
   }
 
   navigateQuiz() {
-    this.props.navigation.navigate('Questionnaire', {});
+    // Alert the user that they have to take the quiz
+    Alert.alert(
+      "First time user detected!",
+      "Please take the personality quiz",
+      [
+        {text: 'OK'},
+      ],
+      { cancelable: false }
+    )
+    // Object to reset the navigation stack
+    const resetAction = NavigationActions.reset({
+      index: 0,
+      actions: [NavigationActions.navigate({ routeName: 'Questionnaire' })],
+    });
+
+    this.props.navigation.dispatch(resetAction);
   }
 
   loginUser() {
@@ -165,27 +180,27 @@ export default class StartupScreen extends React.Component {
                 <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
                 <TextInput
-                    style={styles.textInput}
+                    onChangeText={(text) => {this.setState({userEmail: text}); }}
+                    onFocus={this.changeTextBoxPositions.bind(this)}
+                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
                     placeholder={'Email'}
                     placeholderTextColor= '#000000'
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onChangeText={(text) => {this.setState({userEmail: text}); }}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+                    style={styles.textInput}
                 />
 
                 <TextInput
-                    style={styles.textInput}
+                    onChangeText={(text) => {this.setState({userPassword: text}); }}
+                    onFocus={this.changeTextBoxPositions.bind(this)}
+                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
                     placeholder={'Password'}
                     placeholderTextColor= '#000000'
                     secureTextEntry = {true}
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onChangeText={(text) => {this.setState({userPassword: text}); }}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+                    style={styles.textInput}
                 />
 
             </Animated.View>
 
-            <RoundedButton onPress={() => {this.loginUser(navigate);}}>
+            <RoundedButton onPress={() => {this.loginUser();}}>
                   Login
             </RoundedButton>
 
