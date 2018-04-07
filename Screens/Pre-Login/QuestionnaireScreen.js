@@ -29,10 +29,10 @@ export default class QuestionnaireScreen extends React.Component {
     super();
     // Wipe any answers from previous test-takers
     this.answers = [];
-    for(i = 0; i < 45; i++) {
+    for(i = 0; i < 40; i++) {
       this.answers[i] = 0;
     }
-    this.offsets = [0,13,18,23,39];
+    this.offsets = [0,8,13,18,34];
     // Get any answers the user might have already answered
     var userId = firebase.auth().currentUser.uid;
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
@@ -73,7 +73,6 @@ export default class QuestionnaireScreen extends React.Component {
   submit() {
     var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
-    console.log(answers);
     // Puts answers into firebase and deletes currentQuestion
     firebase.database().ref('users/' + userId).set({
       answers
@@ -104,15 +103,21 @@ export default class QuestionnaireScreen extends React.Component {
   }
 
   updateAnswers(sectionIndex, index, value) {
+    // have to multiply by 100 for slider bar
+    // have to offset index for question section
     this.answers[index + this.offsets[sectionIndex]] = parseInt(value * 100);
     console.log(this.answers);
+    console.log("sectionindex: " + sectionIndex);
+    console.log("index: " + index);
   }
 
   eachQuestion(sectionIndex, currentValue, index) {
     return(
         <View key={index}>
+
             <Text style={styles.question}>{currentValue}</Text>
             <Slider onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)} value={0}/>
+
         </View>
     )
   }
@@ -120,8 +125,10 @@ export default class QuestionnaireScreen extends React.Component {
   eachSection(currentValue, index) {
     return(
         <View key={index}>
+
             <Text style={styles.prompt}>{prompts[this.state.currentQuestion]}</Text>
             {currentValue.map(this.eachQuestion.bind(this, index))}
+            
         </View>
     )
   }

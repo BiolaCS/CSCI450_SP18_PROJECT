@@ -5,11 +5,6 @@
 var questions = [
   // Section 1 - 13 questions
   [
-    "Which of these habits do you struggle with the most?",
-    "What serving opportunities do you feel have helped you grow?",
-    "Which of these do you think is your top quality?",
-    "Which role in a small group do you best fit?",
-    "What is two plus two?",
     "Administration: I am a goal and object-oriented individual who has strong organizational abilities. It is possible for me to coordinate resources in order to accomplish tasks as quickly as possible.",
     "Evangelism/Outreach: I am one with a strong desire to share the Gospel with unbelievers in every possible situation and through all possible means. ",
     "Giving: I have the ability to give material goods and financial resources with joy, so that the needs of the Lord’s work are met. I am also good at giving encouragements and share God’s live with those who need to be comforted/loved",
