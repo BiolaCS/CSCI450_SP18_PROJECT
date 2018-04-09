@@ -8,6 +8,7 @@ import * as firebase from 'firebase';
 
 //getting questions from file
 import {questions, prompts} from '../../Utility/questions.js';
+import { parse } from 'querystring';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBWWCdi84BofstOgOLE7xKsRvDeQxcyLqY",
@@ -30,7 +31,7 @@ export default class QuestionnaireScreen extends React.Component {
     // Wipe any answers from previous test-takers
     this.answers = [];
     for(i = 0; i < 40; i++) {
-      this.answers[i] = 0;
+      this.answers[i] = 1;
     }
     this.offsets = [0,8,13,18,34];
     // Get any answers the user might have already answered
@@ -105,10 +106,10 @@ export default class QuestionnaireScreen extends React.Component {
   updateAnswers(sectionIndex, index, value) {
     // have to multiply by 100 for slider bar
     // have to offset index for question section
+    if(parseInt(value * 100) == 0) {
+      value = 0.01;
+    }
     this.answers[index + this.offsets[sectionIndex]] = parseInt(value * 100);
-    console.log(this.answers);
-    console.log("sectionindex: " + sectionIndex);
-    console.log("index: " + index);
   }
 
   eachQuestion(sectionIndex, currentValue, index) {
@@ -128,7 +129,7 @@ export default class QuestionnaireScreen extends React.Component {
 
             <Text style={styles.prompt}>{prompts[this.state.currentQuestion]}</Text>
             {currentValue.map(this.eachQuestion.bind(this, index))}
-            
+
         </View>
     )
   }
