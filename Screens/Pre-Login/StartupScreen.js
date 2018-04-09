@@ -24,10 +24,6 @@ export default class StartupScreen extends React.Component {
       firebase.initializeApp(firebaseConfig);
     }
 
-
-
-    // Passed into the firebase auth system
-    // For now all we need to worry about is if the user is signed in
     this.state = {
       loading: true,
       userEmail: '',

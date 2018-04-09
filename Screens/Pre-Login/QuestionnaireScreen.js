@@ -11,12 +11,12 @@ import {questions, prompts} from '../../Utility/questions.js';
 import { parse } from 'querystring';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBWWCdi84BofstOgOLE7xKsRvDeQxcyLqY",
-    authDomain: "testing-query.firebaseapp.com",
-    databaseURL: "https://testing-query.firebaseio.com",
-    projectId: "testing-query",
-    storageBucket: "testing-query.appspot.com",
-    messagingSenderId: "729415852786"
+  apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
+  authDomain: "commune-265d9.firebaseapp.com",
+  databaseURL: "https://commune-265d9.firebaseio.com",
+  projectId: "commune-265d9",
+  storageBucket: "commune-265d9.appspot.com",
+  messagingSenderId: "697540841037"
 };
 
 // TODO: Get the silly radio form to have nothing selected after next question
@@ -26,21 +26,47 @@ const firebaseConfig = {
 
 export default class QuestionnaireScreen extends React.Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     // Wipe any answers from previous test-takers
     this.answers = [];
     for(i = 0; i < 40; i++) {
       this.answers[i] = 1;
     }
     this.offsets = [0,8,13,18,34];
-    // Get any answers the user might have already answered
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-      if(snapshot.val().answers != null) {
-        answers = snapshot.val().answers;
-      }
-    });
+
+    // This code is only hit when StartupScreen didn't handle firebase creation
+    if (!firebase.apps.length) { // Prevent more than one instance
+      firebase.initializeApp(firebaseConfig);
+      firebase.auth().signInWithEmailAndPassword("asdf2@gmail.com", "Password").catch(function(error) {
+        console.log(error);
+      });
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) { // User has been logged in
+          // Check if the user has anything data in firebase
+          this.userId = firebase.auth().currentUser.uid;
+
+          // Get any answers the user might have already answered
+          firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+            if(snapshot.val().answers != null) {
+              answers = snapshot.val().answers;
+            }
+          }); 
+        }
+      });
+    }
+    // End testing section
+    
+    else {
+      this.userId = firebase.auth().currentUser.uid;
+
+      // Get any answers the user might have already answered
+      firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+        if(snapshot.val().answers != null) {
+          answers = snapshot.val().answers;
+        }
+      }); 
+    }
 
     this.state = {
       value1: -1,
@@ -53,8 +79,7 @@ export default class QuestionnaireScreen extends React.Component {
 
   componentWillMount() {
     var initialQuestionVal;
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
       if(snapshot.val().currentAnswer != null) { // User has answered things previously
         initialQuestionVal = snapshot.val().currentAnswer;
         this.setState({
@@ -72,19 +97,19 @@ export default class QuestionnaireScreen extends React.Component {
 
   //submit button will update hasTakeQuiz to true, send data to firebase from array, then navigate back home
   submit() {
-    var userId = firebase.auth().currentUser.uid;
+    //var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
     // Puts answers into firebase and deletes currentQuestion
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + this.userId).set({
       answers
     });
-    firebase.database().ref('users/' + userId).update({
+    firebase.database().ref('users/' + this.userId).update({
       hasTakenQuiz: true
     });
 
     // Go back to login page
     this.props.navigation.goBack(null);
-    let formdata = userId + ':' + this.answers;
+    let formdata = this.userId + ':' + this.answers;
     fetch('http://198.199.114.44:3000', {
       method: 'post',
       body: formdata
