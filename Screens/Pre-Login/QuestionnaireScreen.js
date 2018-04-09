@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, Picker, Alert} from 'react-native'
+import {StyleSheet, Text, ScrollView, View, Modal, Picker, Alert, Slider} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { NavigationActions } from 'react-navigation';
@@ -7,16 +7,16 @@ import { NavigationActions } from 'react-navigation';
 import * as firebase from 'firebase';
 
 //getting questions from file
-import {questions} from '../../Utility/questions.js';
-import {options} from '../../Utility/questions.js';
+import {questions, prompts} from '../../Utility/questions.js';
+import { parse } from 'querystring';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBWWCdi84BofstOgOLE7xKsRvDeQxcyLqY",
-    authDomain: "testing-query.firebaseapp.com",
-    databaseURL: "https://testing-query.firebaseio.com",
-    projectId: "testing-query",
-    storageBucket: "testing-query.appspot.com",
-    messagingSenderId: "729415852786"
+  apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
+  authDomain: "commune-265d9.firebaseapp.com",
+  databaseURL: "https://commune-265d9.firebaseio.com",
+  projectId: "commune-265d9",
+  storageBucket: "commune-265d9.appspot.com",
+  messagingSenderId: "697540841037"
 };
 
 // TODO: Get the silly radio form to have nothing selected after next question
@@ -26,34 +26,63 @@ const firebaseConfig = {
 
 export default class QuestionnaireScreen extends React.Component {
 
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     // Wipe any answers from previous test-takers
     this.answers = [];
-    // Get any answers the user might have already answered
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
-      if(snapshot.val().answers != null) {
-        answers = snapshot.val().answers;
-      }
-    });
+    for(i = 0; i < 40; i++) {
+      this.answers[i] = 1;
+    }
+    this.offsets = [0,8,13,18,34];
+
+    // This code is only hit when StartupScreen didn't handle firebase creation
+    if (!firebase.apps.length) { // Prevent more than one instance
+      firebase.initializeApp(firebaseConfig);
+      firebase.auth().signInWithEmailAndPassword("asdf2@gmail.com", "Password").catch(function(error) {
+        console.log(error);
+      });
+      firebase.auth().onAuthStateChanged((user) => {
+        if (user) { // User has been logged in
+          // Check if the user has anything data in firebase
+          this.userId = firebase.auth().currentUser.uid;
+
+          // Get any answers the user might have already answered
+          firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+            if(snapshot.val().answers != null) {
+              answers = snapshot.val().answers;
+            }
+          }); 
+        }
+      });
+    }
+    // End testing section
+    
+    else {
+      this.userId = firebase.auth().currentUser.uid;
+
+      // Get any answers the user might have already answered
+      firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+        if(snapshot.val().answers != null) {
+          answers = snapshot.val().answers;
+        }
+      }); 
+    }
 
     this.state = {
-      choice: options[0],
       value1: -1,
       index1: 0,
       currentQuestion: 0,
+      currentSection: 0,
+      sliderValue: 0,
     }
   }
 
   componentWillMount() {
     var initialQuestionVal;
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
+    firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
       if(snapshot.val().currentAnswer != null) { // User has answered things previously
         initialQuestionVal = snapshot.val().currentAnswer;
         this.setState({
-          choice: options[initialQuestionVal],
           currentQuestion: initialQuestionVal
         });
       }
@@ -68,19 +97,19 @@ export default class QuestionnaireScreen extends React.Component {
 
   //submit button will update hasTakeQuiz to true, send data to firebase from array, then navigate back home
   submit() {
-    var userId = firebase.auth().currentUser.uid;
+    //var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
     // Puts answers into firebase and deletes currentQuestion
-    firebase.database().ref('users/' + userId).set({
+    firebase.database().ref('users/' + this.userId).set({
       answers
     });
-    firebase.database().ref('users/' + userId).update({
+    firebase.database().ref('users/' + this.userId).update({
       hasTakenQuiz: true
     });
 
     // Go back to login page
     this.props.navigation.goBack(null);
-    let formdata = userId + ':' + this.answers;
+    let formdata = this.userId + ':' + this.answers;
     fetch('http://198.199.114.44:3000', {
       method: 'post',
       body: formdata
@@ -95,93 +124,67 @@ export default class QuestionnaireScreen extends React.Component {
       index: 0,
       actions: [NavigationActions.navigate({ routeName: 'Home' })],
     });
-    
+
     this.props.navigation.dispatch(resetAction);
   }
 
-  nextQuestion(){
-    //prevent empty option
-    if (this.state.value1 === -1)
-    {
-      Alert.alert('Uh-Oh!','Please choose an option before continuing!');
-      return;
+  updateAnswers(sectionIndex, index, value) {
+    // have to multiply by 100 for slider bar
+    // have to offset index for question section
+    if(parseInt(value * 100) == 0) {
+      value = 0.01;
     }
-
-    this.setState({
-      choice: options[this.state.currentQuestion],
-      currentQuestion: this.state.currentQuestion++
-    });
-
-    //save answer for this question into answers array
-    this.answers.push(this.state.value1);
-
-    // Save the user's progress in firebase
-    var userId = firebase.auth().currentUser.uid;
-    firebase.database().ref('users/' + userId).child('answers').set(this.answers);
-    firebase.database().ref('users/' + userId).child('currentAnswer').set(this.state.currentQuestion);
-
-    // Instead of navigating we rerender the page
-    this.setState(this.state);
+    this.answers[index + this.offsets[sectionIndex]] = parseInt(value * 100);
   }
 
+  eachQuestion(sectionIndex, currentValue, index) {
+    return(
+        <View key={index}>
 
-  render() {
-
-    var {navigate} = this.props.navigation;
-    return (
-        <View style={styles.container}>
-
-            {this.state.currentQuestion < questions.length ?
-                <Text style={styles.question}>Question {1 + this.state.currentQuestion} </Text>:            //if true
-                <Text style = {styles.question}> Thank you for answering! </Text>  //if false
-            }
-
-            <Text style={styles.question}>{ questions[this.state.currentQuestion] } </Text>
-
-            <RadioForm animation={true}
-                buttonColor={'#84C9E0'}
-                initial={-1}
-                onPress={(value, index) => {this.setState({value1:value, index1:index})}}
-                radio_props={options[this.state.currentQuestion]}
-                style = {styles.radio}
-            />
-
-            {/*instead of just clicking on the radio button and continuing, instead a button will be used to
-            move to the next question*/}
-            {this.state.currentQuestion < questions.length ?
-                <RoundedButton style={styles.button}
-                    onPress={()=>{this.nextQuestion()}}>
-                  Next
-                </RoundedButton>:
-                <RoundedButton style={{flex: 1 }}
-                              onPress={() => {this.submit()}}>
-                  Submit
-                </RoundedButton >
-            }
+            <Text style={styles.question}>{currentValue}</Text>
+            <Slider onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)} value={0}/>
 
         </View>
+    )
+  }
+
+  eachSection(currentValue, index) {
+    return(
+        <View key={index}>
+
+            <Text style={styles.prompt}>{prompts[this.state.currentQuestion]}</Text>
+            {currentValue.map(this.eachQuestion.bind(this, index))}
+
+        </View>
+    )
+  }
+
+  render() {
+    return (
+        <ScrollView style={styles.container}>
+
+            {questions.map(this.eachSection.bind(this))}
+            <RoundedButton onPress={this.submit.bind(this)}>
+                  Submit Answers
+            </RoundedButton>  
+
+        </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  question: {
-
+  prompt: {
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     fontSize: 25,
     padding: 10
   },
-  radio: {
+  question: {
 
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
+    fontSize: 18,
     padding: 10
   },
-  button:{
-
-    alignItems: 'center',
-    justifyContent: 'center',
-
-  }
 });

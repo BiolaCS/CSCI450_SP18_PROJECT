@@ -10,17 +10,17 @@ import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
 import HomeScreen from './Screens/Post-Login/HomeScreen'
 import ServeScreen from './Screens/Post-Login/ServeScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
-import PostJoinScreen from './Screens/Post-Login/PostJoinScreen'
+import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
 
 
 
 const Navigation = StackNavigator({
   Startup: { screen: StartupScreen },
   Questionnaire: { screen: QuestionnaireScreen },
-  Home: { screen: HomeScreen },
-  Serve: { screen: ServeScreen },
-  Encouragement: { screen: EncouragementScreen },
-  PostJoin: { screen: PostJoinScreen },
+  Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null}},
+  Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null} },
+  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {headerLeft: null}},
+  Encouragement: { screen: EncouragementScreen, navigationOptions:  {headerLeft: null} }
 });
 
 export default Navigation;

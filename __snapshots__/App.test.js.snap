@@ -1,0 +1,4328 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EncouragementScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#84C9E0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      WELCOME TO THE ENCOURAGEMENT SCREEN!
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+        },
+        Object {
+          "backgroundColor": "#16394f",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`HomeScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#84C9E0",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      WELCOME TO THE HOME SCREEN!
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      PLACEHOLDER LOGOUT
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+        },
+        Object {
+          "backgroundColor": "#16394f",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Questionnaire renders correctly 1`] = `
+<RCTScrollView
+  style={undefined}
+>
+  <View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "fontSize": 25,
+            "justifyContent": "center",
+            "padding": 10,
+          }
+        }
+      >
+        On a scale from 1-100 what fields do you think you are gifted in?
+      </Text>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Administration: I am a goal and object-oriented individual who has strong organizational abilities. It is possible for me to coordinate resources in order to accomplish tasks as quickly as possible.
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Evangelism/Outreach: I am one with a strong desire to share the Gospel with unbelievers in every possible situation and through all possible means. 
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Giving: I have the ability to give material goods and financial resources with joy, so that the needs of the Lord’s work are met. I am also good at giving encouragements and share God’s live with those who need to be comforted/loved
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Hospitality (Ushers): I have the ability to make guests feel comfortable and “at home.” 
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Prophecy: I have the ability to proclaim God’s truth without compromise. I have strong convictions and am persuasive in defining right and wrong.
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Service: I have the ability to perform any task with joy that benefits others and meets practical needs. In addition, I am motivated by the desire to further the ministry by meeting genuine needs of another individual
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Shepherding: I have the unique ability to take responsibility for the long-term spiritual growth of a group of believers. I assume responsibility to guide others toward spiritual growth, feed them spiritual food, and protect the flock. 
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Teaching: I have the ability to research and explain God’s truth so there is understanding and application in the lives of others.
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+    </View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "fontSize": 25,
+            "justifyContent": "center",
+            "padding": 10,
+          }
+        }
+      >
+        On a scale from 1-100 what fields do you think you are gifted in?
+      </Text>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Working with children?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Playing music and leading worship?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Working behind the scenes and doing utility tasks?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Interacting with people and greeting them?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Teaching and leading small group?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+    </View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "fontSize": 25,
+            "justifyContent": "center",
+            "padding": 10,
+          }
+        }
+      >
+        On a scale from 1-100 what fields do you think you are gifted in?
+      </Text>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Working with children?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Playing music and leading worship?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Working behind the scenes and doing utility tasks?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Interacting with people and greeting them?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Teaching and leading small group?
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+    </View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "fontSize": 25,
+            "justifyContent": "center",
+            "padding": 10,
+          }
+        }
+      >
+        On a scale from 1-100 what fields do you think you are gifted in?
+      </Text>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How proficient are you at staying focused on a task that involves being on the internet? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How good are you at estimating how much time a task will take? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often are you reminded of your value, not by your skills or looks, but by the Gospel? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Do you think that you take a lot of breaks when working on a task? (1 being that you rarely take breaks)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often can you sleep with the peace that you’ve accomplished everything you have wanted in your day? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often can you get up with the hope that today will be productive and rewarding? (100 being very often)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often do you check if your priorities are correct and how often do you feel satisfied from it? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often do you read books on: Theology & spirituality & bible related, Textbooks for learning, Literary books? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How aware are you when you act or talk? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Do you categorize yourself as gentle and relatable? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Do you see yourself as more careful or carefree? (1 being careful)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          Are you organized in time or in general, life? (1 being not organized)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How much do you emphasize respect? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How persuasive are you? (1 being not persuasive at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How competitive are you? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How accepting and loving are you? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+    </View>
+    <View>
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "fontSize": 25,
+            "justifyContent": "center",
+            "padding": 10,
+          }
+        }
+      >
+        On a scale from 1-100 what fields do you think you are gifted in?
+      </Text>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How do you think people would rate you? (1 being not very well)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How much of a people-oriented person are you? (1 being not at all)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How much do you enjoy speaking in front of people? (1 being that you hate it)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How easily swayed are you by the the opinions of others? (1 being not easily swayed)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How much are your decisions influenced by careful planning or through spontaneity? (1 is careful planning)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+      <View>
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "fontSize": 18,
+              "justifyContent": "center",
+              "padding": 10,
+            }
+          }
+        >
+          How often do you have a physical copy of the Bible with you? (1 being never)
+        </Text>
+        <RCTSlider
+          disabled={false}
+          enabled={true}
+          maximumValue={1}
+          minimumValue={0}
+          onChange={undefined}
+          onResponderTerminationRequest={[Function]}
+          onSlidingComplete={[Function]}
+          onStartShouldSetResponder={[Function]}
+          onValueChange={undefined}
+          step={0}
+          style={
+            Array [
+              Object {
+                "height": 40,
+              },
+              undefined,
+            ]
+          }
+          value={0}
+        />
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#e73536",
+          "borderRadius": 5,
+          "height": 45,
+          "justifyContent": "center",
+          "marginHorizontal": 25,
+          "marginVertical": 10,
+          "opacity": 1,
+          "width": 250,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 14,
+            "fontWeight": "bold",
+            "marginVertical": 10,
+            "textAlign": "center",
+          }
+        }
+      >
+        SUBMIT ANSWERS
+      </Text>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`ServeScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "color": "white",
+        "fontSize": 20,
+        "height": 60,
+        "padding": 15,
+        "textAlign": "center",
+      }
+    }
+  >
+    Suggested Serving Groups: 
+  </Text>
+  <RCTScrollView>
+    <View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Worship Team
+          </Text>
+          
+
+          Members: 20
+          
+
+          Description: Use your muscial talents for the Lord.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Media Team
+          </Text>
+          
+
+          Members: 10
+          
+
+          Description: Use your knowledge of technology, audio, and video to serve.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Youth Ministry
+          </Text>
+          
+
+          Members: 15
+          
+
+          Description: Lead, teach, orinteract with junior and senior high schoolers.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Young Adults Ministry
+          </Text>
+          
+
+          Members: 6
+          
+
+          Description: Lead, teach, or interact with 18-30 year old adults
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Adults Ministries
+          </Text>
+          
+
+          Members: 12
+          
+
+          Description: Lead, teach, or interact with adults
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Preschool & Childrens Ministries
+          </Text>
+          
+
+          Members: 15
+          
+
+          Description: Watch over, play with, and interact with children.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Infant Care
+          </Text>
+          
+
+          Members: 10
+          
+
+          Description: Care for, watch over, and interact with infants
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Homeless Ministry
+          </Text>
+          
+
+          Members: 8
+          
+
+          Description: Serve the local homeless population.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Prayer Team
+          </Text>
+          
+
+          Members: 10
+          
+
+          Description: A team of prayer warriors united in faith.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+        },
+        Object {
+          "backgroundColor": "#16394f",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`SmallGroupScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+    }
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#e73536",
+        "color": "white",
+        "fontFamily": undefined,
+        "fontSize": 20,
+        "height": 60,
+        "padding": 15,
+        "textAlign": "center",
+      }
+    }
+  >
+    Suggested Small Groups: 
+  </Text>
+  <RCTScrollView>
+    <View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Phishers of Men
+          </Text>
+          
+
+          Members: 10
+          
+
+          Description: We are a small group of hardworking computer science professionals.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Men of Honor
+          </Text>
+          
+
+          Members: 35
+          
+
+          Description: We are a great floor with a knack for making good mock rocks.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Fire Breathing Rubber Duckies
+          </Text>
+          
+
+          Members: 5
+          
+
+          Description: Please read title.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            420 Youth Ministries
+          </Text>
+          
+
+          Members: 20
+          
+
+          Description: Ablaze with the holy spirit.
+        </Text>
+      </View>
+      <View
+        accessibilityComponentType={undefined}
+        accessibilityLabel={undefined}
+        accessibilityTraits={undefined}
+        accessible={true}
+        collapsable={undefined}
+        hasTVPreferredFocus={undefined}
+        hitSlop={undefined}
+        isTVSelectable={true}
+        nativeID={undefined}
+        onLayout={undefined}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "#CCCCCC",
+            "borderRadius": 5,
+            "height": 200,
+            "marginHorizontal": 10,
+            "marginVertical": 10,
+            "opacity": 1,
+            "width": 350,
+          }
+        }
+        testID={undefined}
+        tvParallaxProperties={undefined}
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          ellipsizeMode="tail"
+          style={
+            Object {
+              "color": "white",
+              "fontFamily": undefined,
+              "fontSize": 18,
+              "fontWeight": "bold",
+              "marginHorizontal": 10,
+              "marginVertical": 10,
+              "textAlign": "left",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+            style={
+              Object {
+                "color": "#e73536",
+                "fontSize": 30,
+              }
+            }
+          >
+            Do U Kno De Wey
+          </Text>
+          
+
+          Members: 1
+          
+
+          Description: We Kno De Wey. Cluck 4 de queen.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "bottom": 0,
+          "flexDirection": "row",
+          "height": 50,
+          "justifyContent": "center",
+          "left": 0,
+          "opacity": 1,
+          "position": "absolute",
+          "right": 0,
+        },
+        Object {
+          "backgroundColor": "#16394f",
+        },
+      ]
+    }
+  >
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      collapsable={undefined}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "stretch",
+          "alignSelf": "flex-start",
+          "backgroundColor": "transparent",
+          "borderBottomWidth": null,
+          "borderColor": "#007aff",
+          "borderLeftWidth": null,
+          "borderRadius": 5,
+          "borderRightWidth": null,
+          "borderTopWidth": null,
+          "elevation": 0,
+          "flex": 1,
+          "flexDirection": "column",
+          "height": 50,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingBottom": 6,
+          "paddingTop": 6,
+          "shadowColor": null,
+          "shadowOffset": null,
+          "shadowOpacity": null,
+          "shadowRadius": null,
+        }
+      }
+      testID={undefined}
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "column",
+            "height": 50,
+            "justifyContent": "center",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            ellipsizeMode="tail"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StartupScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#d6edf5",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    collapsable={undefined}
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "height": 100,
+        "justifyContent": "center",
+        "transform": Array [
+          Object {
+            "translateY": 0,
+          },
+        ],
+      }
+    }
+  >
+    <Image
+      source={1}
+      style={
+        Object {
+          "borderRadius": 5,
+          "height": 193,
+          "justifyContent": "center",
+          "margin": 10,
+          "marginBottom": 30,
+          "marginLeft": 25,
+          "marginRight": 25,
+          "width": 150,
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Email"
+      placeholderTextColor="#000000"
+      style={
+        Object {
+          "backgroundColor": "#f0f0f0",
+          "borderRadius": 5,
+          "color": "#000000",
+          "height": 40,
+          "margin": 10,
+          "marginLeft": 25,
+          "marginRight": 25,
+          "width": 250,
+        }
+      }
+    />
+    <TextInput
+      allowFontScaling={true}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Password"
+      placeholderTextColor="#000000"
+      secureTextEntry={true}
+      style={
+        Object {
+          "backgroundColor": "#f0f0f0",
+          "borderRadius": 5,
+          "color": "#000000",
+          "height": 40,
+          "margin": 10,
+          "marginLeft": 25,
+          "marginRight": 25,
+          "width": 250,
+        }
+      }
+    />
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      LOGIN
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      SIGN-UP
+    </Text>
+  </View>
+  <View
+    accessibilityComponentType={undefined}
+    accessibilityLabel={undefined}
+    accessibilityTraits={undefined}
+    accessible={true}
+    collapsable={undefined}
+    hasTVPreferredFocus={undefined}
+    hitSlop={undefined}
+    isTVSelectable={true}
+    nativeID={undefined}
+    onLayout={undefined}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#e73536",
+        "borderRadius": 5,
+        "height": 45,
+        "justifyContent": "center",
+        "marginHorizontal": 25,
+        "marginVertical": 10,
+        "opacity": 1,
+        "width": 250,
+      }
+    }
+    testID={undefined}
+    tvParallaxProperties={undefined}
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "color": "white",
+          "fontSize": 14,
+          "fontWeight": "bold",
+          "marginVertical": 10,
+          "textAlign": "center",
+        }
+      }
+    >
+      LOGOUT
+    </Text>
+  </View>
+</View>
+`;
