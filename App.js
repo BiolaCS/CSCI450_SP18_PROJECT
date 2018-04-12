@@ -14,15 +14,54 @@ import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
+// If all three of these fail to make
+// it centered I dont know what will
+const styles = {
+  centerHeader: {
+    textAlign:'center',
+    alignSelf:'center',
+    flex:1
+  },
+}
+
 const Navigation = StackNavigator({
-  Startup: { screen: StartupScreen },
-  Questionnaire: { screen: QuestionnaireScreen },
-  Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null}},
-  Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null}},
-  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {headerLeft: null}},
-  Encouragement: { screen: EncouragementScreen, navigationOptions:  {headerLeft: null}},
-  ExampleMessage: { screen: ExampleMessageScreen, navigationOptions:  {headerLeft: null}},
-  ExampleEvent: { screen: ExampleEventScreen, navigationOptions:  {headerLeft: null}}
+  Startup: { screen: StartupScreen, navigationOptions: {
+	headerTitle: 'Login',
+	headerTitleStyle: styles.centerHeader}
+  },
+  Questionnaire: { screen: QuestionnaireScreen, navigationOptions: {
+	headerTitle: 'Personality Quiz',
+	headerTitleStyle: styles.centerHeader}
+  },
+  Home: { screen: HomeScreen, navigationOptions: {
+	headerTitle: 'Organization Home', // Placeholder
+	headerTitleStyle: styles.centerHeader,
+	headerLeft: null}
+  },
+  Serve: { screen: ServeScreen, navigationOptions:  {
+	headerTitle: 'Serving Groups',
+	headerTitleStyle: styles.centerHeader,
+	headerLeft: null}
+  },
+  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {
+	headerTitle: 'Small Groups',
+	headerTitleStyle: styles.centerHeader,
+	headerLeft: null}
+  },
+  Encouragement: { screen: EncouragementScreen, navigationOptions:  {
+	headerTitle: 'Encouragement',
+	headerTitleStyle: styles.centerHeader,
+	headerLeft: null}
+  },
+  ExampleEvent: { screen: ExampleEventScreen, navigationOptions:  {
+  headerTitle: 'Group Events',
+  headerTitleStyle: styles.centerHeader,
+  headerLeft: null}
+  }, 
+  ExampleMessage: { screen: ExampleMessageScreen, navigationOptions:  {
+  headerTitle: 'Group Messaging',
+  headerLeft: null}
+  }
 });
 
 export default Navigation;
