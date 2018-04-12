@@ -9,8 +9,6 @@ export default StyleSheet.create({
     marginHorizontal: Metrics.baseMargin,
     marginVertical: Metrics.baseMargin,
     backgroundColor: Colors.steel,
-    // justifyContent: 'center',
-
   },
   buttonText: {
     color: Colors.snow,

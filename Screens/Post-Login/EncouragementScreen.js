@@ -2,11 +2,13 @@ import React from 'react'
 import {StyleSheet, Text, View, Modal } from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import Tabbar from 'react-native-tabbar-bottom'
+import { NavigationActions } from 'react-navigation';
 
 export default class EncouragementScreen extends React.Component {
 
   constructor() {
     super()
+    console.log("EncouragementHit");
     this.state = {
       page: "Encouragement",
     }
@@ -54,5 +56,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#84C9E0',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });

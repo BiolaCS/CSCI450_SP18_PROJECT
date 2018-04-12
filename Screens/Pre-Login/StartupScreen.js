@@ -59,7 +59,7 @@ export default class StartupScreen extends React.Component {
 
       if (snapshot.val() !== null) { // User has info already
         if (snapshot.val().hasTakenQuiz === true) { // They have taken the quiz
-          // Props are inaccessible at this point for some reason
+          // Props are inaccessible at this point for some reasop[;n
           this.navigateHome();
         }
         else { // They have not taken the quiz
@@ -204,10 +204,6 @@ export default class StartupScreen extends React.Component {
                   Sign-Up
             </RoundedButton>
 
-            <RoundedButton onPress={() => {this.logoutUser();}}>
-                  Logout
-            </RoundedButton>
-
       </View>
     );
   }
@@ -215,11 +211,11 @@ export default class StartupScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#d6edf5',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+      flex: 1,
+      backgroundColor: '#d6edf5',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   textInput: {
     borderRadius: 5,
     color: '#000000',

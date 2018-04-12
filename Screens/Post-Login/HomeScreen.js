@@ -4,13 +4,13 @@ import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
 import Tabbar from 'react-native-tabbar-bottom'
 import * as firebase from 'firebase';
-
 import { NavigationActions } from 'react-navigation';
 
 export default class HomeScreen extends React.Component {
 
   constructor() {
     super()
+    console.log("HomeHit");
     this.state = {
       page: "Home",
     }
@@ -79,5 +79,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#84C9E0',
     alignItems: 'center',
     justifyContent: 'center',
-  },
+  }
 });

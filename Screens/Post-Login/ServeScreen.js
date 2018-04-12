@@ -4,12 +4,13 @@ import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
 import Tabbar from 'react-native-tabbar-bottom'
-
+import { NavigationActions } from 'react-navigation';
 
 export default class ServeScreen extends React.Component {
 
   constructor() {
     super()
+    console.log("ServeGroupHit");
     this.state = {
       page: "Serve",
     }
@@ -17,9 +18,9 @@ export default class ServeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1}}>
+        <View style= {{flex: 1, alignItems: 'center'}}>
 
-            <Text style = {styles.pageTitle}>Suggested Serving Groups: </Text>
+            <Text style = {styles.groupPageTitle}>Suggested Serving Groups: </Text>
 
             <ScrollView>
 
@@ -28,7 +29,7 @@ export default class ServeScreen extends React.Component {
                     {"\n"}
                   Members: 20
                     {"\n"}
-                  Description: Use your muscial talents for the Lord.
+                  Description: Use your musical talents for the Lord.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={this.toggleModal}>
@@ -127,16 +128,18 @@ export default class ServeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  serveGroupTitle: {
-    fontSize: 30,
-    color: Colors.fire
-  },
-  pageTitle: {
+  groupPageTitle: {
     fontSize: 20,
     backgroundColor: Colors.fire,
     color: Colors.snow,
     textAlign: 'center',
+    fontFamily: Fonts.type.bold,
+    alignSelf: 'stretch',
     height: 60,
     padding: 15,
+  },
+  serveGroupTitle: {
+    fontSize: 30,
+    color: Colors.fire
   }
 });

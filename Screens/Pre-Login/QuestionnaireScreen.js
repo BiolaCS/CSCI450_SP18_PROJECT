@@ -51,12 +51,12 @@ export default class QuestionnaireScreen extends React.Component {
             if(snapshot.val().answers != null) {
               answers = snapshot.val().answers;
             }
-          }); 
+          });
         }
       });
     }
     // End testing section
-    
+
     else {
       this.userId = firebase.auth().currentUser.uid;
 
@@ -65,7 +65,7 @@ export default class QuestionnaireScreen extends React.Component {
         if(snapshot.val().answers != null) {
           answers = snapshot.val().answers;
         }
-      }); 
+      });
     }
 
     this.state = {
@@ -166,7 +166,7 @@ export default class QuestionnaireScreen extends React.Component {
             {questions.map(this.eachSection.bind(this))}
             <RoundedButton onPress={this.submit.bind(this)}>
                   Submit Answers
-            </RoundedButton>  
+            </RoundedButton>
 
         </ScrollView>
     );
@@ -174,6 +174,12 @@ export default class QuestionnaireScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#84C9E0',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   prompt: {
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -181,7 +187,6 @@ const styles = StyleSheet.create({
     padding: 10
   },
   question: {
-
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 18,
