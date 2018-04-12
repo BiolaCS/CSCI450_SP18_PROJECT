@@ -18,13 +18,27 @@ export default class ExampleMessageScreen extends React.Component {
     }
   }
 
+  // changeTextBoxPositions() {
+  //   console.log("moving text box");
+  //   Animated.timing(this.state.offsetY,
+  //     {toValue: -150}
+  //   ).start();
+  // }
+  //
+  // changeTextBoxPositionsOriginal() {
+  //   console.log("moving text box to original spot");
+  //   Animated.timing(this.state.offsetY,
+  //     {toValue: 0}
+  //   ).start();
+  // }
+
   render() {
     return (
-      <View style= {styles.container}>
-          <Text style = {styles.groupTitle}>Group Title </Text>
-          <Text style = {styles.pageTitle}>Message Board </Text>
+      <View style = {styles.container}>
+          <Text style = {styles.groupTitle}>Group Title</Text>
+          <Text style = {styles.pageTitle}>Event Announcements</Text>
 
-          <ScrollView>
+          <ScrollView style = {styles.scrollContainer}>
 
           <ChatSendBubble onPress={this.toggleModal}>
             This is an example of sent text
@@ -33,8 +47,19 @@ export default class ExampleMessageScreen extends React.Component {
           <ChatReceiveBubble onPress={this.toggleModal}>
             This is an example of received text
           </ChatReceiveBubble>
-
           </ScrollView>
+
+          <TextInput
+              onChangeText={(text) => this.setState({text})}
+              //onFocus={this.changeTextBoxPositions.bind(this)}
+              //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+              placeholder={'Type a message...'}
+              placeholderTextColor= '#14384E'
+              borderColor = '#14384E'
+              borderWidth = {2}
+              textAlign={'center'}
+              style={styles.groupTextInput}
+          />
 
             <Tabbar
                 activePage={this.state.page}
@@ -69,6 +94,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  scrollContainer: {
+    flex: 1,
+  },
   groupTitle: {
     fontSize: 20,
     backgroundColor: Colors.fire,
@@ -87,12 +115,16 @@ const styles = StyleSheet.create({
   },
   groupTextInput: {
     borderRadius: 15,
-    color: '#000000',
-    width: 250,
+    color: '#14384E',
+    width: 300,
     height: 40,
+    maxWidth: 300,
+    maxHeight: 200,
     backgroundColor: '#d6edf5',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    alignItems: 'center',
     margin: 5,
-    marginRight: 25,
-    marginLeft: 25,
-  },
+    marginBottom: 65
+  }
 });

@@ -15,7 +15,7 @@ import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
 const Navigation = StackNavigator({
-  Startup: { screen: ExampleEventScreen },
+  Startup: { screen: StartupScreen },
   Questionnaire: { screen: QuestionnaireScreen },
   Home: { screen: HomeScreen, navigationOptions:  {headerLeft: null}},
   Serve: { screen: ServeScreen, navigationOptions:  {headerLeft: null}},
