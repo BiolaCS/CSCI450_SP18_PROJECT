@@ -1,5 +1,15 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated, BackHandler, Keyboard} from 'react-native';
+import {StyleSheet, 
+  Text,
+  View, 
+  Image, 
+  Modal, 
+  TextInput, 
+  Alert, 
+  Animated, 
+  BackHandler, 
+  Keyboard, 
+  KeyboardAvoidingView} from 'react-native';
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 
@@ -15,6 +25,7 @@ const firebaseConfig = {
 };
 
 export default class StartupScreen extends React.Component {
+  
   constructor() {
     super();
     console.ignoredYellowBox = [
@@ -46,12 +57,12 @@ export default class StartupScreen extends React.Component {
         this.checkQuizStatus(userId);
       }
     });
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
+    //this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
   }
 
   componentWillUnmount() {
     this.authSubscription();
-    this.keyboardDidHideListener.remove();
+    //this.keyboardDidHideListener.remove();
   }
 
   checkQuizStatus(userId) {
@@ -83,7 +94,7 @@ export default class StartupScreen extends React.Component {
     // Object to reset the navigation stack
     const resetAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+      actions: [NavigationActions.navigate({ routeName: 'tab' })],
     });
 
     this.props.navigation.dispatch(resetAction);
@@ -146,7 +157,7 @@ export default class StartupScreen extends React.Component {
     })
   }
 
-  changeTextBoxPositions() {
+  /*changeTextBoxPositions() {
     console.log("moving text box");
     Animated.timing(this.state.offsetY,
       {toValue: -150}
@@ -158,53 +169,47 @@ export default class StartupScreen extends React.Component {
     Animated.timing(this.state.offsetY,
       {toValue: 0}
     ).start();
-  }
+  }*/
 
   render() {
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView 
+        style={styles.container}
+        behavior='padding'
+        keyboardVerticalOffset={64}
+        >
+          <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
+          <TextInput
+            onChangeText={(text) => {this.setState({userEmail: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'Email'}
+            placeholderTextColor= '#000000'
+            autoCapitalize = 'none'
+            style={styles.textInput}
+          />
 
+          <TextInput
+            onChangeText={(text) => {this.setState({userPassword: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'Password'}
+            placeholderTextColor= '#000000'
+            secureTextEntry = {true}
+            style={styles.textInput}
+          />
+          <RoundedButton onPress={() => {this.loginUser();}}>
+            Login
+          </RoundedButton>
 
-            <Animated.View style={{transform : [{translateY: this.state.offsetY}],
-                                  flex: 1,
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  height: 100}}>
+          <RoundedButton onPress={() => {this.signupUser();}}>
+            Sign-Up
+          </RoundedButton>
+            
 
-                <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
-
-                <TextInput
-                    onChangeText={(text) => {this.setState({userEmail: text}); }}
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-                    placeholder={'Email'}
-                    placeholderTextColor= '#000000'
-                    style={styles.textInput}
-                />
-
-                <TextInput
-                    onChangeText={(text) => {this.setState({userPassword: text}); }}
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-                    placeholder={'Password'}
-                    placeholderTextColor= '#000000'
-                    secureTextEntry = {true}
-                    style={styles.textInput}
-                />
-
-            </Animated.View>
-
-            <RoundedButton onPress={() => {this.loginUser();}}>
-                  Login
-            </RoundedButton>
-
-            <RoundedButton onPress={() => {this.signupUser();}}>
-                  Sign-Up
-            </RoundedButton>
-
-      </View>
+        </KeyboardAvoidingView>
     );
   }
 }
@@ -212,7 +217,7 @@ export default class StartupScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#d6edf5',
+      backgroundColor: '#ffffff',
       alignItems: 'center',
       justifyContent: 'center',
     },

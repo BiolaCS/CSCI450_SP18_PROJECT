@@ -3,11 +3,18 @@ import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
 import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
-import Tabbar from 'react-native-tabbar-bottom'
+import { Ionicons } from '@expo/vector-icons'
 import { NavigationActions } from 'react-navigation';
 
 export default class SmallGroupScreen extends React.Component {
-
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'ios-people' : 'ios-people-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+  )}
   constructor() {
     super();
     console.log("SmallGroupHit");
@@ -18,7 +25,7 @@ export default class SmallGroupScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center'}}>
+        <View style= {{flex: 1, alignItems: 'center', paddingTop: 24}}>
 
             <Text style = {styles.groupPageTitle}>Suggested Small Groups: </Text>
 
@@ -65,31 +72,6 @@ export default class SmallGroupScreen extends React.Component {
                 </SmallGroupButton>
 
             </ScrollView>
-
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={(tab) => {
-                this.props.navigation.navigate(tab.page, {});
-              }}
-                tabs={[
-                  {
-                    page: "Home",
-                    icon: "md-home",
-                  },
-                  {
-                    page: "Serve",
-                    icon: "md-heart",
-                  },
-                  {
-                    page: "SmallGroup",
-                    icon: "md-people",
-                  },
-                  {
-                    page: "Encouragement",
-                    icon: "ios-cafe",
-                  },
-                ]}
-            />
         </View>
         );
       }
