@@ -33,52 +33,52 @@ export default class ServeInfoScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.containerStyle}>
-        {this.renderIf(
+        <View style={styles.containerStyle}>
+            {this.renderIf(
           !this.state.hasJoinedGroup,
-          <ScrollView>
-            <Text style={styles.smallGroupTitle}>Group Name</Text>
-            <Text style={styles.groupInfo}>Members:</Text>
-            <Text style={styles.groupInfo}>Description:</Text>
-            <RoundedButton
-              onPress={() => {
+                <ScrollView>
+                    <Text style={styles.smallGroupTitle}>Group Name</Text>
+                    <Text style={styles.groupInfo}>Members:</Text>
+                    <Text style={styles.groupInfo}>Description:</Text>
+                    <RoundedButton
+                        onPress={() => {
                 this.joinOrLeave();
               }}
-            >
+                    >
               Join this group!
-            </RoundedButton>
-          </ScrollView>
+                    </RoundedButton>
+                </ScrollView>
         )}
-        {this.renderIf(
+            {this.renderIf(
           this.state.hasJoinedGroup,
-          <ScrollView>
-            <Text style={styles.smallGroupTitle}>Group Name</Text>
-            <RoundedButton onPress={this.toggleModal}>
+                <ScrollView>
+                    <Text style={styles.smallGroupTitle}>Group Name</Text>
+                    <RoundedButton onPress={this.toggleModal}>
               Message the Group
-            </RoundedButton>
-            <SmallGroupButton onPress={this.toggleModal}>
-              <Text style={styles.smallGroupTitle}>Events</Text>
-              {"\n"}
+                    </RoundedButton>
+                    <SmallGroupButton onPress={this.toggleModal}>
+                        <Text style={styles.smallGroupTitle}>Events</Text>
+                        {"\n"}
               Barbeque: April 10th
-              {"\n"}
+                        {"\n"}
               Beach Day: May 1st
-            </SmallGroupButton>
-            <RoundedButton
-              onPress={() => {
+                    </SmallGroupButton>
+                    <RoundedButton
+                        onPress={() => {
                 this.joinOrLeave();
               }}
-            >
+                    >
               Leave Group
-            </RoundedButton>
-          </ScrollView>
+                    </RoundedButton>
+                </ScrollView>
         )}
 
-        <Tabbar
-          activePage={this.state.page}
-          stateFunc={tab => {
+            <Tabbar
+                activePage={this.state.page}
+                stateFunc={tab => {
             this.props.navigation.navigate(tab.page, {});
           }}
-          tabs={[
+                tabs={[
             {
               page: "Home",
               icon: "md-home"
@@ -96,8 +96,8 @@ export default class ServeInfoScreen extends React.Component {
               icon: "ios-cafe"
             }
           ]}
-        />
-      </View>
+            />
+        </View>
     );
   }
 }
