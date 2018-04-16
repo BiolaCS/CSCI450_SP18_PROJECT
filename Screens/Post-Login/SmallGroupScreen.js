@@ -4,7 +4,7 @@ import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
 import Tabbar from 'react-native-tabbar-bottom'
-
+import { NavigationActions } from 'react-navigation';
 
 
 export default class SmallGroupScreen extends React.Component {
@@ -25,7 +25,7 @@ export default class SmallGroupScreen extends React.Component {
 
             <ScrollView>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={ () => this.props.navigation.navigate('SmallGroupInfo', {})}>
                     <Text style = {styles.smallGroupTitle}>Phishers of Men</Text>
                     {"\n"}
                   Members: 10
@@ -33,7 +33,7 @@ export default class SmallGroupScreen extends React.Component {
                   Description: We are a small group of hardworking computer science professionals.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={ () => this.props.navigation.navigate('SmallGroupInfo', {})}>
                     <Text style = {styles.smallGroupTitle}>Men of Honor</Text>
                     {"\n"}
                   Members: 35
@@ -41,7 +41,7 @@ export default class SmallGroupScreen extends React.Component {
                   Description: We are a great floor with a knack for making good mock rocks.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={ () => this.props.navigation.navigate('SmallGroupInfo', {})}>
                     <Text style = {styles.smallGroupTitle}>Fire Breathing Rubber Duckies</Text>
                     {"\n"}
                   Members: 5
@@ -49,7 +49,7 @@ export default class SmallGroupScreen extends React.Component {
                   Description: Please read title.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={ () => this.props.navigation.navigate('SmallGroupInfo', {})}>
                     <Text style = {styles.smallGroupTitle}>420 Youth Ministries</Text>
                     {"\n"}
                   Members: 20
@@ -57,7 +57,7 @@ export default class SmallGroupScreen extends React.Component {
                   Description: Ablaze with the holy spirit.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={ () => this.props.navigation.navigate('SmallGroupInfo', {})}>
                     <Text style = {styles.smallGroupTitle}>Do U Kno De Wey</Text>
                     {"\n"}
                   Members: 1

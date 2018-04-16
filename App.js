@@ -9,14 +9,17 @@ import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
 // Post-Login Screens
 import HomeScreen from './Screens/Post-Login/HomeScreen'
 import ServeScreen from './Screens/Post-Login/ServeScreen'
+import ServeInfoScreen from './Screens/Post-Login/ServeInfoScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
 import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
+import SmallGroupInfoScreen from './Screens/Post-Login/SmallGroupInfoScreen'
 
-// If all three of these fail to make 
+
+// If all three of these fail to make
 // it centered I dont know what will
 const styles = {
   centerHeader: {
-    textAlign:'center', 
+    textAlign:'center',
     alignSelf:'center',
     flex:1
   },
@@ -24,12 +27,12 @@ const styles = {
 
 const Navigation = StackNavigator({
   Startup: { screen: StartupScreen, navigationOptions: {
-	headerTitle: 'Login', 
-	headerTitleStyle: styles.centerHeader} 
+	headerTitle: 'Login',
+	headerTitleStyle: styles.centerHeader}
   },
   Questionnaire: { screen: QuestionnaireScreen, navigationOptions: {
-	headerTitle: 'Personality Quiz', 
-	headerTitleStyle: styles.centerHeader} 
+	headerTitle: 'Personality Quiz',
+	headerTitleStyle: styles.centerHeader}
   },
   Home: { screen: HomeScreen, navigationOptions: {
 	headerTitle: 'Organization Home', // Placeholder
@@ -37,21 +40,24 @@ const Navigation = StackNavigator({
 	headerLeft: null}
   },
   Serve: { screen: ServeScreen, navigationOptions:  {
-	headerTitle: 'Serving Groups', 
+	headerTitle: 'Serving Groups',
 	headerTitleStyle: styles.centerHeader,
 	headerLeft: null}
   },
   SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {
-	headerTitle: 'Small Groups', 
+	headerTitle: 'Small Groups',
 	headerTitleStyle: styles.centerHeader,
 	headerLeft: null}
   },
+  SmallGroupInfo: { screen: SmallGroupInfoScreen,
+  },
+  ServeInfo: { screen: ServeInfoScreen,
+  },
   Encouragement: { screen: EncouragementScreen, navigationOptions:  {
-	headerTitle: 'Encouragement', 
+	headerTitle: 'Encouragement',
 	headerTitleStyle: styles.centerHeader,
-	headerLeft: null} 
+	headerLeft: null}
   }
 });
 
 export default Navigation;
-
