@@ -1,6 +1,6 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal } from 'react-native'
-import { StackNavigator } from 'react-navigation';
+import {StyleSheet, Text, View, Modal, Platform } from 'react-native'
+import { StackNavigator, TabNavigator, TabBarBottom  } from 'react-navigation';
 
 // Pre-Login Screens
 import StartupScreen from './Screens/Pre-Login/StartupScreen'
@@ -14,54 +14,38 @@ import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
-// If all three of these fail to make
-// it centered I dont know what will
-const styles = {
-  centerHeader: {
-    textAlign:'center',
-    alignSelf:'center',
-    flex:1
-  },
-}
+//tab navigator to seitch between screens...only for the post login/wuestionnaire screen
+export const tabNav = TabNavigator({
+  Home: {screen: HomeScreen},
+  Serve: { screen: ServeScreen},
+  SmallGroup: { screen: SmallGroupScreen},
+  Encouragement: { screen: EncouragementScreen},
+  ExampleMessage: { screen: ExampleMessageScreen},
+  ExampleEvent: { screen: ExampleEventScreen},
+  Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
+},
+{
 
-const Navigation = StackNavigator({
-  Startup: { screen: StartupScreen, navigationOptions: {
-	headerTitle: 'Login',
-	headerTitleStyle: styles.centerHeader}
-  },
-  Questionnaire: { screen: QuestionnaireScreen, navigationOptions: {
-	headerTitle: 'Personality Quiz',
-	headerTitleStyle: styles.centerHeader}
-  },
-  Home: { screen: HomeScreen, navigationOptions: {
-	headerTitle: 'Organization Home', // Placeholder
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  Serve: { screen: ServeScreen, navigationOptions:  {
-	headerTitle: 'Serving Groups',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {
-	headerTitle: 'Small Groups',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  Encouragement: { screen: EncouragementScreen, navigationOptions:  {
-	headerTitle: 'Encouragement',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  ExampleEvent: { screen: ExampleEventScreen, navigationOptions:  {
-  headerTitle: 'Group Events',
-  headerTitleStyle: styles.centerHeader,
-  headerLeft: null}
-  }, 
-  ExampleMessage: { screen: ExampleMessageScreen, navigationOptions:  {
-  headerTitle: 'Group Messaging',
-  headerLeft: null}
-  }
+  headerMode: 'none',        // I don't want a NavBar at top
+  tabBarPosition: 'bottom',  // So your Android tabs go bottom
+  tabBarOptions: {
+
+    showIcon: 'true', // Shows an icon for both iOS and Android
+    animationEnabled: 'true',//slick animations
+    swipeEnabled: 'true',//can swipe left and right to move between tabs--can disable
+    showLabel: (Platform.OS !== 'android'), //No label for Android--We can alos remove for ios
+    labelStyle: {
+      fontSize: 11,
+    },
+    style: {
+      backgroundColor: '#000000', // Makes Android tab bar black instead of standard blue
+      height: (Platform.OS === 'ios') ? 48 : 50 //height of the tabbar.
+    },
+}
 });
 
-export default Navigation;
+export default Navigation = StackNavigator({
+  Startup: { screen: StartupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  Questionnaire: { screen: QuestionnaireScreen },
+  tab: {screen: tabNav, navigationOptions: ({navigation}) => ({header: false}),}//instead of calling every screen, we call the tab navigator
+});

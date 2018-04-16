@@ -5,11 +5,18 @@ import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import ChatSendBubble from '../../Components/ChatSendBubble'
 import ChatReceiveBubble from '../../Components/ChatReceiveBubble'
-import Tabbar from 'react-native-tabbar-bottom'
+import { Ionicons } from '@expo/vector-icons'
 import { NavigationActions } from 'react-navigation';
 
 export default class ExampleEventScreen extends React.Component {
-
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'ios-compass' : 'ios-compass-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+  )}
   constructor() {
     super()
     console.log("EventScreenHit");
@@ -61,30 +68,6 @@ export default class ExampleEventScreen extends React.Component {
               style={styles.groupTextInput}
           />
 
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={(tab) => {
-                  this.props.navigation.navigate(tab.page, {});
-                }}
-                tabs={[
-                  {
-                    page: "Home",
-                    icon: "md-home",
-                  },
-                  {
-                    page: "Serve",
-                    icon: "md-heart",
-                  },
-                  {
-                    page: "SmallGroup",
-                    icon: "md-people",
-                  },
-                  {
-                    page: "Encouragement",
-                    icon: "ios-cafe",
-                  },
-                ]}
-            />
         </View>
     );
   }
@@ -92,7 +75,8 @@ export default class ExampleEventScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1, 
+    paddingTop: 24, 
   },
   scrollContainer: {
     flex: 1,

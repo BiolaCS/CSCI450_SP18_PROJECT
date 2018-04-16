@@ -3,11 +3,19 @@ import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
 import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
-import Tabbar from 'react-native-tabbar-bottom'
+import { Ionicons } from '@expo/vector-icons'
 import { NavigationActions } from 'react-navigation';
 
 export default class ServeScreen extends React.Component {
 
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'md-heart' : 'md-heart-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+  )}
   constructor() {
     super()
     console.log("ServeGroupHit");
@@ -18,7 +26,7 @@ export default class ServeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center'}}>
+        <View style= {{flex: 1, alignItems: 'center', paddingTop: 24, }}>
 
             <Text style = {styles.groupPageTitle}>Suggested Serving Groups: </Text>
 
@@ -98,30 +106,7 @@ export default class ServeScreen extends React.Component {
 
             </ScrollView>
 
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={(tab) => {
-                  this.props.navigation.navigate(tab.page, {});
-                }}
-                tabs={[
-                  {
-                    page: "Home",
-                    icon: "md-home",
-                  },
-                  {
-                    page: "Serve",
-                    icon: "md-heart",
-                  },
-                  {
-                    page: "SmallGroup",
-                    icon: "md-people",
-                  },
-                  {
-                    page: "Encouragement",
-                    icon: "ios-cafe",
-                  },
-                ]}
-          />
+            
         </View>
     );
   }

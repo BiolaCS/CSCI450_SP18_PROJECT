@@ -1,13 +1,25 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal } from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView } from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
-import Tabbar from 'react-native-tabbar-bottom'
+import SmallGroupButton from '../../Components/SmallGroupButton'
+import { Ionicons } from '@expo/vector-icons'
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
+import SmallGroupButtonStyles from '../../Components/Styles/SmallGroupButtonStyles';
+import { Fonts, Colors, Metrics } from '../../Themes/'
 
 export default class HomeScreen extends React.Component {
-
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'md-home' : 'ios-home-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+      
+  )}
+  
   constructor() {
     super()
     console.log("HomeHit");
@@ -34,50 +46,52 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style={styles.container}>
+        <View style= {{flex: 1, alignItems: 'center', paddingTop: 24}}>
 
-            <RoundedButton onPress={this.toggleModal}>
-              Welcome to the home screen!
-            </RoundedButton>
+            <Text style = {styles.groupPageTitle}>Welcome Home </Text>
 
-            <RoundedButton onPress={() => {this.logoutUser();}}>
-              PlaceHolder Logout
-            </RoundedButton>
+            <ScrollView>
 
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={(tab) => {
-                  this.props.navigation.navigate(tab.page, {});
-                }}
-                tabs={[
-                  {
-                    page: "Home",
-                    icon: "md-home",
-                  },
-                  {
-                    page: "Serve",
-                    icon: "md-heart",
-                  },
-                  {
-                    page: "SmallGroup",
-                    icon: "md-people",
-                  },
-                  {
-                    page: "Encouragement",
-                    icon: "ios-cafe",
-                  },
-                ]}
-            />
+                <SmallGroupButton
+                onPress={this.toggleModal}
+                >
+                  <Text style = {styles.serveGroupTitle}>Home Placeholder</Text>
+                  {"\n"}
+                  Members: 1
+                  {"\n"}
+                  Description: Find out more about yourself!
+                </SmallGroupButton>
+                <SmallGroupButton
+                onPress={() => {this.logoutUser();}}
+                >
+                  <Text style = {styles.serveGroupTitle}>Logout</Text>
+                  {"\n"}
+                  Members: 0
+                  {"\n"}
+                  Description: This will log you out
+                </SmallGroupButton>
+
+            </ScrollView>
+
+            
         </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#84C9E0',
-    alignItems: 'center',
-    justifyContent: 'center',
+  groupPageTitle: {
+    fontSize: 20,
+    backgroundColor: Colors.fire,
+    color: Colors.snow,
+    textAlign: 'center',
+    fontFamily: Fonts.type.bold,
+    alignSelf: 'stretch',
+    height: 60,
+    padding: 15,
+  },
+  serveGroupTitle: {
+    fontSize: 30,
+    color: Colors.fire
   }
 });
