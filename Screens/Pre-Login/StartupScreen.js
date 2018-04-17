@@ -1,14 +1,14 @@
 import React from 'react';
-import {StyleSheet, 
+import {StyleSheet,
   Text,
-  View, 
-  Image, 
-  Modal, 
-  TextInput, 
-  Alert, 
-  Animated, 
-  BackHandler, 
-  Keyboard, 
+  View,
+  Image,
+  Modal,
+  TextInput,
+  Alert,
+  Animated,
+  BackHandler,
+  Keyboard,
   KeyboardAvoidingView} from 'react-native';
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
@@ -25,7 +25,7 @@ const firebaseConfig = {
 };
 
 export default class StartupScreen extends React.Component {
-  
+
   constructor() {
     super();
     console.ignoredYellowBox = [
@@ -174,7 +174,7 @@ export default class StartupScreen extends React.Component {
   render() {
 
     return (
-        <KeyboardAvoidingView 
+        <KeyboardAvoidingView
         style={styles.container}
         behavior='padding'
         keyboardVerticalOffset={64}
@@ -207,7 +207,7 @@ export default class StartupScreen extends React.Component {
           <RoundedButton onPress={() => {this.signupUser();}}>
             Sign-Up
           </RoundedButton>
-            
+
 
         </KeyboardAvoidingView>
     );
@@ -217,7 +217,7 @@ export default class StartupScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
       flex: 1,
-      backgroundColor: '#ffffff',
+      backgroundColor: '#D6EDF5',
       alignItems: 'center',
       justifyContent: 'center',
     },
