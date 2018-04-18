@@ -1,114 +1,192 @@
-import React from 'react'
-import {StyleSheet, Text, TextInput, View, Modal, ScrollView, Alert, Animated, BackHandler, Keyboard} from 'react-native'
-import * as firebase from 'firebase';
-import { Fonts, Colors, Metrics } from '../../Themes/'
-import RoundedButton from '../../Components/RoundedButton'
-import ChatSendBubble from '../../Components/ChatSendBubble'
-import ChatReceiveBubble from '../../Components/ChatReceiveBubble'
+import React from 'react';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  KeyboardAvoidingView,
+  TouchableOpacity
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons'
-import { NavigationActions } from 'react-navigation';
+import {GiftedChat, Actions, Bubble, SystemMessage, Avatar } from 'react-native-gifted-chat';
+import { Fonts, Colors, Metrics } from '../../Themes/'
+import Backend from './Backend'
+
+
 
 export default class ExampleMessageScreen extends React.Component {
-  static navigationOptions = {
-    tabBarIcon: ({focused}) => (
-      <Ionicons
-          name={focused ? 'ios-text' : 'ios-text-outline'}
-          size={26}
-          style={{ color: focused ? '#ffffff' : '#949494'}}
-      />
-  )}
-  constructor() {
-    super()
-    console.log("MessageScreenHit");
+  
+  constructor(props) {
+    super(props);
     this.state = {
-      page: "ExampleMessage",
-    }
+      messages: [],
+      group: 'General',
+    };
+    this.renderBubble = this.renderBubble.bind(this);
+   
+  }
+  componentWillMount() {
+    this.state.group = Backend.groupID;
+    console.log(this.state.group)
+  }
+  setGroupName(value) {
+    this.state.group = value;
+  }
+  navigateBack() {
+    this.props.navigation.navigate('SmallGroup');
   }
 
-  // changeTextBoxPositions() {
-  //   console.log("moving text box");
-  //   Animated.timing(this.state.offsetY,
-  //     {toValue: -150}
-  //   ).start();
-  // }
-  //
-  // changeTextBoxPositionsOriginal() {
-  //   console.log("moving text box to original spot");
-  //   Animated.timing(this.state.offsetY,
-  //     {toValue: 0}
-  //   ).start();
-  // }
+  getColor(username){
+    let sumChars = 0;
+    for(let i = 0;i < username.length;i++){
+      sumChars += username.charCodeAt(i);
+    }
+
+    const colors = [
+      '#e67e22', // carrot
+      '#2ecc71', // emerald
+      '#3498db', // peter river
+      '#8e44ad', // wisteria
+      '#e74c3c', // alizarin
+      '#1abc9c', // turquoise
+      '#2c3e50', // midnight blue
+    ];
+    return colors[sumChars % colors.length];
+  }
+ 
+
+  renderBubble(props) {
+    if (props.isSameUser(props.currentMessage, props.previousMessage) && props.isSameDay(props.currentMessage, props.previousMessage)) {
+      return (
+        <Bubble
+        {...props}
+        textStyle={{
+          right: {
+            color: Colors.snow,
+          },
+          left: {
+            color: Colors.snow,
+          }
+        }}
+        wrapperStyle={{
+          left: {
+            backgroundColor: this.getColor(props.currentMessage.user.name),
+          },
+          right: {
+            backgroundColor: Colors.fire,
+          }
+        }}
+        />
+      );
+    }
+    return (
+      <View>
+        <Text>{props.currentMessage.user.name}</Text>
+        <Bubble
+          {...props}
+          textStyle={{
+            right: {
+              color: Colors.snow,
+            },
+            left: {
+              color: Colors.snow,
+            }
+          }}
+          wrapperStyle={{
+            left: {
+              backgroundColor: this.getColor(props.currentMessage.user.name),
+            },
+            right: {
+              backgroundColor: Colors.fire,
+            }
+          }}
+        />
+      </View>
+    );
+  }
+  
 
   render() {
     return (
-      <View style = {styles.container}>
-          <Text style = {styles.groupTitle}>Group Title</Text>
-          <Text style = {styles.pageTitle}>Event Announcements</Text>
-
-          <ScrollView style = {styles.scrollContainer}>
-
-          <ChatSendBubble onPress={this.toggleModal}>
-            This is an example of sent text
-          </ChatSendBubble>
-
-          <ChatReceiveBubble onPress={this.toggleModal}>
-            This is an example of received text
-          </ChatReceiveBubble>
-          </ScrollView>
-
-          <TextInput
-              onChangeText={(text) => this.setState({text})}
-              //onFocus={this.changeTextBoxPositions.bind(this)}
-              //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-              placeholder={'Type a message...'}
-              placeholderTextColor= '#14384E'
-              borderColor = '#14384E'
-              borderWidth = {2}
-              textAlign={'center'}
-              style={styles.groupTextInput}
-          />
-
+      <View style= {{ flex: 1}}>
+        <View style = {styles.groupPageTitle}>
+          <TouchableOpacity style = {styles.backButton}
+           onPress={()=> this.navigateBack()} >
+            <Ionicons 
+              name='ios-arrow-back' 
+              size={40} 
+              style= {styles.backIcon}
+            />
+          </TouchableOpacity>
+        
+          <Text style = {styles.textSetting} >{this.state.group} </Text>
+          
         </View>
+        
+        <GiftedChat
+          messages={this.state.messages}
+          onSend={(message) => {
+            Backend.sendMessage(message);
+          }}
+          user={{
+              _id: Backend.getUid(),
+              name: Backend.getuserName()
+          }}
+          renderBubble={this.renderBubble}
+        />
+        <KeyboardAvoidingView behavior={'padding'}/>
+        
+      </View>
     );
   }
+  componentDidMount() {
+    
+    Backend.loadMessages((message) => {
+      this.setState((previousState) => {
+        return {
+          messages: GiftedChat.append(previousState.messages, message),
+        };
+      });
+    });
+  }
+  componentWillUnmount() {
+    Backend.closeChat();
+  }
+ 
 }
 
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 24,
-  },
-  scrollContainer: {
-    flex: 1,
-  },
-  groupTitle: {
-    fontSize: 20,
+  groupPageTitle: {
+    flexDirection: 'row',
     backgroundColor: Colors.fire,
-    color: Colors.snow,
-    textAlign: 'center',
-    height: 50,
-    padding: 10,
+    justifyContent: 'space-between',
+    height: 80,
+    paddingTop: 30,
   },
-  pageTitle: {
-    fontSize: 15,
-    backgroundColor: '#14384E',
+  textSetting: {
+    fontSize: 20,
     color: Colors.snow,
-    textAlign: 'center',
-    height: 40,
-    padding: 5,
-  },
-  groupTextInput: {
-    borderRadius: 15,
-    color: '#14384E',
-    width: 300,
-    height: 40,
-    maxWidth: 300,
-    maxHeight: 200,
-    backgroundColor: '#d6edf5',
-    justifyContent: 'center',
     alignSelf: 'center',
-    alignItems: 'center',
-    margin: 5,
-    marginBottom: 65
+    fontFamily: Fonts.type.bold,
+  },
+  footerContainer: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10,
+  },
+  footerText: {
+    fontSize: 14,
+    color: '#aaa',
+  },
+  backButton: {
+    width:40,
+    height: 80,
+  },
+  backIcon: {
+    color: Colors.snow, 
+    alignSelf:'center',
   }
+  
 });

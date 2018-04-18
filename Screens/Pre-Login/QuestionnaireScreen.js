@@ -11,15 +11,6 @@ import * as firebase from 'firebase';
 import {questions, prompts} from '../../Utility/questions.js';
 import { parse } from 'querystring';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
-  authDomain: "commune-265d9.firebaseapp.com",
-  databaseURL: "https://commune-265d9.firebaseio.com",
-  projectId: "commune-265d9",
-  storageBucket: "commune-265d9.appspot.com",
-  messagingSenderId: "697540841037"
-};
-
 // TODO: Get the silly radio form to have nothing selected after next question
 
 //new array to hold answers
@@ -53,6 +44,7 @@ export default class QuestionnaireScreen extends React.Component {
           firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
             if(snapshot.val().answers != null) {
               answers = snapshot.val().answers;
+              
             }
           });
         }
@@ -67,6 +59,7 @@ export default class QuestionnaireScreen extends React.Component {
       firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
         if(snapshot.val().answers != null) {
           answers = snapshot.val().answers;
+          console.log(answers[1]);
         }
       });
     }
@@ -105,7 +98,7 @@ export default class QuestionnaireScreen extends React.Component {
     //var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
     // Puts answers into firebase and deletes currentQuestion
-    firebase.database().ref('users/' + this.userId).set({
+    firebase.database().ref('users/' + this.userId).update({
       answers
     });
     firebase.database().ref('users/' + this.userId).update({
@@ -157,7 +150,7 @@ export default class QuestionnaireScreen extends React.Component {
 
             <Text style={styles.question}>{currentValue}</Text>
             <Slider
-            style={{ width: 400}}
+            style={{ width: 400, height: 30, borderRadius: 100}}
             step={1}//move slider by one
             maximumValue = {this.state.maxValue} //set min  1
             minimumValue = {this.state.minValue}//set max   100

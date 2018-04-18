@@ -26,7 +26,7 @@ export default class ServeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center', paddingTop: 24, }}>
+        <View style= {{flex: 1, alignItems: 'center'}}>
 
             <Text style = {styles.groupPageTitle}>Suggested Serving Groups: </Text>
 
@@ -115,13 +115,13 @@ export default class ServeScreen extends React.Component {
 const styles = StyleSheet.create({
   groupPageTitle: {
     fontSize: 20,
-    backgroundColor: Colors.fire,
-    color: Colors.snow,
-    textAlign: 'center',
-    fontFamily: Fonts.type.bold,
-    alignSelf: 'stretch',
-    height: 60,
-    padding: 15,
+      backgroundColor: Colors.fire,
+      color: Colors.snow,
+      textAlign: 'center',
+      fontFamily: Fonts.type.bold,
+      alignSelf: 'stretch',
+      height: 80,
+      paddingTop: 38,
   },
   serveGroupTitle: {
     fontSize: 30,

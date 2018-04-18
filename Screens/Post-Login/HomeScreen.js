@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, ScrollView } from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
@@ -7,7 +7,12 @@ import { Ionicons } from '@expo/vector-icons'
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 import SmallGroupButtonStyles from '../../Components/Styles/SmallGroupButtonStyles';
-import { Fonts, Colors, Metrics } from '../../Themes/'
+import { Fonts, Colors, Metrics } from '../../Themes/';
+import Backend from './Backend';
+
+
+
+
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -25,6 +30,7 @@ export default class HomeScreen extends React.Component {
     console.log("HomeHit");
     this.state = {
       page: "Home",
+      name: "",
     }
   }
 
@@ -44,13 +50,30 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.dispatch(resetAction);
   }
 
+  navigateDrawer() {
+    ;
+  }
+
+
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center', paddingTop: 24}}>
+        <View style= {{flex: 1,}}>
 
-            <Text style = {styles.groupPageTitle}>Welcome Home </Text>
+          <View style = {styles.groupPageTitle}>
+            <TouchableOpacity style = {styles.menuButton}
+            onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
+              <Ionicons 
+                name='ios-menu' 
+                size={40} 
+                style= {styles.menuIcon} 
+              />
+          </TouchableOpacity>
+        
+              <Text style = {styles.textSetting} >Home </Text>
+          
+          </View>
 
-            <ScrollView>
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}> 
 
                 <SmallGroupButton
                 onPress={this.toggleModal}
@@ -81,17 +104,28 @@ export default class HomeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   groupPageTitle: {
-    fontSize: 20,
+    flexDirection: 'row',
     backgroundColor: Colors.fire,
-    color: Colors.snow,
-    textAlign: 'center',
-    fontFamily: Fonts.type.bold,
-    alignSelf: 'stretch',
-    height: 60,
-    padding: 15,
+    justifyContent: 'space-between',
+    height: 80,
+    paddingTop: 30,
   },
   serveGroupTitle: {
     fontSize: 30,
-    color: Colors.fire
+    color: Colors.fire,
+  },
+  textSetting: {
+    fontSize: 20,
+    color: Colors.snow,
+    alignSelf: 'center',
+    fontFamily: Fonts.type.bold,
+  },
+  menuButton: {
+    width:50,
+    height: 80,
+  },
+  menuIcon: {
+    color: Colors.snow, 
+    alignSelf:'center',
   }
-});
+}); 

@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, Text, View, Modal, Platform } from 'react-native'
-import { StackNavigator, TabNavigator, TabBarBottom  } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator  } from 'react-navigation';
 
 // Pre-Login Screens
 import StartupScreen from './Screens/Pre-Login/StartupScreen'
@@ -14,13 +14,13 @@ import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
-//tab navigator to seitch between screens...only for the post login/wuestionnaire screen
+//tab navigator to switch between screens...only for the post login/wuestionnaire screen
 export const tabNav = TabNavigator({
   Home: {screen: HomeScreen},
   Serve: { screen: ServeScreen},
   SmallGroup: { screen: SmallGroupScreen},
   Encouragement: { screen: EncouragementScreen},
-  ExampleMessage: { screen: ExampleMessageScreen},
+  //ExampleMessage: { screen: ExampleMessageScreen},
   ExampleEvent: { screen: ExampleEventScreen},
   Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
 },
@@ -28,11 +28,12 @@ export const tabNav = TabNavigator({
 
   headerMode: 'none',        // I don't want a NavBar at top
   tabBarPosition: 'bottom',  // So your Android tabs go bottom
+  animationEnabled: true,//slick animations
+  swipeEnabled: false,//can swipe left and right to move between tabs--can disable
   tabBarOptions: {
 
     showIcon: 'true', // Shows an icon for both iOS and Android
-    animationEnabled: 'true',//slick animations
-    swipeEnabled: 'true',//can swipe left and right to move between tabs--can disable
+    
     showLabel: (Platform.OS !== 'android'), //No label for Android--We can alos remove for ios
     labelStyle: {
       fontSize: 11,
@@ -44,8 +45,16 @@ export const tabNav = TabNavigator({
 }
 });
 
+//drawer navigator leads to our tabs
+//just an initial attempt
+export const drawer = DrawerNavigator({
+  Tabs: {screen:tabNav},//here
+});
+
 export default Navigation = StackNavigator({
   Startup: { screen: StartupScreen, navigationOptions: ({navigation}) => ({header: false})},
   Questionnaire: { screen: QuestionnaireScreen },
-  tab: {screen: tabNav, navigationOptions: ({navigation}) => ({header: false}),}//instead of calling every screen, we call the tab navigator
+  //SmallGroup: { screen: SmallGroupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  ExampleMessage: { screen: ExampleMessageScreen, navigationOptions: ({navigation}) => ({header: false})},
+  tab: {screen: drawer, navigationOptions: ({navigation}) => ({header: false}),},//instead of calling every screen, we call the drawer navigator
 });

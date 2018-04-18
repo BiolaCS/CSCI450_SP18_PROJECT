@@ -15,6 +15,7 @@ import { NavigationActions } from 'react-navigation';
 
 import RoundedButton from '../../Components/RoundedButton';
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
   authDomain: "commune-265d9.firebaseapp.com",
@@ -23,6 +24,9 @@ const firebaseConfig = {
   storageBucket: "commune-265d9.appspot.com",
   messagingSenderId: "697540841037"
 };
+if (!firebase.apps.length) { // Prevent more than one instance
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default class StartupScreen extends React.Component {
 
@@ -31,16 +35,15 @@ export default class StartupScreen extends React.Component {
     console.ignoredYellowBox = [
       'Setting a timer'
     ];
-    if (!firebase.apps.length) { // Prevent more than one instance
-      firebase.initializeApp(firebaseConfig);
-    }
+    
 
     this.state = {
       loading: true,
       userEmail: '',
       userPassword: '',
+      userName: '',
       userHasTakenQuiz: false,
-      offsetY: new Animated.Value(0),
+      //offsetY: new Animated.Value(0),
     };
   }
 
@@ -63,7 +66,10 @@ export default class StartupScreen extends React.Component {
   componentWillUnmount() {
     this.authSubscription();
     //this.keyboardDidHideListener.remove();
+    
   }
+
+  
 
   checkQuizStatus(userId) {
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
@@ -74,6 +80,7 @@ export default class StartupScreen extends React.Component {
           this.navigateHome();
         }
         else { // They have not taken the quiz
+          
           this.navigateQuiz();
         }
       }
@@ -81,6 +88,10 @@ export default class StartupScreen extends React.Component {
         // Set quiz flag
         firebase.database().ref('users/' + userId).set({
           hasTakenQuiz: false
+        });
+        //set the user name--only for signups
+        firebase.database().ref('users/' + userId).update({
+          username: this.state.userName
         });
         this.navigateQuiz();
       }
@@ -122,6 +133,7 @@ export default class StartupScreen extends React.Component {
   loginUser() {
     console.log("logging in user");
     firebase.auth().signInWithEmailAndPassword(this.state.userEmail, this.state.userPassword).catch(function(error) {
+      
       Alert.alert(
         error.code,
         error.message,
@@ -131,7 +143,9 @@ export default class StartupScreen extends React.Component {
         { cancelable: false }
       )
     });
+    
   }
+   
 
   signupUser() {
     console.log("signing up user");
@@ -146,7 +160,9 @@ export default class StartupScreen extends React.Component {
         { cancelable: false }
       )
     });
+
   }
+  
 
   logoutUser() {
     console.log("signing out");
@@ -180,6 +196,16 @@ export default class StartupScreen extends React.Component {
         keyboardVerticalOffset={64}
         >
           <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
+
+          <TextInput
+            onChangeText={(text) => {this.setState({userName: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'User Name'}
+            placeholderTextColor= '#000000'
+            autoCapitalize = 'none'
+            style={styles.textInput}
+          />
 
           <TextInput
             onChangeText={(text) => {this.setState({userEmail: text}); }}

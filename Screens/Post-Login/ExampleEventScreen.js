@@ -76,18 +76,20 @@ export default class ExampleEventScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1, 
-    paddingTop: 24, 
+     
   },
   scrollContainer: {
     flex: 1,
   },
   groupTitle: {
     fontSize: 20,
-    backgroundColor: Colors.fire,
-    color: Colors.snow,
-    textAlign: 'center',
-    height: 50,
-    padding: 10,
+      backgroundColor: Colors.fire,
+      color: Colors.snow,
+      textAlign: 'center',
+      fontFamily: Fonts.type.bold,
+      alignSelf: 'stretch',
+      height: 80,
+      paddingTop: 38,
   },
   pageTitle: {
     fontSize: 15,
