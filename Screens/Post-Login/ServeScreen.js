@@ -3,13 +3,22 @@ import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
 import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
-import Tabbar from 'react-native-tabbar-bottom'
-
+import { Ionicons } from '@expo/vector-icons'
+import { NavigationActions } from 'react-navigation';
 
 export default class ServeScreen extends React.Component {
 
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'md-heart' : 'md-heart-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+  )}
   constructor() {
     super()
+    console.log("ServeGroupHit");
     this.state = {
       page: "Serve",
     }
@@ -17,9 +26,9 @@ export default class ServeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1}}>
+        <View style= {{flex: 1, alignItems: 'center'}}>
 
-            <Text style = {styles.pageTitle}>Suggested Serving Groups: </Text>
+            <Text style = {styles.groupPageTitle}>Suggested Serving Groups: </Text>
 
             <ScrollView>
 
@@ -28,7 +37,7 @@ export default class ServeScreen extends React.Component {
                     {"\n"}
                   Members: 20
                     {"\n"}
-                  Description: Use your muscial talents for the Lord.
+                  Description: Use your musical talents for the Lord.
                 </SmallGroupButton>
 
                 <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
@@ -97,46 +106,25 @@ export default class ServeScreen extends React.Component {
 
             </ScrollView>
 
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={(tab) => {
-                  this.props.navigation.navigate(tab.page, {});
-                }}
-                tabs={[
-                  {
-                    page: "Home",
-                    icon: "md-home",
-                  },
-                  {
-                    page: "Serve",
-                    icon: "md-heart",
-                  },
-                  {
-                    page: "SmallGroup",
-                    icon: "md-people",
-                  },
-                  {
-                    page: "Encouragement",
-                    icon: "ios-cafe",
-                  },
-                ]}
-          />
+            
         </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  groupPageTitle: {
+    fontSize: 20,
+      backgroundColor: Colors.fire,
+      color: Colors.snow,
+      textAlign: 'center',
+      fontFamily: Fonts.type.bold,
+      alignSelf: 'stretch',
+      height: 80,
+      paddingTop: 38,
+  },
   serveGroupTitle: {
     fontSize: 30,
     color: Colors.fire
-  },
-  pageTitle: {
-    fontSize: 20,
-    backgroundColor: Colors.fire,
-    color: Colors.snow,
-    textAlign: 'center',
-    height: 60,
-    padding: 15,
   }
 });

@@ -1,6 +1,6 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal } from 'react-native'
-import { StackNavigator } from 'react-navigation';
+import {StyleSheet, Text, View, Modal, Platform } from 'react-native'
+import { StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator  } from 'react-navigation';
 
 // Pre-Login Screens
 import StartupScreen from './Screens/Pre-Login/StartupScreen'
@@ -12,52 +12,50 @@ import ServeScreen from './Screens/Post-Login/ServeScreen'
 import ServeInfoScreen from './Screens/Post-Login/ServeInfoScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
 import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
-import SmallGroupInfoScreen from './Screens/Post-Login/SmallGroupInfoScreen'
 
+import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
+import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
-// If all three of these fail to make
-// it centered I dont know what will
-const styles = {
-  centerHeader: {
-    textAlign:'center',
-    alignSelf:'center',
-    flex:1
-  },
+//tab navigator to switch between screens...only for the post login/wuestionnaire screen
+export const tabNav = TabNavigator({
+  Home: {screen: HomeScreen},
+  Serve: { screen: ServeScreen},
+  SmallGroup: { screen: SmallGroupScreen},
+  Encouragement: { screen: EncouragementScreen},
+  //ExampleMessage: { screen: ExampleMessageScreen},
+  ExampleEvent: { screen: ExampleEventScreen},
+  Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
+},
+{
+  headerMode: 'none',        // I don't want a NavBar at top
+  tabBarPosition: 'bottom',  // So your Android tabs go bottom
+  animationEnabled: true,//slick animations
+  swipeEnabled: false,//can swipe left and right to move between tabs--can disable
+  tabBarOptions: {
+
+    showIcon: 'true', // Shows an icon for both iOS and Android
+    
+    showLabel: (Platform.OS !== 'android'), //No label for Android--We can alos remove for ios
+    labelStyle: {
+      fontSize: 11,
+    },
+    style: {
+      backgroundColor: '#000000', // Makes Android tab bar black instead of standard blue
+      height: (Platform.OS === 'ios') ? 48 : 50 //height of the tabbar.
+    },
 }
-
-const Navigation = StackNavigator({
-  Startup: { screen: StartupScreen, navigationOptions: {
-	headerTitle: 'Login',
-	headerTitleStyle: styles.centerHeader}
-  },
-  Questionnaire: { screen: QuestionnaireScreen, navigationOptions: {
-	headerTitle: 'Personality Quiz',
-	headerTitleStyle: styles.centerHeader}
-  },
-  Home: { screen: HomeScreen, navigationOptions: {
-	headerTitle: 'Organization Home', // Placeholder
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  Serve: { screen: ServeScreen, navigationOptions:  {
-	headerTitle: 'Serving Groups',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  SmallGroup: { screen: SmallGroupScreen, navigationOptions:  {
-	headerTitle: 'Small Groups',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  },
-  SmallGroupInfo: { screen: SmallGroupInfoScreen,
-  },
-  ServeInfo: { screen: ServeInfoScreen,
-  },
-  Encouragement: { screen: EncouragementScreen, navigationOptions:  {
-	headerTitle: 'Encouragement',
-	headerTitleStyle: styles.centerHeader,
-	headerLeft: null}
-  }
 });
 
-export default Navigation;
+//drawer navigator leads to our tabs
+//just an initial attempt
+export const drawer = DrawerNavigator({
+  Tabs: {screen:tabNav},//here
+});
+
+export default Navigation = StackNavigator({
+  Startup: { screen: StartupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  Questionnaire: { screen: QuestionnaireScreen },
+  //SmallGroup: { screen: SmallGroupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  ExampleMessage: { screen: ExampleMessageScreen, navigationOptions: ({navigation}) => ({header: false})},
+  tab: {screen: drawer, navigationOptions: ({navigation}) => ({header: false}),},//instead of calling every screen, we call the drawer navigator
+});

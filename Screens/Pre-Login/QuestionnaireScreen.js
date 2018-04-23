@@ -3,6 +3,7 @@ import {StyleSheet, Text, ScrollView, View, Modal, Picker, Alert, Slider} from '
 import RoundedButton from '../../Components/RoundedButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { NavigationActions } from 'react-navigation';
+import { Fonts, Colors, Metrics } from '../../Themes/'
 
 import * as firebase from 'firebase';
 
@@ -10,19 +11,12 @@ import * as firebase from 'firebase';
 import {questions, prompts} from '../../Utility/questions.js';
 import { parse } from 'querystring';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
-  authDomain: "commune-265d9.firebaseapp.com",
-  databaseURL: "https://commune-265d9.firebaseio.com",
-  projectId: "commune-265d9",
-  storageBucket: "commune-265d9.appspot.com",
-  messagingSenderId: "697540841037"
-};
-
 // TODO: Get the silly radio form to have nothing selected after next question
 
 //new array to hold answers
 //var answers = [];
+//BUGS:
+//The slider shows the current value correctly--but it sets it for every slider :(
 
 export default class QuestionnaireScreen extends React.Component {
 
@@ -50,13 +44,14 @@ export default class QuestionnaireScreen extends React.Component {
           firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
             if(snapshot.val().answers != null) {
               answers = snapshot.val().answers;
+              
             }
-          }); 
+          });
         }
       });
     }
     // End testing section
-    
+
     else {
       this.userId = firebase.auth().currentUser.uid;
 
@@ -64,8 +59,9 @@ export default class QuestionnaireScreen extends React.Component {
       firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
         if(snapshot.val().answers != null) {
           answers = snapshot.val().answers;
+          console.log(answers[1]);
         }
-      }); 
+      });
     }
 
     this.state = {
@@ -73,7 +69,9 @@ export default class QuestionnaireScreen extends React.Component {
       index1: 0,
       currentQuestion: 0,
       currentSection: 0,
-      sliderValue: 0,
+      maxValue: 100,
+      minValue: 1,
+      sliderValue: 30
     }
   }
 
@@ -100,7 +98,7 @@ export default class QuestionnaireScreen extends React.Component {
     //var userId = firebase.auth().currentUser.uid;
     var answers = this.answers;
     // Puts answers into firebase and deletes currentQuestion
-    firebase.database().ref('users/' + this.userId).set({
+    firebase.database().ref('users/' + this.userId).update({
       answers
     });
     firebase.database().ref('users/' + this.userId).update({
@@ -122,7 +120,7 @@ export default class QuestionnaireScreen extends React.Component {
     // Navigate to small group post join screen
     const resetAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+      actions: [NavigationActions.navigate({ routeName: 'tab' })],//to go into tab navigation
     });
 
     this.props.navigation.dispatch(resetAction);
@@ -131,19 +129,48 @@ export default class QuestionnaireScreen extends React.Component {
   updateAnswers(sectionIndex, index, value) {
     // have to multiply by 100 for slider bar
     // have to offset index for question section
-    if(parseInt(value * 100) == 0) {
+    //no need to multiply when setting min and max values
+    /*if(parseInt(value) == 0) {
       value = 0.01;
-    }
-    this.answers[index + this.offsets[sectionIndex]] = parseInt(value * 100);
+    }*/
+    this.answers[index + this.offsets[sectionIndex]] = parseInt(value);
   }
 
   eachQuestion(sectionIndex, currentValue, index) {
     return(
-        <View key={index}>
+        <View
+        style = {{
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: '#ffffff',
+        }}  
+        key={index}
+        >
 
             <Text style={styles.question}>{currentValue}</Text>
-            <Slider onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)} value={0}/>
-
+            <Slider
+            style={{ width: 400, height: 30, borderRadius: 100}}
+            step={1}//move slider by one
+            maximumValue = {this.state.maxValue} //set min  1
+            minimumValue = {this.state.minValue}//set max   100
+            minimumTrackTintColor = {Colors.fire} //color of track
+            maximumTrackTintColor = {Colors.fire}
+            thumbTintColor = {Colors.fire} //color of thingy
+            value = {this.state.sliderValue}//want it to start offset, also will be used to show current value
+            //onValueChange={val => this.setState({ sliderValue: val })}
+            onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)}/>
+            <View style={styles.textCon}> 
+              <Text>
+                {this.state.minValue} 
+              </Text>
+              <Text>
+                {50}
+              </Text>
+              <Text>
+                {this.state.maxValue}
+              </Text>
+            </View>
         </View>
     )
   }
@@ -161,12 +188,12 @@ export default class QuestionnaireScreen extends React.Component {
 
   render() {
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView>
 
             {questions.map(this.eachSection.bind(this))}
             <RoundedButton onPress={this.submit.bind(this)}>
                   Submit Answers
-            </RoundedButton>  
+            </RoundedButton>
 
         </ScrollView>
     );
@@ -174,6 +201,12 @@ export default class QuestionnaireScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   prompt: {
     alignItems: 'flex-start',
     justifyContent: 'center',
@@ -181,10 +214,15 @@ const styles = StyleSheet.create({
     padding: 10
   },
   question: {
-
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 18,
     padding: 10
+  },
+  textCon: {
+    width: 400,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 8
   },
 });

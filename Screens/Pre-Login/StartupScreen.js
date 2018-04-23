@@ -1,9 +1,20 @@
 import React from 'react';
-import {StyleSheet, Text, View, Image, Modal, TextInput, Alert, Animated, BackHandler, Keyboard} from 'react-native';
+import {StyleSheet,
+  Text,
+  View,
+  Image,
+  Modal,
+  TextInput,
+  Alert,
+  Animated,
+  BackHandler,
+  Keyboard,
+  KeyboardAvoidingView} from 'react-native';
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
 
 import RoundedButton from '../../Components/RoundedButton';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAJXp7SBUPGRTPo-5qYM-T78mP8DEuBsog",
@@ -13,23 +24,26 @@ const firebaseConfig = {
   storageBucket: "commune-265d9.appspot.com",
   messagingSenderId: "697540841037"
 };
+if (!firebase.apps.length) { // Prevent more than one instance
+  firebase.initializeApp(firebaseConfig);
+}
 
 export default class StartupScreen extends React.Component {
+
   constructor() {
     super();
     console.ignoredYellowBox = [
       'Setting a timer'
     ];
-    if (!firebase.apps.length) { // Prevent more than one instance
-      firebase.initializeApp(firebaseConfig);
-    }
+    
 
     this.state = {
       loading: true,
       userEmail: '',
       userPassword: '',
+      userName: '',
       userHasTakenQuiz: false,
-      offsetY: new Animated.Value(0),
+      //offsetY: new Animated.Value(0),
     };
   }
 
@@ -46,23 +60,27 @@ export default class StartupScreen extends React.Component {
         this.checkQuizStatus(userId);
       }
     });
-    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
+    //this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
   }
 
   componentWillUnmount() {
     this.authSubscription();
-    this.keyboardDidHideListener.remove();
+    //this.keyboardDidHideListener.remove();
+    
   }
+
+  
 
   checkQuizStatus(userId) {
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
 
       if (snapshot.val() !== null) { // User has info already
         if (snapshot.val().hasTakenQuiz === true) { // They have taken the quiz
-          // Props are inaccessible at this point for some reason
+          // Props are inaccessible at this point for some reasop[;n
           this.navigateHome();
         }
         else { // They have not taken the quiz
+          
           this.navigateQuiz();
         }
       }
@@ -70,6 +88,10 @@ export default class StartupScreen extends React.Component {
         // Set quiz flag
         firebase.database().ref('users/' + userId).set({
           hasTakenQuiz: false
+        });
+        //set the user name--only for signups
+        firebase.database().ref('users/' + userId).update({
+          username: this.state.userName
         });
         this.navigateQuiz();
       }
@@ -83,7 +105,7 @@ export default class StartupScreen extends React.Component {
     // Object to reset the navigation stack
     const resetAction = NavigationActions.reset({
       index: 0,
-      actions: [NavigationActions.navigate({ routeName: 'Home' })],
+      actions: [NavigationActions.navigate({ routeName: 'tab' })],
     });
 
     this.props.navigation.dispatch(resetAction);
@@ -111,6 +133,7 @@ export default class StartupScreen extends React.Component {
   loginUser() {
     console.log("logging in user");
     firebase.auth().signInWithEmailAndPassword(this.state.userEmail, this.state.userPassword).catch(function(error) {
+      
       Alert.alert(
         error.code,
         error.message,
@@ -120,7 +143,9 @@ export default class StartupScreen extends React.Component {
         { cancelable: false }
       )
     });
+    
   }
+   
 
   signupUser() {
     console.log("signing up user");
@@ -135,7 +160,9 @@ export default class StartupScreen extends React.Component {
         { cancelable: false }
       )
     });
+
   }
+  
 
   logoutUser() {
     console.log("signing out");
@@ -146,7 +173,7 @@ export default class StartupScreen extends React.Component {
     })
   }
 
-  changeTextBoxPositions() {
+  /*changeTextBoxPositions() {
     console.log("moving text box");
     Animated.timing(this.state.offsetY,
       {toValue: -150}
@@ -158,68 +185,68 @@ export default class StartupScreen extends React.Component {
     Animated.timing(this.state.offsetY,
       {toValue: 0}
     ).start();
-  }
+  }*/
 
   render() {
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView
+        style={styles.container}
+        behavior='padding'
+        keyboardVerticalOffset={64}
+        >
+          <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
+
+          <TextInput
+            onChangeText={(text) => {this.setState({userName: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'User Name'}
+            placeholderTextColor= '#000000'
+            autoCapitalize = 'none'
+            style={styles.textInput}
+          />
+
+          <TextInput
+            onChangeText={(text) => {this.setState({userEmail: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'Email'}
+            placeholderTextColor= '#000000'
+            autoCapitalize = 'none'
+            style={styles.textInput}
+          />
+
+          <TextInput
+            onChangeText={(text) => {this.setState({userPassword: text}); }}
+            //onFocus={this.changeTextBoxPositions.bind(this)}
+            //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
+            placeholder={'Password'}
+            placeholderTextColor= '#000000'
+            secureTextEntry = {true}
+            style={styles.textInput}
+          />
+          <RoundedButton onPress={() => {this.loginUser();}}>
+            Login
+          </RoundedButton>
+
+          <RoundedButton onPress={() => {this.signupUser();}}>
+            Sign-Up
+          </RoundedButton>
 
 
-
-            <Animated.View style={{transform : [{translateY: this.state.offsetY}],
-                                  flex: 1,
-                                  alignItems: 'center',
-                                  justifyContent: 'center',
-                                  height: 100}}>
-
-                <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
-
-                <TextInput
-                    onChangeText={(text) => {this.setState({userEmail: text}); }}
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-                    placeholder={'Email'}
-                    placeholderTextColor= '#000000'
-                    style={styles.textInput}
-                />
-
-                <TextInput
-                    onChangeText={(text) => {this.setState({userPassword: text}); }}
-                    onFocus={this.changeTextBoxPositions.bind(this)}
-                    onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
-                    placeholder={'Password'}
-                    placeholderTextColor= '#000000'
-                    secureTextEntry = {true}
-                    style={styles.textInput}
-                />
-
-            </Animated.View>
-
-            <RoundedButton onPress={() => {this.loginUser();}}>
-                  Login
-            </RoundedButton>
-
-            <RoundedButton onPress={() => {this.signupUser();}}>
-                  Sign-Up
-            </RoundedButton>
-
-            <RoundedButton onPress={() => {this.logoutUser();}}>
-                  Logout
-            </RoundedButton>
-
-      </View>
+        </KeyboardAvoidingView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#d6edf5',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+      flex: 1,
+      backgroundColor: '#D6EDF5',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
   textInput: {
     borderRadius: 5,
     color: '#000000',

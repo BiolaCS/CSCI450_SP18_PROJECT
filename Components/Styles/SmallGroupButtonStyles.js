@@ -1,16 +1,21 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 import { Fonts, Colors, Metrics } from '../../Themes/'
+
+
+
+const window = Dimensions.get('window');
+
+  
+
 
 export default StyleSheet.create({
   button: {
     height: 200,
     borderRadius: 5,
-    width: 350,
+    width: (this.window.width <= 360) ? 300 : 350,
     marginHorizontal: Metrics.baseMargin,
     marginVertical: Metrics.baseMargin,
     backgroundColor: Colors.steel,
-    // justifyContent: 'center',
-
   },
   buttonText: {
     color: Colors.snow,
