@@ -32,7 +32,7 @@ export default class ServeScreen extends React.Component {
 
             <ScrollView>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Worship Team</Text>
                     {"\n"}
                   Members: 20
@@ -40,7 +40,7 @@ export default class ServeScreen extends React.Component {
                   Description: Use your musical talents for the Lord.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Media Team</Text>
                     {"\n"}
                   Members: 10
@@ -48,7 +48,7 @@ export default class ServeScreen extends React.Component {
                   Description: Use your knowledge of technology, audio, and video to serve.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Youth Ministry</Text>
                     {"\n"}
                   Members: 15
@@ -56,7 +56,7 @@ export default class ServeScreen extends React.Component {
                   Description: Lead, teach, orinteract with junior and senior high schoolers.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Young Adults Ministry</Text>
                     {"\n"}
                   Members: 6
@@ -64,7 +64,7 @@ export default class ServeScreen extends React.Component {
                   Description: Lead, teach, or interact with 18-30 year old adults
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Adults Ministries</Text>
                     {"\n"}
                   Members: 12
@@ -72,7 +72,7 @@ export default class ServeScreen extends React.Component {
                   Description: Lead, teach, or interact with adults
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Preschool & Childrens Ministries</Text>
                     {"\n"}
                   Members: 15
@@ -80,7 +80,7 @@ export default class ServeScreen extends React.Component {
                   Description: Watch over, play with, and interact with children.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Infant Care</Text>
                     {"\n"}
                   Members: 10
@@ -88,7 +88,7 @@ export default class ServeScreen extends React.Component {
                   Description: Care for, watch over, and interact with infants
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Homeless Ministry</Text>
                     {"\n"}
                   Members: 8
@@ -96,7 +96,7 @@ export default class ServeScreen extends React.Component {
                   Description: Serve the local homeless population.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={this.toggleModal}>
+                <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Prayer Team</Text>
                     {"\n"}
                   Members: 10

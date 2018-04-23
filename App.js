@@ -9,8 +9,10 @@ import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
 // Post-Login Screens
 import HomeScreen from './Screens/Post-Login/HomeScreen'
 import ServeScreen from './Screens/Post-Login/ServeScreen'
+import ServeInfoScreen from './Screens/Post-Login/ServeInfoScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
 import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
+
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
 
@@ -25,7 +27,6 @@ export const tabNav = TabNavigator({
   Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
 },
 {
-
   headerMode: 'none',        // I don't want a NavBar at top
   tabBarPosition: 'bottom',  // So your Android tabs go bottom
   animationEnabled: true,//slick animations

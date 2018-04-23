@@ -15,8 +15,6 @@ import { NavigationActions } from 'react-navigation';
 import Backend from './Backend';
 import * as firebase from 'firebase';
 
-
-
 //We'll be able to fill this array with the titles saved in firebase eventually, and crate more as needed
 var groupTitles = [
   "Phishers of Men",
@@ -90,6 +88,7 @@ export default class SmallGroupScreen extends React.Component {
                   Description: Please read title.
                 </SmallGroupButton>
 
+
                 <SmallGroupButton onPress={()=>this.setName(groupTitles[3])}>
                     <Text style = {styles.smallGroupTitle}>{groupTitles[3]}</Text>
                     {"\n"}
@@ -97,6 +96,7 @@ export default class SmallGroupScreen extends React.Component {
                     {"\n"}
                   Description: Ablaze with the holy spirit.
                 </SmallGroupButton>
+
 
                 <SmallGroupButton onPress={()=>this.setName(groupTitles[4])}>
                     <Text style = {styles.smallGroupTitle}>{groupTitles[4]}</Text>
