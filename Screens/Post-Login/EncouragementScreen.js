@@ -6,7 +6,9 @@ import { NavigationActions } from 'react-navigation';
 import SmallGroupButtonStyles from '../../Components/Styles/SmallGroupButtonStyles';
 import { Fonts, Colors, Metrics } from '../../Themes/'
 import SmallGroupButton from '../../Components/SmallGroupButton'
+import * as firebase from 'firebase';
 
+var traits = "";
 export default class EncouragementScreen extends React.Component {
   static navigationOptions = {
     tabBarIcon: ({focused}) => (
@@ -16,12 +18,37 @@ export default class EncouragementScreen extends React.Component {
           style={{ color: focused ? '#ffffff' : '#949494'}}
       />
   )}
+
+  
   constructor() {
-    super()
-    console.log("EncouragementHit");
+    super();
+    this.userId = firebase.auth().currentUser.uid;
+    
+    this.positiveHabits = "";
+    this.smallGroupPrediction = "";
+    this.serveGroupPrediction = "";
+    this.positiveQuality = "";
     this.state = {
       page: "Encouragement",
+      positiveHabits: "",
+      smallGroupPrediction: "",
+      serveGroupPrediction: "",
+      positiveQuality: "",
     }
+  }
+
+  componentWillMount(){
+    firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+      if(snapshot.val().answers != null) {
+        var traitSplit = snapshot.val().traits.split(",");
+        this.setState({
+          positiveHabits: traitSplit[0],
+          smallGroupPrediction: traitSplit[1],
+          serveGroupPrediction:traitSplit[2],
+          positiveQuality: traitSplit[3],
+        })
+      }
+    });
   }
 
   render() {
@@ -49,11 +76,11 @@ export default class EncouragementScreen extends React.Component {
                 <SmallGroupButton
                 onPress={this.toggleModal}
                 >
-                  <Text style = {styles.serveGroupTitle}>Encouragement Placeholder</Text>
-                  {"\n"}
-                  Members: 1
-                  {"\n"}
-                  Description: Be yourself!
+                  <Text style = {styles.serveGroupTitle}>Personal Traits{"\n"}</Text>
+                    {this.state.positiveHabits  + "\n"}
+                    {this.state.smallGroupPrediction  + "\n"}
+                    {this.state.serveGroupPrediction  + "\n"}
+                    {this.state.positiveQuality  + "\n"}
                 </SmallGroupButton>
 
             </ScrollView>
