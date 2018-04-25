@@ -1,8 +1,8 @@
 import React from 'react'
-import {StyleSheet, 
-  Text, 
-  View, 
-  Modal, 
+import {StyleSheet,
+  Text,
+  View,
+  Modal,
   ScrollView,
   TouchableOpacity,
   Image
@@ -20,7 +20,7 @@ var groupTitles = [
   "Phishers of Men",
   "Men of Honor",
   "Fire Breathing Rubber Duckies",
-  "420 Youth Ministries",
+  "It's Lit Youth Ministries",
   "Do U Kno De Way"
 ];
 
@@ -34,7 +34,7 @@ export default class SmallGroupScreen extends React.Component {
       />
   )}
   constructor() {
-    
+
     super();
     console.log("SmallGroupHit");
     this.state = {
@@ -42,19 +42,19 @@ export default class SmallGroupScreen extends React.Component {
     }
   }
   componentWillMount(){
-    
+
     console.log(this.groupTitles);
   }
 
   setName(value) {
-    Backend.closeChat();   
+    Backend.closeChat();
     Backend.getGroupName(value);
     this.goToChat();
   }
   goToChat(){
     this.props.navigation.navigate('ExampleMessage')
   }
-  
+
 
   render() {
     return (
@@ -63,16 +63,16 @@ export default class SmallGroupScreen extends React.Component {
           <View style = {styles.groupPageTitle}>
             <TouchableOpacity style = {styles.menuButton}//menu button
             onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
-              <Ionicons 
-                name='ios-menu' 
-                size={40} 
-                style= {styles.menuIcon} 
+              <Ionicons
+                name='ios-menu'
+                size={40}
+                style= {styles.menuIcon}
               />
             </TouchableOpacity>
-        
-            <Text style = {styles.textSetting}>Small Groups </Text> 
+
+            <Text style = {styles.textSetting}>Small Groups </Text>
             <Text style = {{color: Colors.fire}}>Blank</Text>
-          
+
           </View>
 
             <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
@@ -118,21 +118,21 @@ export default class SmallGroupScreen extends React.Component {
                     {"\n"}
                   Description: We Kno De Wey. Cluck 4 de queen.
                 </SmallGroupButton>
-                
+
             </ScrollView>
             <TouchableOpacity onPress={this.toggleModal} style={styles.floatingButton} >
- 
-              <Ionicons 
-                name='md-add' 
-                size={30} 
-                style = {styles.plusIcon} 
+
+              <Ionicons
+                name='md-add'
+                size={30}
+                style = {styles.plusIcon}
                 />
-       
+
             </TouchableOpacity>
         </View>
         );
       }
-      
+
     }
 
     const styles = StyleSheet.create({
@@ -158,16 +158,16 @@ export default class SmallGroupScreen extends React.Component {
         height: 80,
       },
       menuIcon: {
-        color: Colors.snow, 
+        color: Colors.snow,
         alignSelf:'center',
       },
       floatingButton: {
-        width: 60,  
-        height: 60,   
-        borderRadius: 30,            
-        backgroundColor: Colors.fire,                                       
-        position: 'absolute',                                          
-        bottom: 10,                                                    
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: Colors.fire,
+        position: 'absolute',
+        bottom: 10,
         right: 10,
         alignItems: 'center',
       },
