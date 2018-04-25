@@ -1,9 +1,10 @@
 import React from 'react'
-import {StyleSheet, Text, ScrollView, View, Modal, Picker, Alert, Slider} from 'react-native'
+import {StyleSheet, Text, ScrollView, View, Modal, Picker, Alert, Slider, TouchableOpacity} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 import { NavigationActions } from 'react-navigation';
 import { Fonts, Colors, Metrics } from '../../Themes/'
+import { Card } from 'native-base';
 
 import * as firebase from 'firebase';
 
@@ -26,6 +27,7 @@ export default class QuestionnaireScreen extends React.Component {
     this.answers = [];
     for(i = 0; i < 40; i++) {
       this.answers[i] = 1;
+      this.userId = firebase.auth().currentUser.uid;
     }
     this.offsets = [0,8,13,18,34];
 
@@ -43,7 +45,7 @@ export default class QuestionnaireScreen extends React.Component {
           // Get any answers the user might have already answered
           firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
             if(snapshot.val().answers != null) {
-              answers = snapshot.val().answers;
+              this.answers = snapshot.val().answers;
               
             }
           });
@@ -58,8 +60,8 @@ export default class QuestionnaireScreen extends React.Component {
       // Get any answers the user might have already answered
       firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
         if(snapshot.val().answers != null) {
-          answers = snapshot.val().answers;
-          console.log(answers[1]);
+          this.answers = snapshot.val().answers;
+          console.log(this.answers);
         }
       });
     }
@@ -71,7 +73,8 @@ export default class QuestionnaireScreen extends React.Component {
       currentSection: 0,
       maxValue: 100,
       minValue: 1,
-      sliderValue: 30
+      sliderValue: 30,
+      count: 0,
     }
   }
 
@@ -91,6 +94,16 @@ export default class QuestionnaireScreen extends React.Component {
         });
       }
     });
+    this.userId = firebase.auth().currentUser.uid;
+
+      // Get any answers the user might have already answered
+      firebase.database().ref('/users/' + this.userId).once('value').then((snapshot) => {
+        if(snapshot.val().answers != null) {
+          this.answers = snapshot.val().answers;
+          console.log(this.answers);
+        }
+      });
+    
   }
 
   //submit button will update hasTakeQuiz to true, send data to firebase from array, then navigate back home
@@ -137,18 +150,14 @@ export default class QuestionnaireScreen extends React.Component {
   }
 
   eachQuestion(sectionIndex, currentValue, index) {
+    
     return(
         <View
-        style = {{
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: '#ffffff',
-        }}  
+         
         key={index}
         >
-
-            <Text style={styles.question}>{currentValue}</Text>
+          
+            <Text style={styles.question}>{currentValue} {this.count}</Text>
             <Slider
             style={{ width: 400, height: 30, borderRadius: 100}}
             step={1}//move slider by one
@@ -157,7 +166,7 @@ export default class QuestionnaireScreen extends React.Component {
             minimumTrackTintColor = {Colors.fire} //color of track
             maximumTrackTintColor = {Colors.fire}
             thumbTintColor = {Colors.fire} //color of thingy
-            value = {this.state.sliderValue}//want it to start offset, also will be used to show current value
+            value = {this.answers[index + this.offsets[sectionIndex]]}//want it to start offset, also will be used to show current value saved in firebase
             //onValueChange={val => this.setState({ sliderValue: val })}
             onSlidingComplete={this.updateAnswers.bind(this, sectionIndex, index)}/>
             <View style={styles.textCon}> 
@@ -171,6 +180,7 @@ export default class QuestionnaireScreen extends React.Component {
                 {this.state.maxValue}
               </Text>
             </View>
+          
         </View>
     )
   }
@@ -178,16 +188,23 @@ export default class QuestionnaireScreen extends React.Component {
   eachSection(currentValue, index) {
     return(
         <View key={index}>
-
-            <Text style={styles.prompt}>{prompts[this.state.currentQuestion]}</Text>
-            {currentValue.map(this.eachQuestion.bind(this, index))}
+            <Card 
+            bordered =  'true'
+            >
+              <Text style={styles.prompt}>{prompts[index]}</Text>
+              {currentValue.map(this.eachQuestion.bind(this, index))}
+            </Card>
 
         </View>
     )
   }
 
   render() {
-    return (
+    return ( 
+      <View style = {styles.container}>
+       <View style = {styles.groupPageTitle}>       
+              <Text style = {styles.textSetting}>Questionnaire</Text>
+        </View>
         <ScrollView>
 
             {questions.map(this.eachSection.bind(this))}
@@ -196,6 +213,7 @@ export default class QuestionnaireScreen extends React.Component {
             </RoundedButton>
 
         </ScrollView>
+      </View>
     );
   }
 }
@@ -203,13 +221,16 @@ export default class QuestionnaireScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    alignItems: 'center',
+    backgroundColor: '#f0f0f0',
+    //alignItems: 'center',
     justifyContent: 'center',
+    //paddingTop: 15,
   },
   prompt: {
-    alignItems: 'flex-start',
+    alignItems: 'center',
     justifyContent: 'center',
+    color: Colors.fire,
+    //fontWeight: 'bold',
     fontSize: 25,
     padding: 10
   },
@@ -217,12 +238,26 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 18,
-    padding: 10
+    padding: 10,
   },
   textCon: {
     width: 400,
     flexDirection: 'row',
     justifyContent: 'space-between',
     padding: 8
+  },
+  textSetting: {
+    fontSize: 20,
+    color: Colors.snow,
+    alignSelf: 'center',
+    
+    fontWeight: 'bold',
+  },
+  groupPageTitle: {
+    flexDirection: 'row',
+    backgroundColor: Colors.fire,
+    justifyContent: 'space-between',
+    height: 80,
+    paddingTop: 30,
   },
 });

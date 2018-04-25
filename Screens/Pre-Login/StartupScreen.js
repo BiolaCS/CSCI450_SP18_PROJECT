@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet,
+import {
+  StyleSheet,
   Text,
   View,
   Image,
@@ -9,9 +10,11 @@ import {StyleSheet,
   Animated,
   BackHandler,
   Keyboard,
-  KeyboardAvoidingView} from 'react-native';
+  KeyboardAvoidingView,
+  TouchableOpacity} from 'react-native';
 import * as firebase from 'firebase';
 import { NavigationActions } from 'react-navigation';
+import { Fonts, Colors, Metrics } from '../../Themes/';
 
 import RoundedButton from '../../Components/RoundedButton';
 
@@ -41,8 +44,8 @@ export default class StartupScreen extends React.Component {
       loading: true,
       userEmail: '',
       userPassword: '',
-      userName: '',
-      userHasTakenQuiz: false,
+      //userName: 'John Smith',
+      //userHasTakenQuiz: false,
       //offsetY: new Animated.Value(0),
     };
   }
@@ -58,6 +61,7 @@ export default class StartupScreen extends React.Component {
         // Check if the user has anything data in firebase
         var userId = firebase.auth().currentUser.uid;
         this.checkQuizStatus(userId);
+        
       }
     });
     //this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this.changeTextBoxPositionsOriginal.bind(this));
@@ -69,8 +73,6 @@ export default class StartupScreen extends React.Component {
     
   }
 
-  
-
   checkQuizStatus(userId) {
     firebase.database().ref('/users/' + userId).once('value').then((snapshot) => {
 
@@ -80,8 +82,8 @@ export default class StartupScreen extends React.Component {
           this.navigateHome();
         }
         else { // They have not taken the quiz
-          
           this.navigateQuiz();
+          
         }
       }
       else { // User is brand new
@@ -90,9 +92,6 @@ export default class StartupScreen extends React.Component {
           hasTakenQuiz: false
         });
         //set the user name--only for signups
-        firebase.database().ref('users/' + userId).update({
-          username: this.state.userName
-        });
         this.navigateQuiz();
       }
     })
@@ -111,7 +110,7 @@ export default class StartupScreen extends React.Component {
     this.props.navigation.dispatch(resetAction);
   }
 
-  navigateQuiz() {
+  /*navigateQuiz() {
     // Alert the user that they have to take the quiz
     Alert.alert(
       "First time user detected!",
@@ -128,7 +127,7 @@ export default class StartupScreen extends React.Component {
     });
 
     this.props.navigation.dispatch(resetAction);
-  }
+  }*/
 
   loginUser() {
     console.log("logging in user");
@@ -143,11 +142,10 @@ export default class StartupScreen extends React.Component {
         { cancelable: false }
       )
     });
-    
   }
    
 
-  signupUser() {
+  /*signupUser() {
     console.log("signing up user");
     firebase.auth().createUserWithEmailAndPassword(this.state.userEmail, this.state.userPassword).catch(function(error) {
         // Handle Errors here.
@@ -161,17 +159,17 @@ export default class StartupScreen extends React.Component {
       )
     });
 
-  }
+  }*/
   
 
-  logoutUser() {
+  /*logoutUser() {
     console.log("signing out");
     firebase.auth().signOut().then(function() {
       console.log("signed out");
     }).catch((error) => {
       console.log(error);
     })
-  }
+  }*/
 
   /*changeTextBoxPositions() {
     console.log("moving text box");
@@ -197,7 +195,7 @@ export default class StartupScreen extends React.Component {
         >
           <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
-          <TextInput
+          {/*<TextInput
             onChangeText={(text) => {this.setState({userName: text}); }}
             //onFocus={this.changeTextBoxPositions.bind(this)}
             //onSubmitEditing={this.changeTextBoxPositionsOriginal.bind(this)}
@@ -205,7 +203,7 @@ export default class StartupScreen extends React.Component {
             placeholderTextColor= '#000000'
             autoCapitalize = 'none'
             style={styles.textInput}
-          />
+          />*/}
 
           <TextInput
             onChangeText={(text) => {this.setState({userEmail: text}); }}
@@ -230,9 +228,9 @@ export default class StartupScreen extends React.Component {
             Login
           </RoundedButton>
 
-          <RoundedButton onPress={() => {this.signupUser();}}>
-            Sign-Up
-          </RoundedButton>
+          <TouchableOpacity onPress={() => {this.props.navigation.navigate("SignUp")}}>
+            <Text style = {{color: Colors.fire, fontSize: 15}}>New user? Sign Up!</Text>
+          </TouchableOpacity>
 
 
         </KeyboardAvoidingView>

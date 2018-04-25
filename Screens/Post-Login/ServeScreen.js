@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, ScrollView} from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView, TouchableOpacity} from 'react-native'
 import { Fonts, Colors, Metrics } from '../../Themes/'
 import RoundedButton from '../../Components/RoundedButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
@@ -26,11 +26,23 @@ export default class ServeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center'}}>
+        <View style= {{flex: 1}}>
 
-            <Text style = {styles.groupPageTitle}>Suggested Serving Groups: </Text>
+            <View style = {styles.groupPageTitle}>
+            <TouchableOpacity style = {styles.menuButton}
+            onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
+              <Ionicons 
+                name='ios-menu' 
+                size={40} 
+                style= {styles.menuIcon} 
+              />
+          </TouchableOpacity>
+        
+              <Text style = {styles.textSetting} >Serve </Text>
+          
+          </View>
 
-            <ScrollView>
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
 
                 <SmallGroupButton onPress={() => this.props.navigation.navigate('ServeInfo', {})}>
                     <Text style = {styles.serveGroupTitle}>Worship Team</Text>
@@ -114,17 +126,28 @@ export default class ServeScreen extends React.Component {
 
 const styles = StyleSheet.create({
   groupPageTitle: {
-    fontSize: 20,
-      backgroundColor: Colors.fire,
-      color: Colors.snow,
-      textAlign: 'center',
-      fontFamily: Fonts.type.bold,
-      alignSelf: 'stretch',
-      height: 80,
-      paddingTop: 38,
+    flexDirection: 'row',
+    backgroundColor: Colors.fire,
+    justifyContent: 'space-between',
+    height: 80,
+    paddingTop: 30,
   },
   serveGroupTitle: {
     fontSize: 30,
-    color: Colors.fire
+    color: Colors.fire,
+  },
+  textSetting: {
+    fontSize: 20,
+    color: Colors.snow,
+    alignSelf: 'center',
+    fontWeight: 'bold',
+  },
+  menuButton: {
+    width:50,
+    height: 80,
+  },
+  menuIcon: {
+    color: Colors.snow, 
+    alignSelf:'center',
   }
-});
+}); 

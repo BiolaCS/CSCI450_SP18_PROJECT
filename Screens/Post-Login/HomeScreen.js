@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity} from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity, Dimensions} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
@@ -13,9 +13,33 @@ import Backend from './Backend';
 
 
 
-
+const window = Dimensions.get('window');
+var groupTitles = [
+  "Phishers of Men",
+  "Men of Honor",
+  "Fire Breathing Rubber Duckies",
+  "420 Youth Ministries",
+  "Do U Kno De Way"
+];
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
+    title: "Home Screen",
+    headerStyle:{
+      backgroundColor: Colors.fire,
+      
+      alignItems: 'center'
+    },
+    headerTintColor: Colors.snow,
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    headerLeft:
+      (<Ionicons 
+                name='ios-menu' 
+                size={40} 
+                //style= {styles.menuIcon} 
+      />)
+    ,
     tabBarIcon: ({focused}) => (
       <Ionicons
           name={focused ? 'md-home' : 'ios-home-outline'}
@@ -23,7 +47,9 @@ export default class HomeScreen extends React.Component {
           style={{ color: focused ? '#ffffff' : '#949494'}}
       />
       
-  )}
+    ),
+    
+}
   
   constructor() {
     super()
@@ -50,11 +76,6 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.dispatch(resetAction);
   }
 
-  navigateDrawer() {
-    ;
-  }
-
-
   render() {
     return (
         <View style= {{flex: 1,}}>
@@ -67,7 +88,7 @@ export default class HomeScreen extends React.Component {
                 size={40} 
                 style= {styles.menuIcon} 
               />
-          </TouchableOpacity>
+            </TouchableOpacity>
         
               <Text style = {styles.textSetting} >Home </Text>
           
@@ -75,24 +96,50 @@ export default class HomeScreen extends React.Component {
 
             <ScrollView contentContainerStyle = {{alignItems: 'center'}}> 
 
-                <SmallGroupButton
-                onPress={this.toggleModal}
-                >
-                  <Text style = {styles.serveGroupTitle}>Home Placeholder</Text>
-                  {"\n"}
+                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                    <Text style = {styles.homeGroupTitle}>{groupTitles[0]}</Text>
+                    {"\n"}
+                  Members: 10
+                    {"\n"}
+                  Announcements: We are a small group of hardworking computer science professionals.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                    <Text style = {styles.homeGroupTitle}>{groupTitles[1]}</Text>
+                    {"\n"}
+                  Members: 35
+                    {"\n"}
+                  Announcements: We are a great floor with a knack for making good mock rocks.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                    <Text style = {styles.homeGroupTitle}>{groupTitles[2]}</Text>
+                    {"\n"}
+                  Members: 5
+                    {"\n"}
+                  Announcements: Please read title.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                    <Text style = {styles.homeGroupTitle}>{groupTitles[3]}</Text>
+                    {"\n"}
+                  Members: 20
+                    {"\n"}
+                  Announcements: Ablaze with the holy spirit.
+                </SmallGroupButton>
+
+                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                    <Text style = {styles.homeGroupTitle}>{groupTitles[4]}</Text>
+                    {"\n"}
                   Members: 1
-                  {"\n"}
-                  Description: Find out more about yourself!
+                    {"\n"}
+                  Announcements: We Kno De Wey. Cluck 4 de queen.
                 </SmallGroupButton>
-                <SmallGroupButton
-                onPress={() => {this.logoutUser();}}
+                <RoundedButton
+                onPress={() => {this.logoutUser()}}
                 >
-                  <Text style = {styles.serveGroupTitle}>Logout</Text>
-                  {"\n"}
-                  Members: 0
-                  {"\n"}
-                  Description: This will log you out
-                </SmallGroupButton>
+                  Logout
+                </RoundedButton>
 
             </ScrollView>
 
@@ -110,7 +157,7 @@ const styles = StyleSheet.create({
     height: 80,
     paddingTop: 30,
   },
-  serveGroupTitle: {
+  homeGroupTitle: {
     fontSize: 30,
     color: Colors.fire,
   },
@@ -118,7 +165,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.snow,
     alignSelf: 'center',
-    fontFamily: Fonts.type.bold,
+    fontWeight: 'bold',
   },
   menuButton: {
     width:50,
