@@ -1,8 +1,8 @@
 import React from 'react'
-import {StyleSheet, 
-  Text, 
-  View, 
-  Modal, 
+import {StyleSheet,
+  Text,
+  View,
+  Modal,
   ScrollView,
   TouchableOpacity,
   Image
@@ -20,7 +20,7 @@ var groupTitles = [
   "Phishers of Men",
   "Men of Honor",
   "Fire Breathing Rubber Duckies",
-  "420 Youth Ministries",
+  "It's Lit Youth Ministries",
   "Do U Kno De Way"
 ];
 
@@ -34,7 +34,7 @@ export default class SmallGroupScreen extends React.Component {
       />
   )}
   constructor() {
-    
+
     super();
     console.log("SmallGroupHit");
     this.state = {
@@ -42,27 +42,40 @@ export default class SmallGroupScreen extends React.Component {
     }
   }
   componentWillMount(){
-    
+
     console.log(this.groupTitles);
   }
 
   setName(value) {
-    Backend.closeChat();   
+    Backend.closeChat();
     Backend.getGroupName(value);
     this.goToChat();
   }
   goToChat(){
-    this.props.navigation.navigate('ExampleMessage')
+    this.props.navigation.navigate('InfoScreen')
   }
-  
+
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center'}}>
+        <View style= {{flex: 1}}>
 
-            <Text style = {styles.groupPageTitle}>Suggested Small Groups: </Text>
+          <View style = {styles.groupPageTitle}>
+            <TouchableOpacity style = {styles.menuButton}//menu button
+            onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
+              <Ionicons
+                name='ios-menu'
+                size={40}
+                style= {styles.menuIcon}
+              />
+            </TouchableOpacity>
 
-            <ScrollView>
+            <Text style = {styles.textSetting}>Small Groups </Text>
+            <Text style = {{color: Colors.fire}}>Blank</Text>
+
+          </View>
+
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
 
                 <SmallGroupButton onPress={()=>this.setName(groupTitles[0])}>
                     <Text style = {styles.smallGroupTitle}>{groupTitles[0]}</Text>
@@ -105,49 +118,60 @@ export default class SmallGroupScreen extends React.Component {
                     {"\n"}
                   Description: We Kno De Wey. Cluck 4 de queen.
                 </SmallGroupButton>
-                
+
             </ScrollView>
             <TouchableOpacity onPress={this.toggleModal} style={styles.floatingButton} >
- 
-              <Ionicons 
-                name='md-add' 
-                size={30} 
-                style = {styles.addIcon} 
+
+              <Ionicons
+                name='md-add'
+                size={30}
+                style = {styles.plusIcon}
                 />
-       
+
             </TouchableOpacity>
         </View>
         );
       }
-      
+
     }
 
     const styles = StyleSheet.create({
       groupPageTitle: {
-      fontSize: 20,
-      backgroundColor: Colors.fire,
-      color: Colors.snow,
-      textAlign: 'center',
-      fontFamily: Fonts.type.bold,
-      alignSelf: 'stretch',
-      height: 80,
-      paddingTop: 38,
+        flexDirection: 'row',
+        backgroundColor: Colors.fire,
+        justifyContent: 'space-between',
+        height: 80,
+        paddingTop: 30,
       },
       smallGroupTitle: {
         fontSize: 30,
-        color: Colors.fire
+        color: Colors.fire,
+      },
+      textSetting: {
+        fontSize: 20,
+        color: Colors.snow,
+        fontWeight: 'bold',
+        alignSelf: 'center'
+      },
+      menuButton: {
+        width:50,
+        height: 80,
+      },
+      menuIcon: {
+        color: Colors.snow,
+        alignSelf:'center',
       },
       floatingButton: {
-        width: 60,  
-        height: 60,   
-        borderRadius: 30,            
-        backgroundColor: Colors.fire,                                       
-        position: 'absolute',                                          
-        bottom: 10,                                                    
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        backgroundColor: Colors.fire,
+        position: 'absolute',
+        bottom: 10,
         right: 10,
         alignItems: 'center',
       },
-      addIcon: {
+      plusIcon: {
         alignSelf: 'center',
         color: Colors.snow,
         paddingTop: 15,

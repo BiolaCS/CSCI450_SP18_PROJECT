@@ -5,6 +5,7 @@ import { StackNavigator, TabNavigator, TabBarBottom, DrawerNavigator  } from 're
 // Pre-Login Screens
 import StartupScreen from './Screens/Pre-Login/StartupScreen'
 import QuestionnaireScreen from './Screens/Pre-Login/QuestionnaireScreen'
+import SignUpScreen from './Screens/Pre-Login/signUp'
 
 // Post-Login Screens
 import HomeScreen from './Screens/Post-Login/HomeScreen'
@@ -12,6 +13,7 @@ import ServeScreen from './Screens/Post-Login/ServeScreen'
 import ServeInfoScreen from './Screens/Post-Login/ServeInfoScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
 import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
+import SmallGroupInfoScreen from './Screens/Post-Login/SmallGroupInfoScreen'
 
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
@@ -23,8 +25,8 @@ export const tabNav = TabNavigator({
   SmallGroup: { screen: SmallGroupScreen},
   Encouragement: { screen: EncouragementScreen},
   //ExampleMessage: { screen: ExampleMessageScreen},
-  ExampleEvent: { screen: ExampleEventScreen},
-  Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
+  //ExampleEvent: { screen: ExampleEventScreen},
+  //Questionnaire: { screen: QuestionnaireScreen },//just for debug purposes
 },
 {
   headerMode: 'none',        // I don't want a NavBar at top
@@ -54,8 +56,10 @@ export const drawer = DrawerNavigator({
 
 export default Navigation = StackNavigator({
   Startup: { screen: StartupScreen, navigationOptions: ({navigation}) => ({header: false})},
-  Questionnaire: { screen: QuestionnaireScreen },
+  SignUp: { screen: SignUpScreen, navigationOptions: ({navigation}) => ({header: false})},
+  Questionnaire: { screen: QuestionnaireScreen, navigationOptions: ({navigation}) => ({header: false})},
   //SmallGroup: { screen: SmallGroupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  InfoScreen: { screen: SmallGroupInfoScreen, navigationOptions: ({navigation}) => ({header: false})},
   ExampleMessage: { screen: ExampleMessageScreen, navigationOptions: ({navigation}) => ({header: false})},
   tab: {screen: drawer, navigationOptions: ({navigation}) => ({header: false}),},//instead of calling every screen, we call the drawer navigator
 });

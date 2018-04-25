@@ -1,14 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View, Modal, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Modal, ScrollView,TouchableOpacity } from "react-native";
+import { Ionicons } from '@expo/vector-icons'
 import { Fonts, Colors, Metrics } from "../../Themes/";
 import RoundedButton from "../../Components/RoundedButton";
 import SmallGroupButton from "../../Components/SmallGroupButton";
 import Tabbar from "react-native-tabbar-bottom";
 import { NavigationActions } from "react-navigation";
+import Backend from './Backend';
 
 export default class SmallGroupInfoScreen extends React.Component {
-  constructor() {
-    super();
+  static navigationOptions = {
+    tabBarIcon: ({focused}) => (
+      <Ionicons
+          name={focused ? 'ios-people' : 'ios-people-outline'}
+          size={26}
+          style={{ color: focused ? '#ffffff' : '#949494'}}
+      />
+  )}
+  constructor(props) {
+    super(props);
     this.state = {
       page: "SmallGroupInfo",
       hasJoinedGroup: false
@@ -32,14 +42,31 @@ export default class SmallGroupInfoScreen extends React.Component {
   }
 
   render() {
-    return (
+    return ( 
+      <View>
+      <View style = {styles.groupPageTitle}>
+          <TouchableOpacity style = {styles.backButton}
+              onPress={()=> this.props.navigation.goBack()} >
+                <Ionicons 
+                  name='ios-arrow-back' 
+                  size={40} 
+                  style= {styles.backIcon}
+                />
+          </TouchableOpacity>
+        
+            <Text style = {styles.textSetting}>Group Main Page</Text> 
+            <Text style = {{color: Colors.fire}}>Blank</Text>
+          
+          </View>
         <View style={styles.containerStyle}>
             {this.renderIf(
           !this.state.hasJoinedGroup,
                 <ScrollView>
-                    <Text style={styles.smallGroupTitle}>Group Name</Text>
-                    <Text style={styles.groupInfo}>Members:</Text>
-                    <Text style={styles.groupInfo}>Description:</Text>
+                    <SmallGroupButton onPress={this.toggleModal}>
+                      <Text style={styles.smallGroupTitle}>{Backend.groupID + "\n"}</Text>
+                      <Text style={styles.groupInfo}>Members: Luke, Eli{"\n"}</Text>
+                      <Text style={styles.groupInfo}>Description: Insert Sample Text Here{"\n"}</Text>
+                    </SmallGroupButton>
                     <RoundedButton
                         onPress={() => {
                 this.joinOrLeave();
@@ -52,8 +79,10 @@ export default class SmallGroupInfoScreen extends React.Component {
             {this.renderIf(
           this.state.hasJoinedGroup,
                 <ScrollView>
-                    <Text style={styles.smallGroupTitle}>Group Name</Text>
-                    <RoundedButton onPress={this.toggleModal}>
+                    <Text style={styles.smallGroupTitle}>{Backend.groupID}</Text>
+                    <RoundedButton onPress={() => {
+                          this.props.navigation.navigate('ExampleMessage');
+              }}>
               Message the Group
                     </RoundedButton>
                     <SmallGroupButton onPress={this.toggleModal}>
@@ -69,55 +98,70 @@ export default class SmallGroupInfoScreen extends React.Component {
               }}
                     >
               Leave Group
-                    </RoundedButton>
+                    </RoundedButton> 
                 </ScrollView>
         )}
-
-            <Tabbar
-                activePage={this.state.page}
-                stateFunc={tab => {
-            this.props.navigation.navigate(tab.page, {});
-          }}
-                tabs={[
-            {
-              page: "Home",
-              icon: "md-home"
-            },
-            {
-              page: "Serve",
-              icon: "md-heart"
-            },
-            {
-              page: "SmallGroup",
-              icon: "md-people"
-            },
-            {
-              page: "Encouragement",
-              icon: "ios-cafe"
-            }
-          ]}
-            />
+          
+            
         </View>
-    );
+    </View>
+  );
   }
 }
 
 const styles = StyleSheet.create({
-  containerStyle: {
-    flex: 1,
-    alignItems: "center"
+  groupPageTitle: {
+    flexDirection: 'row',
+    backgroundColor: Colors.fire,
+    justifyContent: 'space-between',
+    height: 80,
+    paddingTop: 30,
+  },
+  smallGroupTitle: {
+    fontSize: 30,
+    color: Colors.fire,
+  },
+  textSetting: {
+    fontSize: 20,
+    color: Colors.snow,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
+  menuButton: {
+    width:50,
+    height: 80,
+  },
+  menuIcon: {
+    color: Colors.snow, 
+    alignSelf:'center',
+  },
+  floatingButton: {
+    width: 60,  
+    height: 60,   
+    borderRadius: 30,            
+    backgroundColor: Colors.fire,                                       
+    position: 'absolute',                                          
+    bottom: 10,                                                    
+    right: 10,
+    alignItems: 'center',
+  },
+  plusIcon: {
+    alignSelf: 'center',
+    color: Colors.snow,
+    paddingTop: 15,
   },
   groupInfo: {
     fontSize: 15,
     color: Colors.fire,
     textAlign: "left",
     padding: 15
+ },
+  backButton: {
+    width:40,
+    height: 80,
   },
-  smallGroupTitle: {
-    fontSize: 30,
-    fontFamily: Fonts.type.bold,
-    color: Colors.fire,
-    textAlign: "center",
-    padding: 15
+  backIcon: {
+    color: Colors.snow, 
+    alignSelf:'center',
   }
 });

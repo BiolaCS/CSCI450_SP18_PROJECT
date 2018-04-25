@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity} from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity, Dimensions, Image} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
@@ -10,12 +10,26 @@ import SmallGroupButtonStyles from '../../Components/Styles/SmallGroupButtonStyl
 import { Fonts, Colors, Metrics } from '../../Themes/';
 import Backend from './Backend';
 
-
-
-
-
+const window = Dimensions.get('window');
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
+    title: "Home Screen",
+    headerStyle:{
+      backgroundColor: Colors.fire,
+      
+      alignItems: 'center'
+    },
+    headerTintColor: Colors.snow,
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+    headerLeft:
+      (<Ionicons 
+                name='ios-menu' 
+                size={40} 
+                //style= {styles.menuIcon} 
+      />)
+    ,
     tabBarIcon: ({focused}) => (
       <Ionicons
           name={focused ? 'md-home' : 'ios-home-outline'}
@@ -23,7 +37,9 @@ export default class HomeScreen extends React.Component {
           style={{ color: focused ? '#ffffff' : '#949494'}}
       />
       
-  )}
+    ),
+    
+}
   
   constructor() {
     super()
@@ -50,11 +66,6 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.dispatch(resetAction);
   }
 
-  navigateDrawer() {
-    ;
-  }
-
-
   render() {
     return (
         <View style= {{flex: 1,}}>
@@ -67,32 +78,50 @@ export default class HomeScreen extends React.Component {
                 size={40} 
                 style= {styles.menuIcon} 
               />
-          </TouchableOpacity>
+            </TouchableOpacity>
         
               <Text style = {styles.textSetting} >Home </Text>
+              <Text style = {{color: Colors.fire}}>Blank</Text>
           
           </View>
 
             <ScrollView contentContainerStyle = {{alignItems: 'center'}}> 
 
-                <SmallGroupButton
-                onPress={this.toggleModal}
+                <Text style={{fontSize: 30,
+                          marginTop: 20}}>
+              Welcome to Commune!
+            </Text>
+
+            <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
+
+            <Text style={{fontSize: 23,
+                          marginTop: 5}}>
+              Your Organization:
+            </Text>
+
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',}}>
+              Your Serving Group:
+            </Text>
+
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',}}>
+              Your Small Group:
+            </Text>
+
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',
+                          marginBottom: 30}}>
+              Top Personality Trait:
+            </Text>
+                <RoundedButton
+                onPress={() => {this.logoutUser()}}
                 >
-                  <Text style = {styles.serveGroupTitle}>Home Placeholder</Text>
-                  {"\n"}
-                  Members: 1
-                  {"\n"}
-                  Description: Find out more about yourself!
-                </SmallGroupButton>
-                <SmallGroupButton
-                onPress={() => {this.logoutUser();}}
-                >
-                  <Text style = {styles.serveGroupTitle}>Logout</Text>
-                  {"\n"}
-                  Members: 0
-                  {"\n"}
-                  Description: This will log you out
-                </SmallGroupButton>
+                  Logout
+                </RoundedButton>
 
             </ScrollView>
 
@@ -110,7 +139,7 @@ const styles = StyleSheet.create({
     height: 80,
     paddingTop: 30,
   },
-  serveGroupTitle: {
+  homeGroupTitle: {
     fontSize: 30,
     color: Colors.fire,
   },
@@ -118,7 +147,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.snow,
     alignSelf: 'center',
-    fontFamily: Fonts.type.bold,
+    fontWeight: 'bold',
   },
   menuButton: {
     width:50,
@@ -127,5 +156,15 @@ const styles = StyleSheet.create({
   menuIcon: {
     color: Colors.snow, 
     alignSelf:'center',
+  },
+  logoNoKeyboard: {
+    justifyContent: 'center',
+    width: 150,
+    height: 193,
+    marginBottom: 30,
+    margin: 10,
+    marginRight: 25,
+    marginLeft: 25,
+    borderRadius: 5,
   }
 }); 
