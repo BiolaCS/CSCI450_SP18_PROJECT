@@ -39,6 +39,7 @@ export default class ServeScreen extends React.Component {
           </TouchableOpacity>
         
               <Text style = {styles.textSetting} >Serve </Text>
+              <Text style = {{color: Colors.fire}}>Blank</Text>
           
           </View>
 

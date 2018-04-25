@@ -202,8 +202,10 @@ export default class QuestionnaireScreen extends React.Component {
   render() {
     return ( 
       <View style = {styles.container}>
-       <View style = {styles.groupPageTitle}>       
+       <View style = {styles.groupPageTitle}>     
+              <Text style = {{color: Colors.fire}}>Blank</Text>
               <Text style = {styles.textSetting}>Questionnaire</Text>
+              <Text style = {{color: Colors.fire}}>Blank</Text>
         </View>
         <ScrollView>
 
@@ -223,7 +225,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f0f0f0',
     //alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     //paddingTop: 15,
   },
   prompt: {

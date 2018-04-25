@@ -71,6 +71,7 @@ export default class SmallGroupScreen extends React.Component {
             </TouchableOpacity>
         
             <Text style = {styles.textSetting}>Small Groups </Text> 
+            <Text style = {{color: Colors.fire}}>Blank</Text>
           
           </View>
 
