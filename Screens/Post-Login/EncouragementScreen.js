@@ -39,10 +39,12 @@ export default class EncouragementScreen extends React.Component {
               </TouchableOpacity>
         
               <Text style = {styles.textSetting} >Encouragement </Text>
+              <Text style = {{color: Colors.fire}}>Blank</Text>
           
             </View>
 
             <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
+            
 
                 <SmallGroupButton
                 onPress={this.toggleModal}

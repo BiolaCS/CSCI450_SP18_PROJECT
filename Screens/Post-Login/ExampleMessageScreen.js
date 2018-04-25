@@ -117,6 +117,7 @@ export default class ExampleMessageScreen extends React.Component {
           </TouchableOpacity>
         
           <Text style = {styles.textSetting} >{this.state.group} </Text>
+          <Text style = {{color: Colors.fire}}>Blank</Text>{/*special hack haha*/}
           
         </View>
         
@@ -165,7 +166,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.snow,
     alignSelf: 'center',
-    fontFamily: Fonts.type.bold,
+    fontWeight: 'bold',
   },
   footerContainer: {
     marginTop: 5,

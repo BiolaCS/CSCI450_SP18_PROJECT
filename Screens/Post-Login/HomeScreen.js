@@ -18,7 +18,7 @@ var groupTitles = [
   "Phishers of Men",
   "Men of Honor",
   "Fire Breathing Rubber Duckies",
-  "420 Youth Ministries",
+  "It's Lit Youth Ministries",
   "Do U Kno De Way"
 ];
 export default class HomeScreen extends React.Component {
@@ -34,10 +34,10 @@ export default class HomeScreen extends React.Component {
       fontWeight: 'bold',
     },
     headerLeft:
-      (<Ionicons 
-                name='ios-menu' 
-                size={40} 
-                //style= {styles.menuIcon} 
+      (<Ionicons
+                name='ios-menu'
+                size={40}
+                //style= {styles.menuIcon}
       />)
     ,
     tabBarIcon: ({focused}) => (
@@ -46,11 +46,11 @@ export default class HomeScreen extends React.Component {
           size={26}
           style={{ color: focused ? '#ffffff' : '#949494'}}
       />
-      
+
     ),
-    
+
 }
-  
+
   constructor() {
     super()
     console.log("HomeHit");
@@ -78,25 +78,26 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1,}}>
+        <View style = {{flex: 1}}>
 
           <View style = {styles.groupPageTitle}>
             <TouchableOpacity style = {styles.menuButton}
             onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
-              <Ionicons 
-                name='ios-menu' 
-                size={40} 
-                style= {styles.menuIcon} 
+              <Ionicons
+                name='ios-menu'
+                size={40}
+                style= {styles.menuIcon}
               />
             </TouchableOpacity>
-        
+
               <Text style = {styles.textSetting} >Home </Text>
-          
+              <Text style = {{color: Colors.fire}}>Blank</Text>
+
           </View>
 
-            <ScrollView contentContainerStyle = {{alignItems: 'center'}}> 
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
 
-                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                <SmallGroupButton >
                     <Text style = {styles.homeGroupTitle}>{groupTitles[0]}</Text>
                     {"\n"}
                   Members: 10
@@ -104,7 +105,7 @@ export default class HomeScreen extends React.Component {
                   Announcements: We are a small group of hardworking computer science professionals.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                <SmallGroupButton>
                     <Text style = {styles.homeGroupTitle}>{groupTitles[1]}</Text>
                     {"\n"}
                   Members: 35
@@ -112,7 +113,7 @@ export default class HomeScreen extends React.Component {
                   Announcements: We are a great floor with a knack for making good mock rocks.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                <SmallGroupButton>
                     <Text style = {styles.homeGroupTitle}>{groupTitles[2]}</Text>
                     {"\n"}
                   Members: 5
@@ -120,7 +121,7 @@ export default class HomeScreen extends React.Component {
                   Announcements: Please read title.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                <SmallGroupButton>
                     <Text style = {styles.homeGroupTitle}>{groupTitles[3]}</Text>
                     {"\n"}
                   Members: 20
@@ -128,7 +129,7 @@ export default class HomeScreen extends React.Component {
                   Announcements: Ablaze with the holy spirit.
                 </SmallGroupButton>
 
-                <SmallGroupButton onPress={()=>this.toggleModal()}>
+                <SmallGroupButton>
                     <Text style = {styles.homeGroupTitle}>{groupTitles[4]}</Text>
                     {"\n"}
                   Members: 1
@@ -143,7 +144,7 @@ export default class HomeScreen extends React.Component {
 
             </ScrollView>
 
-            
+
         </View>
     );
   }
@@ -165,6 +166,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.snow,
     alignSelf: 'center',
+    //textAlign: 'center',
     fontWeight: 'bold',
   },
   menuButton: {
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
     height: 80,
   },
   menuIcon: {
-    color: Colors.snow, 
+    color: Colors.snow,
     alignSelf:'center',
   }
-}); 
+});

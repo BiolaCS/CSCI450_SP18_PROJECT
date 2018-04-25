@@ -88,11 +88,11 @@ export default class StartupScreen extends React.Component {
       }
       else { // User is brand new
         // Set quiz flag
-        firebase.database().ref('users/' + userId).set({
+        /*firebase.database().ref('users/' + userId).set({
           hasTakenQuiz: false
         });
         //set the user name--only for signups
-        this.navigateQuiz();
+        this.navigateQuiz();*/
       }
     })
     .catch(function(error) {
