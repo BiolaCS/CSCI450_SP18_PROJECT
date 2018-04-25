@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity, Dimensions} from 'react-native'
+import {StyleSheet, Text, View, Modal, ScrollView, TextInput, TouchableOpacity, Dimensions, Image} from 'react-native'
 import RoundedButton from '../../Components/RoundedButton'
 import FullButton from '../../Components/FullButton'
 import SmallGroupButton from '../../Components/SmallGroupButton'
@@ -10,17 +10,7 @@ import SmallGroupButtonStyles from '../../Components/Styles/SmallGroupButtonStyl
 import { Fonts, Colors, Metrics } from '../../Themes/';
 import Backend from './Backend';
 
-
-
-
 const window = Dimensions.get('window');
-var groupTitles = [
-  "Phishers of Men",
-  "Men of Honor",
-  "Fire Breathing Rubber Duckies",
-  "It's Lit Youth Ministries",
-  "Do U Kno De Way"
-];
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: "Home Screen",
@@ -34,10 +24,10 @@ export default class HomeScreen extends React.Component {
       fontWeight: 'bold',
     },
     headerLeft:
-      (<Ionicons
-                name='ios-menu'
-                size={40}
-                //style= {styles.menuIcon}
+      (<Ionicons 
+                name='ios-menu' 
+                size={40} 
+                //style= {styles.menuIcon} 
       />)
     ,
     tabBarIcon: ({focused}) => (
@@ -46,11 +36,11 @@ export default class HomeScreen extends React.Component {
           size={26}
           style={{ color: focused ? '#ffffff' : '#949494'}}
       />
-
+      
     ),
-
+    
 }
-
+  
   constructor() {
     super()
     console.log("HomeHit");
@@ -78,64 +68,55 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-        <View style = {{flex: 1}}>
+        <View style= {{flex: 1,}}>
 
           <View style = {styles.groupPageTitle}>
             <TouchableOpacity style = {styles.menuButton}
             onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
-              <Ionicons
-                name='ios-menu'
-                size={40}
-                style= {styles.menuIcon}
+              <Ionicons 
+                name='ios-menu' 
+                size={40} 
+                style= {styles.menuIcon} 
               />
             </TouchableOpacity>
-
+        
               <Text style = {styles.textSetting} >Home </Text>
               <Text style = {{color: Colors.fire}}>Blank</Text>
-
+          
           </View>
 
-            <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}> 
 
-                <SmallGroupButton >
-                    <Text style = {styles.homeGroupTitle}>{groupTitles[0]}</Text>
-                    {"\n"}
-                  Members: 10
-                    {"\n"}
-                  Announcements: We are a small group of hardworking computer science professionals.
-                </SmallGroupButton>
+                <Text style={{fontSize: 30,
+                          marginTop: 20}}>
+              Welcome to Commune!
+            </Text>
 
-                <SmallGroupButton>
-                    <Text style = {styles.homeGroupTitle}>{groupTitles[1]}</Text>
-                    {"\n"}
-                  Members: 35
-                    {"\n"}
-                  Announcements: We are a great floor with a knack for making good mock rocks.
-                </SmallGroupButton>
+            <Image source={require('../../Images/Logo.png')} style={styles.logoNoKeyboard}/>
 
-                <SmallGroupButton>
-                    <Text style = {styles.homeGroupTitle}>{groupTitles[2]}</Text>
-                    {"\n"}
-                  Members: 5
-                    {"\n"}
-                  Announcements: Please read title.
-                </SmallGroupButton>
+            <Text style={{fontSize: 23,
+                          marginTop: 5}}>
+              Your Organization:
+            </Text>
 
-                <SmallGroupButton>
-                    <Text style = {styles.homeGroupTitle}>{groupTitles[3]}</Text>
-                    {"\n"}
-                  Members: 20
-                    {"\n"}
-                  Announcements: Ablaze with the holy spirit.
-                </SmallGroupButton>
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',}}>
+              Your Serving Group:
+            </Text>
 
-                <SmallGroupButton>
-                    <Text style = {styles.homeGroupTitle}>{groupTitles[4]}</Text>
-                    {"\n"}
-                  Members: 1
-                    {"\n"}
-                  Announcements: We Kno De Wey. Cluck 4 de queen.
-                </SmallGroupButton>
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',}}>
+              Your Small Group:
+            </Text>
+
+            <Text style={{fontSize: 23,
+                          marginTop: 15,
+                          textAlign: 'center',
+                          marginBottom: 30}}>
+              Top Personality Trait:
+            </Text>
                 <RoundedButton
                 onPress={() => {this.logoutUser()}}
                 >
@@ -144,7 +125,7 @@ export default class HomeScreen extends React.Component {
 
             </ScrollView>
 
-
+            
         </View>
     );
   }
@@ -166,7 +147,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: Colors.snow,
     alignSelf: 'center',
-    //textAlign: 'center',
     fontWeight: 'bold',
   },
   menuButton: {
@@ -174,7 +154,17 @@ const styles = StyleSheet.create({
     height: 80,
   },
   menuIcon: {
-    color: Colors.snow,
+    color: Colors.snow, 
     alignSelf:'center',
+  },
+  logoNoKeyboard: {
+    justifyContent: 'center',
+    width: 150,
+    height: 193,
+    marginBottom: 30,
+    margin: 10,
+    marginRight: 25,
+    marginLeft: 25,
+    borderRadius: 5,
   }
-});
+}); 

@@ -52,7 +52,7 @@ export default class SmallGroupScreen extends React.Component {
     this.goToChat();
   }
   goToChat(){
-    this.props.navigation.navigate('ExampleMessage')
+    this.props.navigation.navigate('InfoScreen')
   }
 
 

@@ -13,7 +13,7 @@ import ServeScreen from './Screens/Post-Login/ServeScreen'
 import ServeInfoScreen from './Screens/Post-Login/ServeInfoScreen'
 import EncouragementScreen from './Screens/Post-Login/EncouragementScreen'
 import SmallGroupScreen from './Screens/Post-Login/SmallGroupScreen'
-
+import SmallGroupInfoScreen from './Screens/Post-Login/SmallGroupInfoScreen'
 
 import ExampleMessageScreen from './Screens/Post-Login/ExampleMessageScreen'
 import ExampleEventScreen from './Screens/Post-Login/ExampleEventScreen'
@@ -59,6 +59,7 @@ export default Navigation = StackNavigator({
   SignUp: { screen: SignUpScreen, navigationOptions: ({navigation}) => ({header: false})},
   Questionnaire: { screen: QuestionnaireScreen, navigationOptions: ({navigation}) => ({header: false})},
   //SmallGroup: { screen: SmallGroupScreen, navigationOptions: ({navigation}) => ({header: false})},
+  InfoScreen: { screen: SmallGroupInfoScreen, navigationOptions: ({navigation}) => ({header: false})},
   ExampleMessage: { screen: ExampleMessageScreen, navigationOptions: ({navigation}) => ({header: false})},
   tab: {screen: drawer, navigationOptions: ({navigation}) => ({header: false}),},//instead of calling every screen, we call the drawer navigator
 });
