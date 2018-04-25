@@ -32,9 +32,6 @@ export default class ExampleMessageScreen extends React.Component {
   setGroupName(value) {
     this.state.group = value;
   }
-  navigateBack() {
-    this.props.navigation.navigate('SmallGroup');
-  }
 
   getColor(username){
     let sumChars = 0;
@@ -111,7 +108,7 @@ export default class ExampleMessageScreen extends React.Component {
       <View style= {{ flex: 1}}>
         <View style = {styles.groupPageTitle}>
           <TouchableOpacity style = {styles.backButton}
-           onPress={()=> this.navigateBack()} >
+           onPress={()=> this.props.navigation.goBack()} >
             <Ionicons 
               name='ios-arrow-back' 
               size={40} 

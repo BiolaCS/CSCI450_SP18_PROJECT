@@ -10,9 +10,9 @@ const window = Dimensions.get('window');
 
 export default StyleSheet.create({
   button: {
-    height: 200,
+    height: (window.height <= 660) ? 175 : 200,
     borderRadius: 5,
-    width: (this.window.width <= 360) ? 300 : 350,
+    width: (window.width <= 360) ? 300 : 350,
     marginHorizontal: Metrics.baseMargin,
     marginVertical: Metrics.baseMargin,
     backgroundColor: Colors.steel,

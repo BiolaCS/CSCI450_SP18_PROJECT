@@ -58,11 +58,23 @@ export default class SmallGroupScreen extends React.Component {
 
   render() {
     return (
-        <View style= {{flex: 1, alignItems: 'center'}}>
+        <View style= {{flex: 1}}>
 
-            <Text style = {styles.groupPageTitle}>Suggested Small Groups: </Text>
+          <View style = {styles.groupPageTitle}>
+            <TouchableOpacity style = {styles.menuButton}//menu button
+            onPress={()=> this.props.navigation.navigate('DrawerToggle')}>
+              <Ionicons 
+                name='ios-menu' 
+                size={40} 
+                style= {styles.menuIcon} 
+              />
+            </TouchableOpacity>
+        
+            <Text style = {styles.textSetting}>Small Groups </Text> 
+          
+          </View>
 
-            <ScrollView>
+            <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
 
                 <SmallGroupButton onPress={()=>this.setName(groupTitles[0])}>
                     <Text style = {styles.smallGroupTitle}>{groupTitles[0]}</Text>
@@ -112,7 +124,7 @@ export default class SmallGroupScreen extends React.Component {
               <Ionicons 
                 name='md-add' 
                 size={30} 
-                style = {styles.addIcon} 
+                style = {styles.plusIcon} 
                 />
        
             </TouchableOpacity>
@@ -124,18 +136,29 @@ export default class SmallGroupScreen extends React.Component {
 
     const styles = StyleSheet.create({
       groupPageTitle: {
-      fontSize: 20,
-      backgroundColor: Colors.fire,
-      color: Colors.snow,
-      textAlign: 'center',
-      fontFamily: Fonts.type.bold,
-      alignSelf: 'stretch',
-      height: 80,
-      paddingTop: 38,
+        flexDirection: 'row',
+        backgroundColor: Colors.fire,
+        justifyContent: 'space-between',
+        height: 80,
+        paddingTop: 30,
       },
       smallGroupTitle: {
         fontSize: 30,
-        color: Colors.fire
+        color: Colors.fire,
+      },
+      textSetting: {
+        fontSize: 20,
+        color: Colors.snow,
+        fontWeight: 'bold',
+        alignSelf: 'center'
+      },
+      menuButton: {
+        width:50,
+        height: 80,
+      },
+      menuIcon: {
+        color: Colors.snow, 
+        alignSelf:'center',
       },
       floatingButton: {
         width: 60,  
@@ -147,7 +170,7 @@ export default class SmallGroupScreen extends React.Component {
         right: 10,
         alignItems: 'center',
       },
-      addIcon: {
+      plusIcon: {
         alignSelf: 'center',
         color: Colors.snow,
         paddingTop: 15,
