@@ -61,7 +61,7 @@ export default class SmallGroupInfoScreen extends React.Component {
         <View style={styles.containerStyle}>
             {this.renderIf(
           !this.state.hasJoinedGroup,
-                <ScrollView>
+                <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
                     <SmallGroupButton onPress={this.toggleModal}>
                       <Text style={styles.smallGroupTitle}>{Backend.groupID + "\n"}</Text>
                       <Text style={styles.groupInfo}>Members: Luke, Eli{"\n"}</Text>
@@ -78,13 +78,9 @@ export default class SmallGroupInfoScreen extends React.Component {
         )}
             {this.renderIf(
           this.state.hasJoinedGroup,
-                <ScrollView>
+                <ScrollView contentContainerStyle = {{alignItems: 'center'}}>
                     <Text style={styles.smallGroupTitle}>{Backend.groupID}</Text>
-                    <RoundedButton onPress={() => {
-                          this.props.navigation.navigate('ExampleMessage');
-              }}>
-              Message the Group
-                    </RoundedButton>
+                    
                     <SmallGroupButton onPress={this.toggleModal}>
                         <Text style={styles.smallGroupTitle}>Events</Text>
                         {"\n"}
@@ -92,6 +88,11 @@ export default class SmallGroupInfoScreen extends React.Component {
                         {"\n"}
               Beach Day: May 1st
                     </SmallGroupButton>
+                    <RoundedButton onPress={() => {
+                          this.props.navigation.navigate('ExampleMessage');
+              }}>
+              Message the Group
+                    </RoundedButton>
                     <RoundedButton
                         onPress={() => {
                 this.joinOrLeave();
